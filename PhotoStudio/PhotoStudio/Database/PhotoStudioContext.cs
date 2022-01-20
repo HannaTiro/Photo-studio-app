@@ -123,12 +123,12 @@ namespace PhotoStudio.Database
 
                 entity.Property(e => e.DatumOcjene).HasColumnType("datetime");
 
-                entity.HasOne(d => d.FotografNavigation)
+                entity.HasOne(d => d.Fotograf)
                     .WithMany(p => p.Rejtings)
                     .HasForeignKey(d => d.Fotograf)
                     .HasConstraintName("fk_Rejting_Fotograf");
 
-                entity.HasOne(d => d.KorisnikNavigation)
+                entity.HasOne(d => d.Korisnik)
                     .WithMany(p => p.Rejtings)
                     .HasForeignKey(d => d.Korisnik)
                     .HasConstraintName("fk_Rejting_Korisnik");
@@ -146,7 +146,7 @@ namespace PhotoStudio.Database
                     .HasColumnType("datetime")
                     .HasColumnName("DatumOD");
 
-                entity.HasOne(d => d.FotografNavigation)
+                entity.HasOne(d => d.Fotograf)
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.Fotograf)
                     .HasConstraintName("fk_Rezervacija_Fotograf");

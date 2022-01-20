@@ -9,11 +9,11 @@ namespace PhotoStudio.Database
     {
         public int RejtingId { get; set; }
         public int? Ocjena { get; set; }
-        public int? Korisnik { get; set; }
-        public int? Fotograf { get; set; }
+        public int? KorisnikId { get; set; }
+        public int? FotografId { get; set; }
         public DateTime? DatumOcjene { get; set; }
 
-        public virtual Fotograf FotografNavigation { get; set; }
-        public virtual Korisnik KorisnikNavigation { get; set; }
+        public virtual Fotograf Fotograf{ get; set; }
+        public virtual Korisnik Korisnik { get; set; }
     }
 }
