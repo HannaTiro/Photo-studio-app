@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace PhotoStudio.Data.Model
+namespace PhotoStudio.Data.Requests.Fotograf
 {
-   public class Fotograf
+    public class FotografUpsert
     {
-       
-        public int FotografId { get; set; }
+        [Required]
         public string Ime { get; set; }
+
+        [Required]
         public string Prezime { get; set; }
+
         public byte[] Slika { get; set; }
         public double? DnevnaCijena { get; set; }
         public string Opis { get; set; }
         public bool? Status { get; set; }
+
+        [Required]
         public int? TipFotografaId { get; set; }
 
-        public virtual TipFotografa TipFotografa { get; set; }
-       // public virtual ICollection<Komentar> Komentars { get; set; }
-        //public virtual ICollection<Rejting> Rejtings { get; set; }
-        //public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
+       
     }
 }

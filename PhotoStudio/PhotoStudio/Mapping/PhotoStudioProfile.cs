@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Azure.Amqp.Framing;
+using PhotoStudio.Data.Requests.Fotograf;
+using PhotoStudio.Data.Requests.Grad;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,15 @@ namespace PhotoStudio.Mapping
             CreateMap<PhotoStudio.Database.Komentar, Data.Model.Komentar>().ReverseMap();
             CreateMap<PhotoStudio.Database.Rejting, Data.Model.Rejting>().ReverseMap();
             CreateMap<PhotoStudio.Database.Rezervacija, Data.Model.Rezervacija>().ReverseMap();
+
+            CreateMap<PhotoStudio.Database.Grad, GradRequest>().ReverseMap();
+            CreateMap<PhotoStudio.Database.Grad, GradUpsert>().ReverseMap();
+            CreateMap<PhotoStudio.Database.Grad, GradSearchRequest>().ReverseMap();
+
+            CreateMap<FotografRequest, PhotoStudio.Database.Fotograf>().ReverseMap();
+            CreateMap<FotografRequest, FotografUpsert>().ReverseMap();
+            CreateMap<PhotoStudio.Database.Fotograf, FotografUpsert>().ReverseMap();
+         
 
 
 

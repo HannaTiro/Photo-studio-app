@@ -125,12 +125,12 @@ namespace PhotoStudio.Database
 
                 entity.HasOne(d => d.Fotograf)
                     .WithMany(p => p.Rejtings)
-                    .HasForeignKey(d => d.Fotograf)
+                    .HasForeignKey(d => d.FotografId)
                     .HasConstraintName("fk_Rejting_Fotograf");
 
                 entity.HasOne(d => d.Korisnik)
                     .WithMany(p => p.Rejtings)
-                    .HasForeignKey(d => d.Korisnik)
+                    .HasForeignKey(d => d.KorisnikId) 
                     .HasConstraintName("fk_Rejting_Korisnik");
             });
 
@@ -148,7 +148,7 @@ namespace PhotoStudio.Database
 
                 entity.HasOne(d => d.Fotograf)
                     .WithMany(p => p.Rezervacijas)
-                    .HasForeignKey(d => d.Fotograf)
+                    .HasForeignKey(d => d.FotografId)
                     .HasConstraintName("fk_Rezervacija_Fotograf");
 
                 entity.HasOne(d => d.Korisnik)

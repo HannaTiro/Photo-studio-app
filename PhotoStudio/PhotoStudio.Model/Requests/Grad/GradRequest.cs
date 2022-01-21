@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PhotoStudio.Data.Model
+namespace PhotoStudio.Data.Requests.Grad
 {
-   public  class Grad
+   public class GradRequest
     {
-    
-
         public int GradId { get; set; }
         public string NazivGrada { get; set; }
         public string PostanskiBroj { get; set; }
-
-       // public virtual ICollection<Korisnik> Korisniks { get; set; }
-        //public virtual ICollection<Studio> Studios { get; set; }
     }
 }
