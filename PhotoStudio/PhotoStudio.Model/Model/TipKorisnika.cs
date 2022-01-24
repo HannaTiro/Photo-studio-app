@@ -10,6 +10,6 @@ namespace PhotoStudio.Data.Model
         public int TipKorisnikaId { get; set; }
         public string Tip { get; set; }
 
-       // public virtual ICollection<Korisnik> Korisniks { get; set; }
+       // public  ICollection<Korisnik> Korisniks { get; set; }
     }
 }

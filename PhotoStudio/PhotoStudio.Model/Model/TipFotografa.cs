@@ -9,7 +9,8 @@ namespace PhotoStudio.Data.Model
        
         public int TipFotografaId { get; set; }
         public string Naziv { get; set; }
+       
 
-       // public virtual ICollection<Fotograf> Fotografs { get; set; }
+        //public virtual ICollection<Fotograf> Fotografs { get; set; }
     }
 }

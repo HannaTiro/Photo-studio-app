@@ -25,6 +25,7 @@ namespace PhotoStudio.Service
             {
                 entity = entity.Where(x => x.TipFotografaId == search.TipFotografaId);
             }
+            
             var list = entity.ToList();
             return _mapper.Map<List<Data.Model.TipFotografa>>(list);
         }

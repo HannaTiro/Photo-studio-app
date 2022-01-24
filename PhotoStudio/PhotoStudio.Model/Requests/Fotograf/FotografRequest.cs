@@ -15,7 +15,8 @@ namespace PhotoStudio.Data.Requests.Fotograf
         public string Opis { get; set; }
         public bool? Status { get; set; }
         public int? TipFotografaId { get; set; }
+      //  public string TipFotografa { get; set; }
 
-        public virtual TipFotografaRequest TipFotografa { get; set; }
+        //public virtual TipFotografaRequest TipFotografa { get; set; }
     }
 }

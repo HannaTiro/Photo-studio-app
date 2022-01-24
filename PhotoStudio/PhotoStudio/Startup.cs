@@ -42,15 +42,14 @@ namespace PhotoStudio
 
             //Dependency injection
             services.AddScoped<IService<Data.Model.Grad, GradSearchRequest>, GradService>();
-            //services.AddScoped<IService<TipFotografaRequest, object>, BaseService<TipFotografaRequest,object,PhotoStudio.Database.TipFotografa>>();
-
             services.AddScoped<IService<Data.Model.TipFotografa,TipFotografaRequest>, TipFotografaService>();
-
+            services.AddScoped<IService<Data.Model.TipKorisnika,object>, BaseService<Data.Model.TipKorisnika, object, TipKorisnika>>();
 
 
 
 
             services.AddScoped<ICRUDService<Data.Model.Fotograf, FotografSearchRequest, FotografUpsert, FotografUpsert>, FotografService>();
+
             
             
         }

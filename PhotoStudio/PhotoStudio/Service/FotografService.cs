@@ -26,6 +26,7 @@ namespace PhotoStudio.Service
             {
                 entity = entity.Where(x => x.Prezime.Contains(search.Prezime));
             }
+           // entity = entity.Include("TipFotografa");
 
             var list = entity.ToList();
             return _mapper.Map<List<Data.Model.Fotograf>>(list);

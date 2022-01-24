@@ -34,6 +34,8 @@ namespace PhotoStudio.Mapping
 
             
             CreateMap<PhotoStudio.Database.TipFotografa, TipFotografaRequest>().ReverseMap();
+
+
           
 
 
