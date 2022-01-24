@@ -13,7 +13,7 @@ namespace PhotoStudio.Controllers
     //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController<TModel,Tsearch> : Controller
+    public class BaseController<TModel,Tsearch> : Controller where Tsearch:class
     {
         private readonly IService<TModel, Tsearch> _service;
         public BaseController(IService<TModel,Tsearch> service)

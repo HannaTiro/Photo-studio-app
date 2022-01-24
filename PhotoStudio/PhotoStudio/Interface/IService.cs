@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace PhotoStudio.Interface
 {
-    public interface IService<TModel,Tsearch>
+    public interface IService<TModel,Tsearch> where Tsearch:class
     {
-        List<TModel> Get(Tsearch search);
+        List<TModel> Get(Tsearch search=null);
         TModel GetByID(int id);
     }
 }

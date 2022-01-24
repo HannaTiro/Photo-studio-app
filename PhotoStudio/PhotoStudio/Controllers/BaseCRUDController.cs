@@ -9,7 +9,7 @@ namespace PhotoStudio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseCRUDController<TModel, Tsearch, TInsert, TUpdate> : BaseController<TModel, Tsearch>
+    public class BaseCRUDController<TModel, Tsearch, TInsert, TUpdate> : BaseController<TModel, Tsearch> where Tsearch:class
     {
         protected readonly ICRUDService<TModel, Tsearch, TInsert, TUpdate> _service = null;
 

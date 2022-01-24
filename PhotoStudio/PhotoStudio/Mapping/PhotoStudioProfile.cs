@@ -2,6 +2,7 @@
 using Microsoft.Azure.Amqp.Framing;
 using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
+using PhotoStudio.Data.Requests.TipFotografa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,13 @@ namespace PhotoStudio.Mapping
             CreateMap<FotografRequest, PhotoStudio.Database.Fotograf>().ReverseMap();
             CreateMap<FotografRequest, FotografUpsert>().ReverseMap();
             CreateMap<PhotoStudio.Database.Fotograf, FotografUpsert>().ReverseMap();
-         
+
+            
+            CreateMap<PhotoStudio.Database.TipFotografa, TipFotografaRequest>().ReverseMap();
+          
+
+
+
 
 
 

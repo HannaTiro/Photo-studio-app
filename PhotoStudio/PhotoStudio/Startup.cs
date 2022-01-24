@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
+using PhotoStudio.Data.Requests.TipFotografa;
 using PhotoStudio.Database;
 using PhotoStudio.Filters;
 using PhotoStudio.Interface;
@@ -41,9 +42,16 @@ namespace PhotoStudio
 
             //Dependency injection
             services.AddScoped<IService<Data.Model.Grad, GradSearchRequest>, GradService>();
+            //services.AddScoped<IService<TipFotografaRequest, object>, BaseService<TipFotografaRequest,object,PhotoStudio.Database.TipFotografa>>();
+
+            services.AddScoped<IService<Data.Model.TipFotografa,TipFotografaRequest>, TipFotografaService>();
+
+
+
 
 
             services.AddScoped<ICRUDService<Data.Model.Fotograf, FotografSearchRequest, FotografUpsert, FotografUpsert>, FotografService>();
+            
             
         }
 

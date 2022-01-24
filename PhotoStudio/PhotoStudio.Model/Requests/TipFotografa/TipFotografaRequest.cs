@@ -7,7 +7,7 @@ namespace PhotoStudio.Data.Requests.TipFotografa
    public  class TipFotografaRequest
     {
       
-        public int TipFotografaId { get; set; }
+        public int? TipFotografaId { get; set; }
         public string Naziv { get; set; }
 
        

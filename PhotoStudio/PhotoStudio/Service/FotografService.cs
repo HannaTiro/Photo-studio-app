@@ -15,6 +15,21 @@ namespace PhotoStudio.Service
         {
 
         }
-       
+        public override List<Data.Model.Fotograf> Get(FotografSearchRequest search = null)
+        {
+            var entity = _context.Set<Database.Fotograf>().AsQueryable();
+            if (!string.IsNullOrWhiteSpace(search?.Ime))
+            {
+                entity = entity.Where(x => x.Ime.Contains(search.Ime));
+            }
+            if (!string.IsNullOrWhiteSpace(search?.Prezime))
+            {
+                entity = entity.Where(x => x.Prezime.Contains(search.Prezime));
+            }
+
+            var list = entity.ToList();
+            return _mapper.Map<List<Data.Model.Fotograf>>(list);
+        }
+
     }
 }

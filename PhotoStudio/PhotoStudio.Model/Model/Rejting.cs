@@ -12,7 +12,7 @@ namespace PhotoStudio.Data.Model
         public int? Fotograf { get; set; }
         public DateTime? DatumOcjene { get; set; }
 
-        public Korisnik Korisniks { get; set; }
+      //  public Korisnik Korisniks { get; set; }
 
         // public virtual Fotograf FotografNavigation { get; set; }
         // public virtual Korisnik KorisnikNavigation { get; set; }

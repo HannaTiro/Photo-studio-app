@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PhotoStudio.Service
 {
-    public class BaseCRUDService<TModel, Tsearch, TDatabase, TInsert, TUpdate> : BaseService<TModel, Tsearch, TDatabase>, ICRUDService<TModel, Tsearch, TInsert, TUpdate> where TDatabase : class
+    public class BaseCRUDService<TModel, Tsearch, TDatabase, TInsert, TUpdate> : BaseService<TModel, Tsearch, TDatabase>, ICRUDService<TModel, Tsearch, TInsert, TUpdate> where TDatabase : class where Tsearch : class
     {
         public BaseCRUDService(PhotoStudioContext context,IMapper mapper): base(context,mapper)
         {

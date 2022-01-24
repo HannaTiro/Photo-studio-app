@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PhotoStudio.Interface
 {
-   public interface ICRUDService<TModel,Tsearch,TInsert,TUpdate>:IService<TModel,Tsearch>
+   public interface ICRUDService<TModel,Tsearch,TInsert,TUpdate>:IService<TModel,Tsearch> where Tsearch : class
     {
         TModel Insert(TInsert request);
         TModel Update(int id, TUpdate request);

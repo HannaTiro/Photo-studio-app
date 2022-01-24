@@ -14,5 +14,20 @@ namespace PhotoStudio.Service
         {
 
         }
+        public override List<Data.Model.Grad> Get(GradSearchRequest search = null)
+        {
+            var entity = _context.Set<Database.Grad>().AsQueryable();
+            if(!string.IsNullOrWhiteSpace(search?.NazivGrada))
+            {
+                entity = entity.Where(x => x.NazivGrada.Contains(search.NazivGrada));
+            }
+            if(search.GradId.HasValue)
+            {
+                entity = entity.Where(x => x.GradId == search.GradId);
+            }
+            var list = entity.ToList();
+            return _mapper.Map<List<Data.Model.Grad>>(list);
+            
+        }
     }
 }

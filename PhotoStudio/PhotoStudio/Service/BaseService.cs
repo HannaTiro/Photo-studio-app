@@ -8,7 +8,7 @@ using PhotoStudio.Interface;
 
 namespace PhotoStudio.Service
 {
-    public class BaseService<TModel, Tsearch, TDatabase> : IService<TModel, Tsearch> where TDatabase : class
+    public class BaseService<TModel, Tsearch, TDatabase> : IService<TModel, Tsearch> where TDatabase : class where Tsearch:class
     {
         protected readonly PhotoStudioContext _context;
         protected readonly IMapper _mapper;
@@ -18,7 +18,7 @@ namespace PhotoStudio.Service
             _context = context;
             _mapper = mapper;
         }
-        public virtual List<TModel> Get(Tsearch search)
+        public virtual List<TModel> Get(Tsearch search=null)
         {
             return _mapper.Map<List<TModel>>(_context.Set<TDatabase>().ToList());
         }
