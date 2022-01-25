@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.TipFotografa;
+using PhotoStudio.Data.Requests.TipKorisnika;
 using PhotoStudio.Database;
 using PhotoStudio.Filters;
 using PhotoStudio.Interface;
@@ -42,16 +43,17 @@ namespace PhotoStudio
 
             //Dependency injection
             services.AddScoped<IService<Data.Model.Grad, GradSearchRequest>, GradService>();
-            services.AddScoped<IService<Data.Model.TipFotografa,TipFotografaRequest>, TipFotografaService>();
-            services.AddScoped<IService<Data.Model.TipKorisnika,object>, BaseService<Data.Model.TipKorisnika, object, TipKorisnika>>();
+            services.AddScoped<IService<Data.Model.TipFotografa, TipFotografaRequest>, TipFotografaService>();
+            //  services.AddScoped<IService<Data.Model.TipKorisnika,object>, BaseService<Data.Model.TipKorisnika, object, TipKorisnika>>();
+            services.AddScoped<IService<Data.Model.TipKorisnika, TipKorisnikaRequest>, TipKorisnikaService>();
 
-
+            services.AddScoped<IKorisnikService, KorisnikService>();
 
 
             services.AddScoped<ICRUDService<Data.Model.Fotograf, FotografSearchRequest, FotografUpsert, FotografUpsert>, FotografService>();
 
-            
-            
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
