@@ -2,6 +2,7 @@
 using Microsoft.Azure.Amqp.Framing;
 using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
+using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Data.Requests.TipFotografa;
 using PhotoStudio.Data.Requests.TipKorisnika;
@@ -45,6 +46,12 @@ namespace PhotoStudio.Mapping
             CreateMap<KorisnikRequest, PhotoStudio.Database.Korisnik>().ReverseMap();
             CreateMap<KorisnikRequest, GradRequest>().ReverseMap();
             CreateMap<PhotoStudio.Database.Korisnik, KorisnikUpsert>().ReverseMap();
+
+            //Komentar
+            CreateMap<KomentarRequest, PhotoStudio.Database.Fotograf>().ReverseMap();
+            CreateMap<KomentarRequest,FotografRequest>().ReverseMap();
+            CreateMap<KomentarRequest,PhotoStudio.Database.Korisnik>().ReverseMap();
+
 
 
 
