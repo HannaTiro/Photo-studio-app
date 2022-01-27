@@ -36,11 +36,7 @@ namespace PhotoStudio.Service
             {
                 query = query.Where(j => j.Korisnik.Prezime.StartsWith(search.Prezime));
             }
-            //if (search.Datum != null)
-            //{
-            //    var datumKomentara = search.Datum.Value.Date;
-            //    query = query.Where(j => j.Datum.Value.AddHours(8).Date == datumKomentara);
-            //}
+          
             return _mapper.Map<List<Data.Model.Komentar>>(query.ToList());
         }
        
