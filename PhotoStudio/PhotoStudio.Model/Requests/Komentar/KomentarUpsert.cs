@@ -13,8 +13,9 @@ namespace PhotoStudio.Data.Requests.Komentar
         [Required(AllowEmptyStrings = false)]
         public string Opis { get; set; }
 
-        
-        public DateTime Datum { get; set; }
+
+        [Required]
+        public DateTime? Datum { get; set; }
 
         [Required]
         public int? FotografId { get; set; }

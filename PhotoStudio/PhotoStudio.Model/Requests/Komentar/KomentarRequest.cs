@@ -9,7 +9,7 @@ namespace PhotoStudio.Data.Requests.Komentar
     {
         public int KomentarId { get; set; }
         public string Opis { get; set; }
-        public DateTime Datum { get; set; }
+        public DateTime? Datum { get; set; }
         public int? KorisnikId { get; set; }
         public int? FotografId { get; set; }
         public KorisnikRequest Korisnik { get; set; }

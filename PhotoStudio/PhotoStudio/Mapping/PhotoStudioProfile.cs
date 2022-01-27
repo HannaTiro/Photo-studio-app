@@ -6,6 +6,7 @@ using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Data.Requests.TipFotografa;
 using PhotoStudio.Data.Requests.TipKorisnika;
+using PhotoStudio.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,8 +50,10 @@ namespace PhotoStudio.Mapping
 
             //Komentar
             CreateMap<KomentarRequest, PhotoStudio.Database.Fotograf>().ReverseMap();
-            CreateMap<KomentarRequest,FotografRequest>().ReverseMap();
-            CreateMap<KomentarRequest,PhotoStudio.Database.Korisnik>().ReverseMap();
+            CreateMap<KomentarRequest, FotografRequest>().ReverseMap();
+            CreateMap<KomentarRequest, PhotoStudio.Database.Korisnik>().ReverseMap();
+            CreateMap<Komentar, KomentarUpsert>().ReverseMap();
+            CreateMap<KomentarRequest, PhotoStudio.Database.Komentar>().ReverseMap();
 
 
 
