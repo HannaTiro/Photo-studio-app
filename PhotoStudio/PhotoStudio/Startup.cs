@@ -11,6 +11,7 @@ using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Rejting;
+using PhotoStudio.Data.Requests.Studio;
 using PhotoStudio.Data.Requests.TipFotografa;
 using PhotoStudio.Data.Requests.TipKorisnika;
 using PhotoStudio.Database;
@@ -55,6 +56,8 @@ namespace PhotoStudio
             services.AddScoped<ICRUDService<Data.Model.Fotograf, FotografSearchRequest, FotografUpsert, FotografUpsert>, FotografService>();
             services.AddScoped<ICRUDService<Data.Model.Komentar, KomentarSearchRequest, KomentarUpsert, KomentarUpsert>, KomentarService>();
             services.AddScoped<ICRUDService<Data.Model.Rejting, RejtingSearchRequest, RejtingUpsert, RejtingUpsert>, RejtingService>();
+            services.AddScoped<ICRUDService<Data.Model.Studio, StudioSearchRequest, StudioUpsert, StudioUpsert>, StudioService>();
+
 
 
 

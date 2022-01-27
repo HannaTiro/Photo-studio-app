@@ -5,6 +5,7 @@ using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Data.Requests.Rejting;
+using PhotoStudio.Data.Requests.Studio;
 using PhotoStudio.Data.Requests.TipFotografa;
 using PhotoStudio.Data.Requests.TipKorisnika;
 using PhotoStudio.Database;
@@ -65,6 +66,14 @@ namespace PhotoStudio.Mapping
 
            CreateMap<RejtingRequest,FotografRequest>().ReverseMap();
            CreateMap<RejtingRequest, KorisnikRequest>().ReverseMap();
+
+            //Studio
+            CreateMap<Database.Studio, StudioRequest>().ReverseMap();
+            CreateMap<Database.Studio, StudioUpsert>().ReverseMap();
+            CreateMap<StudioRequest, StudioSearchRequest>().ReverseMap();
+
+
+
 
 
 
