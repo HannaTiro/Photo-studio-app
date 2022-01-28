@@ -5,6 +5,7 @@ using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Data.Requests.Rejting;
+using PhotoStudio.Data.Requests.Rezervacija;
 using PhotoStudio.Data.Requests.Studio;
 using PhotoStudio.Data.Requests.TipFotografa;
 using PhotoStudio.Data.Requests.TipKorisnika;
@@ -73,7 +74,17 @@ namespace PhotoStudio.Mapping
             CreateMap<StudioRequest, StudioSearchRequest>().ReverseMap();
 
 
+            //Rezervacija
+         // CreateMap<Rezervacija, RezervacijaRequest>().ReverseMap();
+            CreateMap<Rezervacija, RezervacijaUpsert>().ReverseMap();
+            CreateMap<RezervacijaRequest, Database.Rezervacija>().ReverseMap();
 
+
+            CreateMap<RezervacijaRequest, Database.Korisnik>().ReverseMap();
+            CreateMap<RezervacijaRequest, Database.Fotograf>().ReverseMap();
+
+            //CreateMap<RezervacijaRequest, FotografRequest>().ReverseMap();
+            //CreateMap<RezervacijaRequest, KorisnikRequest>().ReverseMap();
 
 
 
