@@ -22,7 +22,7 @@ namespace PhotoStudio.Service
         }
         public List<Data.Model.Korisnik> Get(KorisnikSearchRequest request)
         {
-            var query = _context.Korisniks.AsQueryable();
+            var query = _context.Korisniks.Include(x=>x.Grad).AsQueryable();
             if (!string.IsNullOrWhiteSpace(request.Ime))
             {
                 query = query.Where(x => x.Ime.StartsWith(request.Ime));

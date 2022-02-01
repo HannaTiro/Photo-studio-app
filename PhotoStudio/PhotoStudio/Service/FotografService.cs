@@ -17,7 +17,7 @@ namespace PhotoStudio.Service
         }
         public override List<Data.Model.Fotograf> Get(FotografSearchRequest search = null)
         {
-            var entity = _context.Set<Database.Fotograf>().AsQueryable();
+            var entity = _context.Set<Database.Fotograf>().Include(x=>x.TipFotografa).AsQueryable();
             if (!string.IsNullOrWhiteSpace(search?.Ime))
             {
                 entity = entity.Where(x => x.Ime.Contains(search.Ime));
@@ -26,10 +26,19 @@ namespace PhotoStudio.Service
             {
                 entity = entity.Where(x => x.Prezime.Contains(search.Prezime));
             }
+            if(!string.IsNullOrWhiteSpace(search.TipFotografa))
+            {
+                entity = entity.Where(x => x.TipFotografa.Naziv.StartsWith(search.TipFotografa));
+            }
            // entity = entity.Include("TipFotografa");
 
             var list = entity.ToList();
             return _mapper.Map<List<Data.Model.Fotograf>>(list);
+        }
+        public override Data.Model.Fotograf GetByID(int id)
+        {
+            var fotograf = _context.Fotografs.Include(x => x.TipFotografa).FirstOrDefault(y => y.FotografId == id);
+            return _mapper.Map<Data.Model.Fotograf>(fotograf);
         }
 
     }

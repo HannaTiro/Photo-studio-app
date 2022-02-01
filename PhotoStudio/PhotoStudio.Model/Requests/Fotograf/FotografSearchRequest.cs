@@ -9,7 +9,8 @@ namespace PhotoStudio.Data.Requests.Fotograf
        
         public string Ime { get; set; }
         public string Prezime { get; set; }
-     
- 
+
+        public string TipFotografa { get; set; }
+
     }
 }

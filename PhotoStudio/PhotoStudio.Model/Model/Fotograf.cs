@@ -16,7 +16,7 @@ namespace PhotoStudio.Data.Model
         public bool? Status { get; set; }
         public int? TipFotografaId { get; set; }
 
-        //public TipFotografa  TipFotografa { get; set; }
+        public TipFotografa  TipFotografa { get; set; }
        // public virtual ICollection<Komentar> Komentars { get; set; }
         //public virtual ICollection<Rejting> Rejtings { get; set; }
         //public virtual ICollection<Rezervacija> Rezervacijas { get; set; }

@@ -1,4 +1,5 @@
-﻿using PhotoStudio.WinUI.Forms.Korisnici;
+﻿using PhotoStudio.WinUI.Forms.Fotografi;
+using PhotoStudio.WinUI.Forms.Korisnici;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -127,6 +128,20 @@ namespace PhotoStudio.WinUI.Forms
         private void pregledajKorisnikeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKorisnici forma = new frmKorisnici();
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
+        private void pregledajFotografeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFotografi forma = new frmFotografi();
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
+        private void dodajFotografaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDodajFotografa forma = new frmDodajFotografa();
             forma.MdiParent = this;
             forma.Show();
         }

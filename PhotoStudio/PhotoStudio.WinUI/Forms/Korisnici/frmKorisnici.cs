@@ -45,7 +45,7 @@ namespace PhotoStudio.WinUI.Forms.Korisnici
 
             if(podaci.Count==0)
             {
-                MessageBox.Show("Nema rezultata pretrage", "Upozorenje", MessageBoxButtons.OK);
+                MessageBox.Show("Nema rezultata pretrage", "Poruka", MessageBoxButtons.OK);
             }
         }
 

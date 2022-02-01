@@ -43,6 +43,10 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.1.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,6 +65,24 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fotografi\frmDodajFotografa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fotografi\frmDodajFotografa.Designer.cs">
+      <DependentUpon>frmDodajFotografa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fotografi\frmFotografDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fotografi\frmFotografDetalji.Designer.cs">
+      <DependentUpon>frmFotografDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fotografi\frmFotografi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fotografi\frmFotografi.Designer.cs">
+      <DependentUpon>frmFotografi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmHome.cs">
       <SubType>Form</SubType>
@@ -88,6 +110,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Fotografi\frmDodajFotografa.resx">
+      <DependentUpon>frmDodajFotografa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fotografi\frmFotografDetalji.resx">
+      <DependentUpon>frmFotografDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fotografi\frmFotografi.resx">
+      <DependentUpon>frmFotografi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +163,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\addUser.png" />
     <None Include="Resources\logo.jpg" />
     <Content Include="Slike\logo.jpg" />
   </ItemGroup>
