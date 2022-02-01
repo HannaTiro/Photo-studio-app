@@ -194,7 +194,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.cmbTipFotografa.Name = "cmbTipFotografa";
             this.cmbTipFotografa.Size = new System.Drawing.Size(243, 21);
             this.cmbTipFotografa.TabIndex = 17;
-            this.cmbTipFotografa.SelectedIndexChanged += new System.EventHandler(this.cmbTipFotografa_SelectedIndexChanged);
+           // this.cmbTipFotografa.SelectedIndexChanged += new System.EventHandler(this.cmbTipFotografa_SelectedIndexChanged);
             this.cmbTipFotografa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbTipFotografa_Validating);
             // 
             // cbDostupan

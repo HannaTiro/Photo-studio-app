@@ -36,10 +36,10 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
 
      
 
-        private void cmbTipFotografa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+       // private async void cmbTipFotografa_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+           
+        //}
 
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
@@ -126,15 +126,15 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
 
         private void txtSlika_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSlika.Text))
-            {
-                err.SetError(txtSlika, " Required");
-                e.Cancel = true;
-            }
-            else
-            {
-                err.SetError(txtSlika, null);
-            }
+            //if (string.IsNullOrWhiteSpace(txtSlika.Text))
+            //{
+            //    err.SetError(txtSlika, " Required");
+            //    e.Cancel = true;
+            //}
+            //else
+            //{
+            //    err.SetError(txtSlika, null);
+            //}
         }
         private void txtOpis_Validating(object sender, CancelEventArgs e)
         {
