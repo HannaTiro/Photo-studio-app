@@ -13,6 +13,7 @@ namespace PhotoStudio.Data.Requests.Rezervacija
         public string ImeKorisnika { get; set; }
         public int? FotografId { get; set; }
         public string ImeFotografa { get; set; }
+        public string PrezimeFotografa { get; set; }
 
 
 

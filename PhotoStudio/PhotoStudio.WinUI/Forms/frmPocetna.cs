@@ -1,5 +1,6 @@
 ﻿using PhotoStudio.WinUI.Forms.Fotografi;
 using PhotoStudio.WinUI.Forms.Korisnici;
+using PhotoStudio.WinUI.Forms.Rezervacije;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -142,6 +143,13 @@ namespace PhotoStudio.WinUI.Forms
         private void dodajFotografaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDodajFotografa forma = new frmDodajFotografa();
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
+        private void pregledajRezervacijeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRezervacije forma = new frmRezervacije();
             forma.MdiParent = this;
             forma.Show();
         }

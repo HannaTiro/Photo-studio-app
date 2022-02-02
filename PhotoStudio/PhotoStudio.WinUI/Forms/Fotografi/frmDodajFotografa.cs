@@ -34,12 +34,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             LoadTipFotografaAsync();
         }
 
-     
-
-       // private async void cmbTipFotografa_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-           
-        //}
+    
 
         private void textBox1_Validating(object sender, CancelEventArgs e)
         {
@@ -164,6 +159,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
                 {
                     request.TipFotografaId = TipId;
                 }
+               // request.Slika = pbSlika.Image;
 
 
 
@@ -171,7 +167,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
                 MessageBox.Show("Fotograf je dodan u bazu", "Poruka", MessageBoxButtons.OK);
                 this.Close();
             }
-            MessageBox.Show("Morate unijeti ispravne podatke da biste dodali fotografa", "Poruka", MessageBoxButtons.OK);
+            //MessageBox.Show("Morate unijeti ispravne podatke da biste dodali fotografa", "Poruka", MessageBoxButtons.OK);
 
         }
 

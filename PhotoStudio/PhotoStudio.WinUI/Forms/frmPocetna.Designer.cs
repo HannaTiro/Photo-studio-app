@@ -124,6 +124,7 @@ namespace PhotoStudio.WinUI.Forms
             this.pregledajRezervacijeToolStripMenuItem.Name = "pregledajRezervacijeToolStripMenuItem";
             this.pregledajRezervacijeToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.pregledajRezervacijeToolStripMenuItem.Text = "Pregledaj rezervacije";
+            this.pregledajRezervacijeToolStripMenuItem.Click += new System.EventHandler(this.pregledajRezervacijeToolStripMenuItem_Click);
             // 
             // ocjeneIKomentariToolStripMenuItem
             // 

@@ -22,6 +22,10 @@ namespace PhotoStudio.Service
             {
                 query = query.Where(x => x.Fotograf.Ime.StartsWith(search.ImeFotografa));
             }
+            if (!string.IsNullOrEmpty(search.PrezimeFotografa))
+            {
+                query = query.Where(x => x.Fotograf.Prezime.StartsWith(search.PrezimeFotografa));
+            }
             if (search?.FotografId.HasValue == true)
             {
                 query = query.Where(x => x.Fotograf.FotografId == search.FotografId);
