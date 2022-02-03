@@ -12,7 +12,7 @@ namespace PhotoStudio.Data.Model
         public int? KorisnikId { get; set; }
         public int? FotografId { get; set; }
 
-     //   public virtual Fotograf Fotograf { get; set; }
-       // public virtual Korisnik Korisnik { get; set; }
+       public  Fotograf Fotograf { get; set; }
+        public  Korisnik Korisnik { get; set; }
     }
 }

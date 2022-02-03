@@ -96,6 +96,12 @@
     <Compile Include="Forms\frmPocetna.Designer.cs">
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Komentari\frmKomentari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Komentari\frmKomentari.Designer.cs">
+      <DependentUpon>frmKomentari.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Korisnici\frmKorisnici.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,18 @@
     </Compile>
     <Compile Include="Forms\Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ocjene\frmOcjenaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ocjene\frmOcjenaDetalji.Designer.cs">
+      <DependentUpon>frmOcjenaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ocjene\frmOcjene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ocjene\frmOcjene.Designer.cs">
+      <DependentUpon>frmOcjene.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Rezervacije\frmRezervacijaDetalji.cs">
       <SubType>Form</SubType>
@@ -137,11 +155,20 @@
     <EmbeddedResource Include="Forms\frmPocetna.resx">
       <DependentUpon>frmPocetna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Komentari\frmKomentari.resx">
+      <DependentUpon>frmKomentari.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Korisnici\frmKorisnici.resx">
       <DependentUpon>frmKorisnici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ocjene\frmOcjenaDetalji.resx">
+      <DependentUpon>frmOcjenaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ocjene\frmOcjene.resx">
+      <DependentUpon>frmOcjene.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rezervacije\frmRezervacijaDetalji.resx">
       <DependentUpon>frmRezervacijaDetalji.cs</DependentUpon>

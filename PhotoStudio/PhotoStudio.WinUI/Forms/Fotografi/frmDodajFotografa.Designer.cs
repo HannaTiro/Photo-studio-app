@@ -52,6 +52,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtSlika = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.err = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
@@ -194,7 +195,6 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.cmbTipFotografa.Name = "cmbTipFotografa";
             this.cmbTipFotografa.Size = new System.Drawing.Size(243, 21);
             this.cmbTipFotografa.TabIndex = 17;
-           // this.cmbTipFotografa.SelectedIndexChanged += new System.EventHandler(this.cmbTipFotografa_SelectedIndexChanged);
             this.cmbTipFotografa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbTipFotografa_Validating);
             // 
             // cbDostupan
@@ -242,11 +242,22 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             // 
             this.err.ContainerControl = this;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(47, 402);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(108, 23);
+            this.btnBack.TabIndex = 22;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmDodajFotografa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.txtSlika);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.btnDodajSliku);
@@ -301,5 +312,6 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
         private System.Windows.Forms.TextBox txtSlika;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ErrorProvider err;
+        private System.Windows.Forms.Button btnBack;
     }
 }

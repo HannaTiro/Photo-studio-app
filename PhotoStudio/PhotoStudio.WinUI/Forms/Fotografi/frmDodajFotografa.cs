@@ -187,6 +187,11 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
                 pbSlika.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

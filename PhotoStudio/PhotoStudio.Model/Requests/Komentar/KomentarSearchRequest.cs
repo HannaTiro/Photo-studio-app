@@ -9,8 +9,8 @@ namespace PhotoStudio.Data.Requests.Komentar
      
        // public DateTime? Datum { get; set; }
         public int? KorisnikId { get; set; }
-        public string Ime { get; set; }
-        public string Prezime { get; set; }
+        public string ImeKorisnika { get; set; }
+        public string PrezimeKorisnika { get; set; }
         public int? FotografId { get; set; }
 
     }

@@ -84,7 +84,7 @@ namespace PhotoStudio.WinUI.Forms
             // pregledajKorisnikeToolStripMenuItem
             // 
             this.pregledajKorisnikeToolStripMenuItem.Name = "pregledajKorisnikeToolStripMenuItem";
-            this.pregledajKorisnikeToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.pregledajKorisnikeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pregledajKorisnikeToolStripMenuItem.Text = "Pregledaj korisnike";
             this.pregledajKorisnikeToolStripMenuItem.Click += new System.EventHandler(this.pregledajKorisnikeToolStripMenuItem_Click);
             // 
@@ -140,12 +140,14 @@ namespace PhotoStudio.WinUI.Forms
             this.pregledajOcjeneToolStripMenuItem.Name = "pregledajOcjeneToolStripMenuItem";
             this.pregledajOcjeneToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.pregledajOcjeneToolStripMenuItem.Text = "Pregledaj ocjene";
+            this.pregledajOcjeneToolStripMenuItem.Click += new System.EventHandler(this.pregledajOcjeneToolStripMenuItem_Click);
             // 
             // pregledajKomentareToolStripMenuItem
             // 
             this.pregledajKomentareToolStripMenuItem.Name = "pregledajKomentareToolStripMenuItem";
             this.pregledajKomentareToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.pregledajKomentareToolStripMenuItem.Text = "Pregledaj komentare";
+            this.pregledajKomentareToolStripMenuItem.Click += new System.EventHandler(this.pregledajKomentareToolStripMenuItem_Click);
             // 
             // oNamaToolStripMenuItem
             // 

@@ -37,11 +37,11 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
                 txtPrezimeFotografa.Text = rezervacija.Fotograf.Prezime;
                 dtpDatumOD.Value = rezervacija.DatumOd.Value.Date;
                 dtpDatumDO.Value = rezervacija.DatumDo.Value.Date;
-                txtVrstaEventa.Text = rezervacija.Fotograf.TipFotografa.Naziv; //pregledati ima li ga na apiju i je li setiran na loadu u vm
+                txtVrstaEventa.Text = rezervacija.Fotograf.TipFotografa.Naziv; 
                 txtCijena.Text = rezervacija.Fotograf.DnevnaCijena.ToString();
 
                 var ukupna = (rezervacija.DatumDo.Value.Date - rezervacija.DatumOd.Value.Date).TotalDays;
-                //var dani = ukupna;
+              
                 if (ukupna > 0)
                 {
                     var cijenaF = rezervacija.Fotograf.DnevnaCijena;

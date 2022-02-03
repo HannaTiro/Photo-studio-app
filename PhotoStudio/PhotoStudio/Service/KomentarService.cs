@@ -28,13 +28,13 @@ namespace PhotoStudio.Service
                 query = query.Where(j => j.Fotograf.FotografId == search.FotografId);
             }
 
-            if (!string.IsNullOrEmpty(search.Ime))
+            if (!string.IsNullOrEmpty(search.ImeKorisnika))
             {
-                query = query.Where(j => j.Korisnik.Ime.StartsWith(search.Ime));
+                query = query.Where(j => j.Korisnik.Ime.StartsWith(search.ImeKorisnika));
             }
-            if (!string.IsNullOrEmpty(search.Prezime))
+            if (!string.IsNullOrEmpty(search.PrezimeKorisnika))
             {
-                query = query.Where(j => j.Korisnik.Prezime.StartsWith(search.Prezime));
+                query = query.Where(j => j.Korisnik.Prezime.StartsWith(search.PrezimeKorisnika));
             }
           
             return _mapper.Map<List<Data.Model.Komentar>>(query.ToList());

@@ -21,6 +21,7 @@ namespace PhotoStudio.Service
             var query = _context.Set<Database.Rejting>()
               .Include(x => x.Korisnik)
               .Include(e => e.Fotograf)
+              .Include(e=>e.Fotograf.TipFotografa).Include(e=>e.Korisnik.Grad)
               .AsQueryable();
           
 
@@ -29,13 +30,21 @@ namespace PhotoStudio.Service
             {
                 query = query.Where(i => i.Ocjena == search.Ocjena);
             }
-            if (!string.IsNullOrWhiteSpace(search.Ime))
+            if (!string.IsNullOrWhiteSpace(search.ImeFotografa))
             {
-                query = query.Where(i => i.Korisnik.Ime.StartsWith(search.Ime));
+                query = query.Where(i => i.Fotograf.Ime.StartsWith(search.ImeFotografa));
             }
-            if (!string.IsNullOrWhiteSpace(search.Prezime))
+            if (!string.IsNullOrWhiteSpace(search.PrezimeFotografa))
             {
-                query = query.Where(i => i.Korisnik.Prezime.StartsWith(search.Prezime));
+                query = query.Where(i => i.Fotograf.Prezime.StartsWith(search.PrezimeFotografa));
+            }
+            if (!string.IsNullOrWhiteSpace(search.ImeKorisnika))
+            {
+                query = query.Where(i => i.Korisnik.Ime.StartsWith(search.ImeKorisnika));
+            }
+            if (!string.IsNullOrWhiteSpace(search.PrezimeKorisnika))
+            {
+                query = query.Where(i => i.Korisnik.Prezime.StartsWith(search.PrezimeKorisnika));
             }
             if (search?.KorisnikId.HasValue == true)
             {
