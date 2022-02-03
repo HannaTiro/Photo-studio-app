@@ -127,6 +127,7 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
             this.dgvRezervacije.Size = new System.Drawing.Size(497, 150);
             this.dgvRezervacije.TabIndex = 8;
             this.dgvRezervacije.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRezervacije_CellContentClick);
+            this.dgvRezervacije.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRezervacije_CellMouseDoubleClick);
             // 
             // RezervacijaId
             // 

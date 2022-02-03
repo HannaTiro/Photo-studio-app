@@ -6,7 +6,7 @@ namespace PhotoStudio.Data.VM
 {
    public  class frmBookingVM
     {
-        public int BookinId { get; set; }
+        public int RezervacijaId { get; set; }
    
         public string Ime { get; set; }
         public string Prezime { get; set; }

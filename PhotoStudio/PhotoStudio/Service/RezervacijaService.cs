@@ -17,7 +17,7 @@ namespace PhotoStudio.Service
         }
         public override List<Data.Model.Rezervacija> Get(RezervacijaSearchRequest search = null)
         {
-            var query = _context.Rezervacijas.Include(x => x.Fotograf).Include(x => x.Korisnik).AsQueryable();
+            var query = _context.Rezervacijas.Include(x => x.Fotograf).Include(x => x.Korisnik).Include(x=>x.Fotograf.TipFotografa).Include(x=>x.Korisnik.Grad).AsQueryable();
             if(!string.IsNullOrEmpty(search.ImeFotografa))
             {
                 query = query.Where(x => x.Fotograf.Ime.StartsWith(search.ImeFotografa));
@@ -51,7 +51,7 @@ namespace PhotoStudio.Service
         }
         public override Data.Model.Rezervacija GetByID(int id)
         {
-            var entity = _context.Rezervacijas.Include(x => x.Fotograf).Include(x => x.Korisnik).FirstOrDefault(x => x.RezervacijaId == id);
+            var entity = _context.Rezervacijas.Include(x => x.Fotograf).Include(x => x.Korisnik).Include(x => x.Fotograf.TipFotografa).Include(x => x.Korisnik.Grad).FirstOrDefault(x => x.RezervacijaId == id);
             return _mapper.Map<Data.Model.Rezervacija>(entity);
         }
     }

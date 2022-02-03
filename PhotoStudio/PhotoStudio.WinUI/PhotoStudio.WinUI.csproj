@@ -108,6 +108,12 @@
     <Compile Include="Forms\Korisnici\frmKorisniciDetalji.Designer.cs">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Rezervacije\frmRezervacijaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Rezervacije\frmRezervacijaDetalji.Designer.cs">
+      <DependentUpon>frmRezervacijaDetalji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Rezervacije\frmRezervacije.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Korisnici\frmKorisniciDetalji.resx">
       <DependentUpon>frmKorisniciDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Rezervacije\frmRezervacijaDetalji.resx">
+      <DependentUpon>frmRezervacijaDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rezervacije\frmRezervacije.resx">
       <DependentUpon>frmRezervacije.cs</DependentUpon>

@@ -38,7 +38,7 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
             {
                 frmBookingVM forma = new frmBookingVM
                 {
-                    BookinId=x.RezervacijaId,
+                    RezervacijaId=x.RezervacijaId,
                     DatumDo=x.DatumDo.Value.Date,
                     DatumOd=x.DatumOd.Value.Date,
                     Ime=x.Fotograf.Ime,
@@ -58,7 +58,8 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
                 ImeFotografa = txtIme.Text,
                 PrezimeFotografa = txtPrezime.Text,
                 DatumDo = dtpDo.Value.Date,
-                DatumOd = dtpOd.Value.Date
+                DatumOd = dtpOd.Value.Date,
+                
 
 
 
@@ -73,7 +74,7 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
             {
                 frmBookingVM forma = new frmBookingVM
                 {
-                    BookinId=x.RezervacijaId,
+                    RezervacijaId=x.RezervacijaId,
                     DatumDo=x.DatumDo,
                     DatumOd=x.DatumOd,
                     Ime=x.Fotograf.Ime,
@@ -92,10 +93,22 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
 
         private void dgvRezervacije_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // var rezervacija = dgvRezervacije.SelectedRows[0].Cells[0].Value;
+            // MessageBox.Show(rezervacija.ToString());
+            //var rezultat = rezervacija.ToString();
+            //frmRezervacijaDetalji forma = new frmRezervacijaDetalji(int.Parse(rezultat)); 
+            // forma.Show();
+           // var id = dgvRezervacije.SelectedRows[0].Cells[0].Value;
+             //frmRezervacijaDetalji frm = new frmRezervacijaDetalji (int.Parse(id.ToString()));
+            //frm.Show();
+        }
+
+        private void dgvRezervacije_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
             var rezervacija = dgvRezervacije.SelectedRows[0].Cells[0].Value;
-            
+           // MessageBox.Show(rezervacija.ToString());
             var rezultat = rezervacija.ToString();
-          //  frmRezervacijaDetalji forma = new frmRezervacijaDetalji(int.Parse(rezultat)); TO DO: REZERVACIJA DETALJI
+            frmRezervacijaDetalji forma = new frmRezervacijaDetalji(int.Parse(rezultat));
             forma.Show();
         }
     }
