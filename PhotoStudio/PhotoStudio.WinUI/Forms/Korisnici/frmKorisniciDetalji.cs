@@ -14,6 +14,8 @@ namespace PhotoStudio.WinUI.Forms.Korisnici
     public partial class frmKorisniciDetalji : Form
     {
         private readonly APIService _apiService = new APIService("Korisnik");
+        private readonly APIService _serviceTipKorisnika = new APIService("TipKorisnika");
+
         private int? _korisnik = null;
         public frmKorisniciDetalji(int korisnik)
         {
