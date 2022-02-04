@@ -7,17 +7,22 @@ namespace PhotoStudio.Data.Requests.Korisnik
 {
     public class KorisnikUpsert
     {
-        [Required]
+        [Required (AllowEmptyStrings =false)]
         public string Ime { get; set; }
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string Prezime { get; set; }
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string Telefon { get; set; }
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         public string Email { get; set; }
-        [Required]
+        [Required(AllowEmptyStrings = false)]
+       [ MinLength(4)]
         public string Username { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [MinLength(4)]
         public string Password { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        [MinLength(4)]
         public string PasswordConfirm { get; set; }
         [Required]
         public int TipKorisnikaId { get; set; }
