@@ -30,6 +30,8 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtOpis = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtCijena = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtOpis = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,23 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalji odabranog fotografa";
+            // 
+            // txtOpis
+            // 
+            this.txtOpis.Location = new System.Drawing.Point(127, 276);
+            this.txtOpis.Name = "txtOpis";
+            this.txtOpis.ReadOnly = true;
+            this.txtOpis.Size = new System.Drawing.Size(202, 20);
+            this.txtOpis.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(22, 283);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Opis";
             // 
             // btnBack
             // 
@@ -163,27 +180,13 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.label1.TabIndex = 0;
             this.label1.Text = "Ime fotografa";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 283);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Opis";
-            // 
-            // txtOpis
-            // 
-            this.txtOpis.Location = new System.Drawing.Point(127, 276);
-            this.txtOpis.Name = "txtOpis";
-            this.txtOpis.ReadOnly = true;
-            this.txtOpis.Size = new System.Drawing.Size(202, 20);
-            this.txtOpis.TabIndex = 12;
-            // 
             // frmFotografDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::PhotoStudio.WinUI.Properties.Resources.logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmFotografDetalji";

@@ -169,5 +169,12 @@ namespace PhotoStudio.WinUI.Forms
             forma.MdiParent = this;
             forma.Show();
         }
+
+        private void oNamaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmONama forma = new frmONama();
+            forma.MdiParent = this;
+            forma.ShowDialog();
+        }
     }
 }

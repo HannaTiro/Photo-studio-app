@@ -84,7 +84,7 @@ namespace PhotoStudio.WinUI.Forms
             // pregledajKorisnikeToolStripMenuItem
             // 
             this.pregledajKorisnikeToolStripMenuItem.Name = "pregledajKorisnikeToolStripMenuItem";
-            this.pregledajKorisnikeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pregledajKorisnikeToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.pregledajKorisnikeToolStripMenuItem.Text = "Pregledaj korisnike";
             this.pregledajKorisnikeToolStripMenuItem.Click += new System.EventHandler(this.pregledajKorisnikeToolStripMenuItem_Click);
             // 
@@ -100,14 +100,14 @@ namespace PhotoStudio.WinUI.Forms
             // pregledajFotografeToolStripMenuItem
             // 
             this.pregledajFotografeToolStripMenuItem.Name = "pregledajFotografeToolStripMenuItem";
-            this.pregledajFotografeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pregledajFotografeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.pregledajFotografeToolStripMenuItem.Text = "Pregledaj fotografe";
             this.pregledajFotografeToolStripMenuItem.Click += new System.EventHandler(this.pregledajFotografeToolStripMenuItem_Click);
             // 
             // dodajFotografaToolStripMenuItem
             // 
             this.dodajFotografaToolStripMenuItem.Name = "dodajFotografaToolStripMenuItem";
-            this.dodajFotografaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajFotografaToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.dodajFotografaToolStripMenuItem.Text = "Dodaj fotografa";
             this.dodajFotografaToolStripMenuItem.Click += new System.EventHandler(this.dodajFotografaToolStripMenuItem_Click);
             // 
@@ -154,6 +154,7 @@ namespace PhotoStudio.WinUI.Forms
             this.oNamaToolStripMenuItem.Name = "oNamaToolStripMenuItem";
             this.oNamaToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.oNamaToolStripMenuItem.Text = "O nama";
+            this.oNamaToolStripMenuItem.Click += new System.EventHandler(this.oNamaToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -175,6 +176,7 @@ namespace PhotoStudio.WinUI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);

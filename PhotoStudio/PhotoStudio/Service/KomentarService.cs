@@ -17,7 +17,9 @@ namespace PhotoStudio.Service
         }
         public override List<Data.Model.Komentar> Get(KomentarSearchRequest search = null)
         {
-            var query = _context.Komentars.Include(x => x.Korisnik).Include(x => x.Fotograf).AsQueryable();
+            var query = _context.Komentars.Include(x => x.Korisnik).Include(x => x.Fotograf).Include(x=>x.Fotograf.TipFotografa)
+                .Include(x=>x.Korisnik.Grad)
+                .AsQueryable();
 
             if(search?.KorisnikId.HasValue==true)
             {
@@ -39,6 +41,13 @@ namespace PhotoStudio.Service
           
             return _mapper.Map<List<Data.Model.Komentar>>(query.ToList());
         }
-       
+        public override Data.Model.Komentar GetByID(int id)
+        {
+            var entity = _context.Komentars.Include(x => x.Korisnik).Include(x => x.Fotograf)
+                .Include(x=>x.Fotograf.TipFotografa).Include(x=>x.Korisnik.Grad)
+                .FirstOrDefault(x => x.KomentarId == id);
+            return _mapper.Map<Data.Model.Komentar>(entity);
+        }
+      
     }
 }

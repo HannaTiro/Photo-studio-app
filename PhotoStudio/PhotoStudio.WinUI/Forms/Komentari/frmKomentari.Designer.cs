@@ -100,6 +100,7 @@ namespace PhotoStudio.WinUI.Forms.Komentari
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvKomentari
             // 
@@ -115,6 +116,7 @@ namespace PhotoStudio.WinUI.Forms.Komentari
             this.dgvKomentari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKomentari.Size = new System.Drawing.Size(442, 150);
             this.dgvKomentari.TabIndex = 7;
+            this.dgvKomentari.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKomentari_CellContentClick);
             // 
             // KomentarId
             // 
@@ -153,6 +155,9 @@ namespace PhotoStudio.WinUI.Forms.Komentari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::PhotoStudio.WinUI.Properties.Resources.logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(525, 359);
             this.Controls.Add(this.dgvKomentari);
             this.Controls.Add(this.btnSearch);

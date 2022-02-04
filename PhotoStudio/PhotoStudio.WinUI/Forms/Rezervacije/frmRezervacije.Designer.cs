@@ -183,6 +183,8 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.BackgroundImage = global::PhotoStudio.WinUI.Properties.Resources.logo;
             this.ClientSize = new System.Drawing.Size(631, 393);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgvRezervacije);
