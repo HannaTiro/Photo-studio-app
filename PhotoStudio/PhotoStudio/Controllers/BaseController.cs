@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace PhotoStudio.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<TModel,Tsearch> : Controller where Tsearch:class

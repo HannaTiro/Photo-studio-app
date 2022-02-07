@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PhotoStudio.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace PhotoStudio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   // [Authorize]
     public class BaseCRUDController<TModel, Tsearch, TInsert, TUpdate> : BaseController<TModel, Tsearch> where Tsearch:class
     {
         protected readonly ICRUDService<TModel, Tsearch, TInsert, TUpdate> _service = null;

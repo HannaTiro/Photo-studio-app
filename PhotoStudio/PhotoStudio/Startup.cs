@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
@@ -18,6 +20,7 @@ using PhotoStudio.Data.Requests.TipKorisnika;
 using PhotoStudio.Database;
 using PhotoStudio.Filters;
 using PhotoStudio.Interface;
+using PhotoStudio.Security;
 using PhotoStudio.Service;
 using System;
 using System.Collections.Generic;
@@ -42,9 +45,37 @@ namespace PhotoStudio
             x.Filters.Add<ErrorFilter>()
             );
             services.AddControllers();
-            services.AddSwaggerGen();
-           services.AddDbContext<PhotoStudioContext>(c => c.UseSqlServer(Configuration.GetConnectionString("PhotoStudio"))
-            .EnableSensitiveDataLogging());
+            //services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PhotoStudio API", Version = "v1" });
+
+                c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+                {
+                   // Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic" //,
+                    //In = ParameterLocation.Header,
+                    //Description = "Basic Authorization header using the Bearer scheme."
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "basic"
+                            }
+                        },
+                        new string[] {}
+                    }
+                });
+            });
+            services.AddDbContext<PhotoStudioContext>(c => c.UseSqlServer(Configuration.GetConnectionString("PhotoStudio"))
+             .EnableSensitiveDataLogging());
             services.AddAutoMapper(typeof(Startup));
 
             //Dependency injection
@@ -62,6 +93,8 @@ namespace PhotoStudio
             services.AddScoped<ICRUDService<Data.Model.Studio, StudioSearchRequest, StudioUpsert, StudioUpsert>, StudioService>();
             services.AddScoped<ICRUDService<Data.Model.Rezervacija, RezervacijaSearchRequest, RezervacijaUpsert, RezervacijaUpsert>, RezervacijaService>();
 
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication",null);
 
 
 
@@ -83,7 +116,10 @@ namespace PhotoStudio
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

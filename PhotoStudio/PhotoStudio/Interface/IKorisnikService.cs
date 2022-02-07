@@ -13,7 +13,7 @@ namespace PhotoStudio.Interface
         Data.Model.Korisnik Insert(KorisnikUpsert request);
         Data.Model.Korisnik Update(int id, KorisnikUpsert request);
 
-         Data.Model.Korisnik Login(KorisnikLoginRequest request);
+    Data.Model.Korisnik Login(KorisnikLoginRequest request);
 
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Database;
+using PhotoStudio.Filters;
 using PhotoStudio.Helper;
 using PhotoStudio.Interface;
 using System;
@@ -84,20 +85,21 @@ namespace PhotoStudio.Service
 
             return _mapper.Map<Data.Model.Korisnik>(entity);
         }
-        public Data.Model.Korisnik Login(KorisnikLoginRequest request)
+        public  Data.Model.Korisnik Login(KorisnikLoginRequest request)
         {
             var korisnik = _context.Korisniks.Include(x => x.TipKorisnika).FirstOrDefault(x => x.Username == request.Username);
-
-            if (korisnik != null)
+            if(korisnik==null)
             {
-                var newHash = HashGenerator.GenerateHash(korisnik.PasswordSalt, request.Password);
-
-                if (korisnik.PasswordHash == newHash)
-                {
-                    return _mapper.Map<Data.Model.Korisnik>(korisnik);
-                }
+                throw new UserException("Pogrešan username ili password");
             }
-            return null;
+            var hash = HashGenerator.GenerateHash(korisnik.PasswordSalt, request.Password);
+            if(hash!=korisnik.PasswordHash)
+            {
+                throw new UserException("Pogrešan username ili password");
+
+            }
+                 return _mapper.Map<Data.Model.Korisnik>(korisnik);
+
         }
     }
 }
