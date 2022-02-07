@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PhotoStudio.Data.Model;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Interface;
@@ -11,6 +12,7 @@ namespace PhotoStudio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class KorisnikController : ControllerBase
     {
         private readonly IKorisnikService _service;
@@ -32,12 +34,13 @@ namespace PhotoStudio.Controllers
             return _service.GetById(id);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public ActionResult<Data.Model.Korisnik> Insert(KorisnikUpsert request)
         {
             return _service.Insert(request);
         }
-
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public ActionResult<Data.Model.Korisnik> Update(int id, [FromBody] KorisnikUpsert request)
         {

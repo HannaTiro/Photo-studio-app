@@ -1,7 +1,7 @@
 ﻿
 namespace PhotoStudio.WinUI.Forms
 {
-    partial class Login
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -70,6 +70,7 @@ namespace PhotoStudio.WinUI.Forms
             // 
             this.txtPassword.Location = new System.Drawing.Point(37, 178);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(253, 20);
             this.txtPassword.TabIndex = 3;
             // 
@@ -102,6 +103,7 @@ namespace PhotoStudio.WinUI.Forms
             this.Controls.Add(this.label1);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
