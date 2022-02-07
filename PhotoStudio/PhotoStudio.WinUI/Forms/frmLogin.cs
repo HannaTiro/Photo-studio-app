@@ -1,4 +1,5 @@
-﻿using PhotoStudio.Data.Model;
+﻿using Flurl.Http;
+using PhotoStudio.Data.Model;
 using PhotoStudio.Data.Requests.Korisnik;
 using System;
 using System.Collections.Generic;
@@ -51,13 +52,23 @@ namespace PhotoStudio.WinUI.Forms
                     this.Hide();
                 }
             }
-            catch (Exception ex)
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Pogrešan username ili password", MessageBoxButtons.OK);
+            //}
+            catch (FlurlHttpException ex)
             {
-                MessageBox.Show(ex.Message, "Pogrešan username ili password", MessageBoxButtons.OK);
+                if (ex.StatusCode == 401)
+                    MessageBox.Show("Neispravno korisničko ime ili lozinka! ", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Došlo je do greške, pokušajte opet! ", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                
             }
+
         }
 
-        private void Login_Load(object sender, EventArgs e)
+            private void Login_Load(object sender, EventArgs e)
         {
 
         }

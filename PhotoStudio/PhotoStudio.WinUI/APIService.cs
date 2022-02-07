@@ -44,7 +44,7 @@ namespace PhotoStudio.WinUI
         //                .AppendPathSegment("autentifikacija")
         //                .WithBasicAuth(username, password)
         //                .GetJsonAsync<T>();
-               
+
         //    }
         //    catch (FlurlHttpException ex)
         //    {

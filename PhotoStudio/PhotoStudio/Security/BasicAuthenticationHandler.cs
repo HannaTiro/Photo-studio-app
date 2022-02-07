@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Flurl.Http;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PhotoStudio.Data.Requests.Korisnik;
@@ -48,12 +49,13 @@ namespace PhotoStudio.Security
             }
             catch (Exception ex)
             {
-                return AuthenticateResult.Fail("Incorrect username or password");
+                return AuthenticateResult.Fail("Pogrešan username ili password");
             }
 
 
+
             if (korisnik == null)
-                return AuthenticateResult.Fail("Invalid Username or Password");
+                return AuthenticateResult.Fail("Pogrešan username ili password");
 
             var claims = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier,  korisnik.Username),
