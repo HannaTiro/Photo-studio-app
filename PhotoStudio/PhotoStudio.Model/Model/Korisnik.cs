@@ -16,7 +16,7 @@ namespace PhotoStudio.Data.Model
         public int? GradId { get; set; }
 
         public  Grad Grad { get; set; }
-      //  public virtual TipKorisnika TipKorisnika { get; set; }
+        public  TipKorisnika TipKorisnika { get; set; }
         //public virtual ICollection<Komentar> Komentars { get; set; }
         //public virtual ICollection<Rejting> Rejtings { get; set; }
         //public virtual ICollection<Rezervacija> Rezervacijas { get; set; }

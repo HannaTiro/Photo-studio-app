@@ -38,7 +38,9 @@ namespace PhotoStudio
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(x => x.Filters.Add<ErrorFilter>());
+            services.AddMvc(x =>
+            x.Filters.Add<ErrorFilter>()
+            );
             services.AddControllers();
             services.AddSwaggerGen();
            services.AddDbContext<PhotoStudioContext>(c => c.UseSqlServer(Configuration.GetConnectionString("PhotoStudio"))

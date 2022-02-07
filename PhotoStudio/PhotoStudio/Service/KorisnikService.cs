@@ -22,7 +22,9 @@ namespace PhotoStudio.Service
         }
         public List<Data.Model.Korisnik> Get(KorisnikSearchRequest request)
         {
-            var query = _context.Korisniks.Include(x=>x.Grad).AsQueryable();
+            var query = _context.Korisniks.Include(x=>x.Grad)
+                .Include(x=>x.TipKorisnika)
+                .AsQueryable();
             if (!string.IsNullOrWhiteSpace(request.Ime))
             {
                 query = query.Where(x => x.Ime.StartsWith(request.Ime));
@@ -49,7 +51,9 @@ namespace PhotoStudio.Service
         }
         public Data.Model.Korisnik GetById(int id)
         {
-            var korisnik = _context.Korisniks.Include(x => x.Grad).FirstOrDefault(y => y.KorisnikId == id);
+            var korisnik = _context.Korisniks.Include(x => x.Grad)
+                .Include(x => x.TipKorisnika)
+                .FirstOrDefault(y => y.KorisnikId == id);
             return _mapper.Map<Data.Model.Korisnik>(korisnik);
         }
         public Data.Model.Korisnik Insert(KorisnikUpsert request)
@@ -79,6 +83,21 @@ namespace PhotoStudio.Service
             _context.SaveChanges();
 
             return _mapper.Map<Data.Model.Korisnik>(entity);
+        }
+        public Data.Model.Korisnik Login(KorisnikLoginRequest request)
+        {
+            var korisnik = _context.Korisniks.Include(x => x.TipKorisnika).FirstOrDefault(x => x.Username == request.Username);
+
+            if (korisnik != null)
+            {
+                var newHash = HashGenerator.GenerateHash(korisnik.PasswordSalt, request.Password);
+
+                if (korisnik.PasswordHash == newHash)
+                {
+                    return _mapper.Map<Data.Model.Korisnik>(korisnik);
+                }
+            }
+            return null;
         }
     }
 }
