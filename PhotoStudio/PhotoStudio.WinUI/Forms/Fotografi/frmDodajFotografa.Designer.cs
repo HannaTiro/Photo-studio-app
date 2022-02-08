@@ -32,16 +32,12 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.txtPrezime = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtKontakt = new System.Windows.Forms.TextBox();
             this.txtCijena = new System.Windows.Forms.TextBox();
             this.txtOpis = new System.Windows.Forms.TextBox();
             this.pbSlika = new System.Windows.Forms.PictureBox();
@@ -75,28 +71,10 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.label2.TabIndex = 1;
             this.label2.Text = "Prezime";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Email";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 201);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Kontakt";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(44, 250);
+            this.label5.Location = new System.Drawing.Point(44, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 4;
@@ -105,7 +83,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(44, 304);
+            this.label6.Location = new System.Drawing.Point(44, 203);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 5;
@@ -114,7 +92,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 359);
+            this.label7.Location = new System.Drawing.Point(44, 259);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 6;
@@ -145,25 +123,9 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtPrezime.TabIndex = 10;
             this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating);
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(47, 166);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(243, 20);
-            this.txtEmail.TabIndex = 11;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
-            // 
-            // txtKontakt
-            // 
-            this.txtKontakt.Location = new System.Drawing.Point(47, 217);
-            this.txtKontakt.Name = "txtKontakt";
-            this.txtKontakt.Size = new System.Drawing.Size(243, 20);
-            this.txtKontakt.TabIndex = 12;
-            this.txtKontakt.Validating += new System.ComponentModel.CancelEventHandler(this.txtKontakt_Validating);
-            // 
             // txtCijena
             // 
-            this.txtCijena.Location = new System.Drawing.Point(47, 266);
+            this.txtCijena.Location = new System.Drawing.Point(47, 165);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(243, 20);
             this.txtCijena.TabIndex = 13;
@@ -191,7 +153,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             // cmbTipFotografa
             // 
             this.cmbTipFotografa.FormattingEnabled = true;
-            this.cmbTipFotografa.Location = new System.Drawing.Point(47, 321);
+            this.cmbTipFotografa.Location = new System.Drawing.Point(47, 220);
             this.cmbTipFotografa.Name = "cmbTipFotografa";
             this.cmbTipFotografa.Size = new System.Drawing.Size(243, 21);
             this.cmbTipFotografa.TabIndex = 17;
@@ -200,7 +162,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             // cbDostupan
             // 
             this.cbDostupan.AutoSize = true;
-            this.cbDostupan.Location = new System.Drawing.Point(107, 359);
+            this.cbDostupan.Location = new System.Drawing.Point(107, 259);
             this.cbDostupan.Name = "cbDostupan";
             this.cbDostupan.Size = new System.Drawing.Size(15, 14);
             this.cbDostupan.TabIndex = 18;
@@ -244,7 +206,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(47, 402);
+            this.btnBack.Location = new System.Drawing.Point(47, 346);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(108, 23);
             this.btnBack.TabIndex = 22;
@@ -268,16 +230,12 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.Controls.Add(this.pbSlika);
             this.Controls.Add(this.txtOpis);
             this.Controls.Add(this.txtCijena);
-            this.Controls.Add(this.txtKontakt);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.txtIme);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmDodajFotografa";
@@ -294,16 +252,12 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.TextBox txtPrezime;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtKontakt;
         private System.Windows.Forms.TextBox txtCijena;
         private System.Windows.Forms.TextBox txtOpis;
         private System.Windows.Forms.PictureBox pbSlika;

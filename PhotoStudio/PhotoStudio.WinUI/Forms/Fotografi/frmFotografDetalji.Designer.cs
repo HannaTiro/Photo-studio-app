@@ -43,11 +43,13 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnUredi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnUredi);
             this.groupBox1.Controls.Add(this.txtOpis);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnBack);
@@ -87,7 +89,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(142, 365);
+            this.btnBack.Location = new System.Drawing.Point(16, 365);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 10;
@@ -180,6 +182,16 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.label1.TabIndex = 0;
             this.label1.Text = "Ime fotografa";
             // 
+            // btnUredi
+            // 
+            this.btnUredi.Location = new System.Drawing.Point(286, 365);
+            this.btnUredi.Name = "btnUredi";
+            this.btnUredi.Size = new System.Drawing.Size(75, 23);
+            this.btnUredi.TabIndex = 2;
+            this.btnUredi.Text = "Uredi";
+            this.btnUredi.UseVisualStyleBackColor = true;
+            this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
+            // 
             // frmFotografDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,5 +226,6 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtOpis;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnUredi;
     }
 }

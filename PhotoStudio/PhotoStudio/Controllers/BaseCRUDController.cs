@@ -10,7 +10,7 @@ namespace PhotoStudio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-   // [Authorize]
+    [Authorize]
     public class BaseCRUDController<TModel, Tsearch, TInsert, TUpdate> : BaseController<TModel, Tsearch> where Tsearch:class
     {
         protected readonly ICRUDService<TModel, Tsearch, TInsert, TUpdate> _service = null;
@@ -21,6 +21,7 @@ namespace PhotoStudio.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public TModel Insert(TInsert request)
         {
             return _service.Insert(request);
@@ -31,7 +32,8 @@ namespace PhotoStudio.Controllers
             return _service.Update(id, request);
         }
         [HttpDelete]
-       void Delete (int id)
+        [Authorize(Roles = "Administrator")]
+        void Delete (int id)
         {
             _service.Delete(id);
         }

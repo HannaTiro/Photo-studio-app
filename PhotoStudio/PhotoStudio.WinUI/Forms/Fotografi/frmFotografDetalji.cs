@@ -47,5 +47,11 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
         {
             this.Close();
         }
+
+        private void btnUredi_Click(object sender, EventArgs e)
+        {
+            frmUpdateFotografa forma = new frmUpdateFotografa(_fotograf);
+            forma.Show();
+        }
     }
 }
