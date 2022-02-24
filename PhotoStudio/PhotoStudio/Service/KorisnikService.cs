@@ -8,6 +8,8 @@ using PhotoStudio.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PhotoStudio.Service
@@ -101,5 +103,6 @@ namespace PhotoStudio.Service
                  return _mapper.Map<Data.Model.Korisnik>(korisnik);
 
         }
+    
     }
 }

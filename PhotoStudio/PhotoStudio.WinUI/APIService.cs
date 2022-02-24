@@ -140,6 +140,7 @@ namespace PhotoStudio.WinUI
                 return default(T);
             }
         }
+    
 
         public async Task<T> Update<T>(object id, object request)
         {
@@ -172,6 +173,7 @@ namespace PhotoStudio.WinUI
             }
 
         }
+     
 
 
     }

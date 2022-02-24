@@ -14,6 +14,8 @@ namespace PhotoStudio.Interface
         Data.Model.Korisnik Update(int id, KorisnikUpsert request);
 
     Data.Model.Korisnik Login(KorisnikLoginRequest request);
+      
+
 
     }
 }
