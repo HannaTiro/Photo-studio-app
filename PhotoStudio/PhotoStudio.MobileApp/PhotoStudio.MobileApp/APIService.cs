@@ -35,8 +35,8 @@ namespace PhotoStudio.MobileApp
        
         public async Task<T> Get<T>(object search=null)
         {
-           
-          
+
+            var url = $"{_apiUrl}/{_route}";
             try
             {
 
@@ -50,7 +50,7 @@ namespace PhotoStudio.MobileApp
                 // .WithBasicAuth(Username, Password)
                 //  .GetJsonAsync<T>();
                 //return list;
-                var url = $"{_apiUrl}/{_route}";
+                
 
                 if (search != null)
             {
@@ -68,6 +68,23 @@ namespace PhotoStudio.MobileApp
                 throw;
             }
 }
+        public async Task<T> GetProvjera<T>(object search)
+        {
+            var url = $"{_apiUrl}/{_route}";
+            if (search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+            return await url.GetJsonAsync<T>();
+        }
+        public async Task<T> SingUp<T>(object request)
+        {
+            var url = $"{_apiUrl}/{_route}";
+            return await url.PostJsonAsync(request).ReceiveJson<T>();
+        }
+
+
         public async Task<T> GetById<T>(object id)
         {
             // try

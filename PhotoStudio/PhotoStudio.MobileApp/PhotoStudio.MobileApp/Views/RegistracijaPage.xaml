@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels"
+             x:Class="PhotoStudio.MobileApp.Views.RegistracijaPage">
+    <ContentPage.BindingContext>
+        <vm:RegistracijaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+       
+        <StackLayout Padding="50">
+
+            <Label FontSize="Large" HorizontalOptions="Center" Text="Registracija"></Label>
+
+            <Label Text="FirstName"></Label>
+            <Entry Text="{Binding Ime}"></Entry>
+
+            <Label Text="Last name"></Label>
+            <Entry Text="{Binding Prezime}"></Entry>
+
+            <Label Text="Phone"></Label>
+            <Entry Text="{Binding Telefon}"></Entry>
+    
+            <Label Text="Email"></Label>
+            <Entry Text="{Binding Email}"></Entry>
+
+            <Label Text="Username"></Label>
+            <Entry Text="{Binding Username}"></Entry>
+
+            <Label Text="Password"></Label>
+            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+
+            <Label Text="PasswordConfirm"></Label>
+            <Entry Text="{Binding PasswordConfirm}" IsPassword="True"></Entry>
+
+            <Label  Text="Kreirajte korisnički račun" HorizontalTextAlignment="Center" TextColor="WhiteSmoke">
+
+            </Label>
+            <Button Command="{Binding RegisterCommand}" HorizontalOptions="Center" Text="Registruj se" ></Button>
+
+            <Button Clicked="Button_Clicked_Canceled" HorizontalOptions="Center"  Text="Cancel"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

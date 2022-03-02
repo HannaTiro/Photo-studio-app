@@ -12,7 +12,7 @@ namespace PhotoStudio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+ 
     public class KorisnikController : ControllerBase
     {
         private readonly IKorisnikService _service;
@@ -34,7 +34,7 @@ namespace PhotoStudio.Controllers
             return _service.GetById(id);
         }
 
-        [Authorize(Roles = "Administrator")]
+
         [HttpPost]
         public ActionResult<Data.Model.Korisnik> Insert(KorisnikUpsert request)
         {
