@@ -74,7 +74,7 @@ namespace PhotoStudio.MobileApp.ViewModels
                     }
                 }
                 //await _service.Get<dynamic>(null);
-                Application.Current.MainPage = new AboutPage(); //pocetna stranica
+                Application.Current.MainPage = new PocetniPage(); //pocetna stranica
             }
             catch (Exception ex)
             {
