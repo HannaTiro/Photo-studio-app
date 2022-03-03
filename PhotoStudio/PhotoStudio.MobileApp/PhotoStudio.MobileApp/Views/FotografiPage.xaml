@@ -13,8 +13,9 @@
                 HorizontalOptions="CenterAndExpand" />
             
             <Label FontSize="Medium">Filtriraj po vrsti eventa </Label>
-            <Entry Placeholder="Rođendan, vjenčanje ..." Text="{Binding Naziv}"></Entry>
-            <Button Text="Search" HorizontalOptions="Center" Command="{Binding PretraziFotografe}" ></Button>
+            <Picker ItemsSource="{Binding ListaTipovaFotografa}" SelectedItem="{Binding SelectedTipFotografa}" ItemDisplayBinding="{Binding Naziv }">
+                
+            </Picker>
 
             <ListView ItemsSource="{Binding ListaFotografa}"  BackgroundColor="MistyRose">
                 <ListView.ItemTemplate>
