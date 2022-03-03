@@ -17,7 +17,7 @@
             <Entry Text="{Binding Username}"></Entry>
             
             <Label Text="Password" HorizontalOptions="CenterAndExpand"></Label>
-            <Entry Text="{Binding Password}"></Entry>
+            <Entry  Text="{Binding Password}" IsPassword="True" Placeholder="******"></Entry>
             
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}" />
             <Label Text="Nemate kreiran korisnički račun?" HorizontalOptions="CenterAndExpand" TextColor="White"></Label>

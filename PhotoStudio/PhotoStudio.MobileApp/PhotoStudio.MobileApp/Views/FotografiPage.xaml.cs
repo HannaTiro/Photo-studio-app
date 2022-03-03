@@ -25,5 +25,12 @@ namespace PhotoStudio.MobileApp.Views
             await model.Init();
 
         }
+
+        private async Task ListView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        {
+            var clicked_item = e.SelectedItem as Data.Model.Fotograf;
+
+           // await Navigation.PushAsync(new FotografDetalji(clicked_item)); //dodati novi view 
+        }
     }
 }
