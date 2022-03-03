@@ -16,8 +16,26 @@
             <Entry Placeholder="Rođendan, vjenčanje ..." Text="{Binding Naziv}"></Entry>
             <Button Text="Search" HorizontalOptions="Center" Command="{Binding PretraziFotografe}" ></Button>
 
-            <ListView ItemsSource="{Binding ListaFotografa}">
-                
+            <ListView ItemsSource="{Binding ListaFotografa}"  BackgroundColor="MistyRose">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Ime}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle }"
+                                       FontSize="15"/>
+                                <Label  Text="{Binding Prezime}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle }"
+                                       FontSize="15" />
+
+
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>

@@ -1,6 +1,7 @@
 ﻿using PhotoStudio.MobileApp.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace PhotoStudio.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(false)]
     public partial class ListaMeniPage : ContentPage
     {
         PocetniPage pocetnaStranica { get => Application.Current.MainPage as PocetniPage; }

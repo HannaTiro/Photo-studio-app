@@ -2,6 +2,7 @@
 using PhotoStudio.MobileApp.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace PhotoStudio.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(false)]
     public partial class PocetniPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> listaMeniPage = new Dictionary<int, NavigationPage>();

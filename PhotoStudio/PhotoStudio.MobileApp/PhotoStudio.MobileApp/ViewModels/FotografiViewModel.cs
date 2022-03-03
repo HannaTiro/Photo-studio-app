@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotoStudio.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -11,7 +12,7 @@ namespace PhotoStudio.MobileApp.ViewModels
 public class FotografiViewModel
     {
         private readonly APIService _fotografService = new APIService("Fotograf");
-        public ObservableCollection<Data.Model.Fotograf> ListaFotografa { get; set; } = new ObservableCollection<Data.Model.Fotograf>();
+        public ObservableCollection<Fotograf> ListaFotografa { get; set; } = new ObservableCollection<Fotograf>();
         public ICommand InitCommand { get; set; }
         public ICommand PretragaFotografa { get; set; }
 
@@ -22,13 +23,13 @@ public class FotografiViewModel
         }
         public async Task Init()
         {
-            var listaFotografa = await _fotografService.Get<List<Data.Model.Fotograf>>(null);
+            var listaFotografa = await _fotografService.Get<List<Fotograf>>(null);
             ListaFotografa.Clear();
             foreach (var fot in listaFotografa)
             {
-                listaFotografa.Add(fot);
+                ListaFotografa.Add(fot);
             }
-            if(listaFotografa.Count==0)
+            if (listaFotografa.Count == 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Greška", "Trenutno nema dostupnih fotografa", "OK");
 
