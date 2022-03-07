@@ -26,11 +26,13 @@ namespace PhotoStudio.MobileApp.Views
 
         }
 
-        private async Task ListView_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
-        {
-            var clicked_item = e.SelectedItem as Data.Model.Fotograf;
 
-           // await Navigation.PushAsync(new FotografDetalji(clicked_item)); //dodati novi view 
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+            var clicked_item = e.Item as Data.Model.Fotograf;
+
+            await Navigation.PushAsync(new FotografDetalji(clicked_item));
         }
     }
 }

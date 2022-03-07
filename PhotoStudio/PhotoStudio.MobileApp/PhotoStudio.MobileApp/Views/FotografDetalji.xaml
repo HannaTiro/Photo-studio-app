@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels" xmlns:converters="clr-namespace:PhotoStudio.MobileApp.Converters"
+             x:Class="PhotoStudio.MobileApp.Views.FotografDetalji"
+             BackgroundColor="RosyBrown">
+    <ContentPage.BindingContext>
+        <vm:FotografDetaljiViewModel></vm:FotografDetaljiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                
+            
+            <StackLayout>
+                <Image WidthRequest="300" HeightRequest="300" Source="{Binding _fotograf.Slika,Converter={StaticResource imgConv}}"></Image>
+            </StackLayout>
+                <StackLayout>
+                    <Label>Ime fotografa:</Label>
+                    <Entry IsReadOnly="True" Text="{Binding _fotograf.Ime}"></Entry>
+                </StackLayout>
+                <StackLayout>
+                    <Label>Prezime fotografa:</Label>
+                    <Entry IsReadOnly="True" Text="{Binding _fotograf.Prezime}"></Entry>
+                </StackLayout>
+                <StackLayout>
+                    <Label>Tip fotografa:</Label>
+                    <Entry IsReadOnly="True" Text="{Binding _fotograf.TipFotografa.Naziv}"></Entry>
+                </StackLayout>
+                <StackLayout>
+                    <Label>Prosječna ocjena:</Label>
+                    <Entry IsReadOnly="True" Text="{Binding ProsjecnaOcjena}"></Entry>
+                </StackLayout>
+                <StackLayout>
+                    <Label>Cijena po danu :</Label>
+                    <Entry IsReadOnly="True" Text="{Binding _fotograf.DnevnaCijena}"></Entry>
+                </StackLayout>
+                <StackLayout>
+                    <Label>Opis:</Label>
+                    <Entry IsReadOnly="True" Text="{Binding _fotograf.Opis}"></Entry>
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Rezerviši"></Button>
+                </StackLayout>
+                <StackLayout>
+                    <Label  Text="Preporučujemo Vam i sljedeće fotografe"></Label>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+   
+</ContentPage>

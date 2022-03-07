@@ -22,7 +22,7 @@
                 
             </Picker>
 
-            <ListView ItemsSource="{Binding ListaFotografa}"  BackgroundColor="MistyRose" >
+            <ListView ItemTapped="ListView_ItemTapped" ItemsSource="{Binding ListaFotografa}"  BackgroundColor="MistyRose" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
