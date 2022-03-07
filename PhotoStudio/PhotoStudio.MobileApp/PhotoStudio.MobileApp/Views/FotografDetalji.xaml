@@ -45,7 +45,7 @@
                     <Entry IsReadOnly="True" Text="{Binding _fotograf.Opis}"></Entry>
                 </StackLayout>
                 <StackLayout>
-                    <Button Text="Rezerviši"></Button>
+                    <Button Text="Rezerviši" Clicked="Rezervisi"></Button>
                 </StackLayout>
                 <StackLayout>
                     <Label  Text="Preporučujemo Vam i sljedeće fotografe"></Label>

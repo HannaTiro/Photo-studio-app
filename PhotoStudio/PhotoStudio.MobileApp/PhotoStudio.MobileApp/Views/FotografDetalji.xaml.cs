@@ -29,5 +29,9 @@ namespace PhotoStudio.MobileApp.Views
             await model.Init();
         }
         //BOOKING DUGME POZIV 
+        private async void Rezervisi(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new FotografRezervacija(model._fotograf));
+        }
     }
 }

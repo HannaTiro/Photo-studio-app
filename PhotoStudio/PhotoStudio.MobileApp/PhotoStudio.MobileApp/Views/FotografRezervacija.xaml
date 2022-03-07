@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels" xmlns:converters="clr-namespace:PhotoStudio.MobileApp.Converters"
+             x:Class="PhotoStudio.MobileApp.Views.FotografRezervacija"
+             BackgroundColor="RosyBrown">
+
+    <ContentPage.BindingContext>
+        <vm:FotografRezervacijaViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Image WidthRequest="300" HeightRequest="300" Source="{Binding _fotograf.Slika,Converter={StaticResource imgConv}}"></Image>
+            </StackLayout>
+            <StackLayout>
+                <Label>Ime fotografa:</Label>
+                <Entry IsReadOnly="True" Text="{Binding _fotograf.Ime}"></Entry>
+                <Label>Prezime fotografa:</Label>
+                <Entry IsReadOnly="True" Text="{Binding _fotograf.Prezime}"></Entry>
+                <Label>Datum od kojeg želite započeti rezervaciju</Label>
+                <DatePicker Date="{Binding DatumOD}"></DatePicker>
+
+                <Label>Datum do kojeg želite rezervisati</Label>
+                <DatePicker Date="{Binding DatumDO}"></DatePicker>
+                <Button Command="{Binding RezervacijaCommand}" Text="Rezerviši"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
