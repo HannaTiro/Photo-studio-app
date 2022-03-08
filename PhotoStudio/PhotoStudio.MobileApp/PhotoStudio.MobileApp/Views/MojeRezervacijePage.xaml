@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels"
+             x:Class="PhotoStudio.MobileApp.Views.MojeRezervacijePage">
+    <ContentPage.BindingContext>
+        <vm:MojeRezervacijeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="15" Orientation="Horizontal">
+            <ListView ItemsSource="{Binding ListaRezervacija}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" >
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15"/>
+                                    <Label Text="Ime fotografa:"
+									 Style="{DynamicResource ListItemTextStyle}" />
+                                       <Label  Text="{Binding Fotograf.Ime}" 
+                                              Style="{DynamicResource LargeLabel}" 
+                                              ></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15"/>
+                                    <Label Text="Prezime fotografa"  Style="{DynamicResource ListItemTextStyle}"></Label>
+                                   <Label Text="{Binding Fotograf.Prezime}"
+                                            Style="{DynamicResource LargeLabel}" 
+                                               ></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15"/>
+                                    <Label Text="Datum početka rezervacije:"  Style="{DynamicResource ListItemTextStyle}"></Label>
+                                    <Label Text="{Binding DatumOd}"     Style="{DynamicResource LargeLabel}" 
+                                               > </Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15"/>
+                                    <Label Text="Datum završetka rezervacije:"  Style="{DynamicResource ListItemTextStyle}"></Label>
+                                    <Label Text="{Binding DatumDo}"   Style="{DynamicResource LargeLabel}" 
+                                               ></Label>
+                                </StackLayout>
+                               
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

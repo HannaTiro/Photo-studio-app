@@ -23,7 +23,7 @@ namespace PhotoStudio.MobileApp.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem{Id=MenuItemType.Fotografi,Title="Fotografi"},
-                //new HomeMenuItem {Id = MenuItemType.Artikli, Title="Artikli" },
+                new HomeMenuItem {Id = MenuItemType.Rezervacije, Title="Rezervacije" },
                 //new HomeMenuItem{Id=MenuItemType.Narudzba,Title="Moja korpa"},
                 //new HomeMenuItem{Id=MenuItemType.HistorijaNarudzbi,Title="Historija narudžbi"},
                 //new HomeMenuItem{Id=MenuItemType.MojProfil,Title="Moj profil"},

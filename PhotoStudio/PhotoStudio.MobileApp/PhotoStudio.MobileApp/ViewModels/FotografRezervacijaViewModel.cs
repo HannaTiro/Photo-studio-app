@@ -93,7 +93,7 @@ namespace PhotoStudio.MobileApp.ViewModels
                 {
                     if(item.DatumDo.Value.Date>DatumOD.Date)
                     {
-                        await Application.Current.MainPage.DisplayAlert("Greška", "Fotograf je zauzet", "OK");
+                        await Application.Current.MainPage.DisplayAlert("Greška", "Fotograf je zauzet u datom periodu", "OK");
                         return;
                     }
                 }
@@ -109,7 +109,9 @@ namespace PhotoStudio.MobileApp.ViewModels
                 var ukupnaCijena = _fotograf.DnevnaCijena * ukupnoDana;
 
                 var cijenaZaPlatiti = string.Format("Iznos koji morate uplatiti fotografu da bi rezervacija bila validna je {0} KM", ukupnaCijena);
-                await Application.Current.MainPage.DisplayAlert("Poruka", cijenaZaPlatiti, "OK");
+                await Application.Current.MainPage.DisplayAlert("Obavještanje", cijenaZaPlatiti, "OK");
+                await Application.Current.MainPage.DisplayAlert("Poruka", "Uplatu možete izvršiti na odjeljku 'Moje rezervacije'", "OK");
+
 
             }
             catch (Exception e)

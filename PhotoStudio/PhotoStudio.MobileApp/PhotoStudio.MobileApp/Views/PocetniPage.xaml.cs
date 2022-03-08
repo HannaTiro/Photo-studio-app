@@ -33,7 +33,10 @@ namespace PhotoStudio.MobileApp.Views
                     case (int)MenuItemType.Fotografi:
                         listaMeniPage.Add(id, new NavigationPage(new FotografiPage()));
                         break;
-              
+                    case (int)MenuItemType.Rezervacije:
+                        listaMeniPage.Add(id, new NavigationPage(new MojeRezervacijePage()));
+                        break;
+
                 }
             }
             var newPage = listaMeniPage[id];
