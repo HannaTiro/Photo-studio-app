@@ -36,6 +36,9 @@ namespace PhotoStudio.MobileApp.Views
                     case (int)MenuItemType.Rezervacije:
                         listaMeniPage.Add(id, new NavigationPage(new MojeRezervacijePage()));
                         break;
+                    case (int)MenuItemType.Komentari:
+                        listaMeniPage.Add(id, new NavigationPage(new MojiKomentariPage()));
+                        break;
 
                 }
             }

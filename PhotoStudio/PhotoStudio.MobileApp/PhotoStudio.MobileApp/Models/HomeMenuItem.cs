@@ -11,13 +11,8 @@ namespace PhotoStudio.MobileApp.Models
         Kontakt,
         Fotografi,
         Rezervacije,
-        //Obavijesti,
-        //Zahtjevi,
-        //HistorijaZahtjeva,
-        //HistorijaNarudzbi,
-        ONama,
-        MojProfil,
-        LogOut
+        Komentari,
+        Ocjene
     }
     public class HomeMenuItem
     {

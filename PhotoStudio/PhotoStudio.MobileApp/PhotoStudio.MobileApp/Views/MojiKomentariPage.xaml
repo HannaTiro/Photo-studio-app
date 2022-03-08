@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels"
+             x:Class="PhotoStudio.MobileApp.Views.MojiKomentariPage">
+    <ContentPage.BindingContext>
+        <vm:MojiKomentariViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Klikom odaberite fotografa kojem želite ostaviti komentar za pruženu uslugu"></Label>
+            <ListView ItemsSource="{Binding ListaRezervacija}" ItemTapped="ListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" >
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15"/>
+                                    <Label Text="Ime fotografa:"
+									 Style="{DynamicResource ListItemTextStyle}" />
+                                    <Label  Text="{Binding Fotograf.Ime}" 
+                                              Style="{DynamicResource LargeLabel}" 
+                                              ></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"/>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15"/>
+                                    <Label Text="Prezime fotografa"  Style="{DynamicResource ListItemTextStyle}"></Label>
+                                    <Label Text="{Binding Fotograf.Prezime}"
+                                            Style="{DynamicResource LargeLabel}" 
+                                               ></Label>
+                                </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
