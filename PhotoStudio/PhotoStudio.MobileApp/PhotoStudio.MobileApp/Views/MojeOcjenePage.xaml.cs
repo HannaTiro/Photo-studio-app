@@ -11,20 +11,24 @@ using Xamarin.Forms.Xaml;
 namespace PhotoStudio.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class KomentarPage : ContentPage
+    public partial class MojeOcjenePage : ContentPage
     {
-        KomentarViewModel model = null;
-        public KomentarPage( Data.Model.Fotograf f)
+        MojeOcjeneViewModel model = null;
+        public MojeOcjenePage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, true);
-            NavigationPage.SetHasBackButton(this, true);
-            BindingContext = model = new KomentarViewModel { _fotograf=f};
+            BindingContext = model = new MojeOcjeneViewModel();
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
+        }
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var rez = e.Item as Data.Model.Rezervacija;
+
+            await Navigation.PushAsync(new OcjenaPage(rez.Fotograf));
         }
     }
 }

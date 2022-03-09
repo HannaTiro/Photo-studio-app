@@ -27,11 +27,7 @@ namespace PhotoStudio.MobileApp.ViewModels
             KomentarisiCommand = new Command(async () => await Komentarisi());
 
         }
-        private string _ime = string.Empty;
-        public string KorsinikIme { get { return _ime; } set {SetProperty(ref _ime,value); } }
-
-        private string _prezime = string.Empty;
-        public string KorsinikPrezime { get { return _prezime; } set { SetProperty(ref _prezime, value); } }
+       
 
         private string _komentar = string.Empty;
         public string KomentarOpis { get { return _komentar; } set { SetProperty(ref _komentar, value); } }
@@ -43,9 +39,8 @@ namespace PhotoStudio.MobileApp.ViewModels
         {
             var korisnik = await _korisnikService.GetById<Data.Model.Korisnik>(APIService.KorisnikId);
             _korisnik = korisnik;
-            KorsinikIme = korisnik.Ime;
-            KorsinikPrezime = korisnik.Prezime;
             
+     
         }
         public async Task Komentarisi()
         {
@@ -95,16 +90,20 @@ namespace PhotoStudio.MobileApp.ViewModels
                 {
                     if (rez.FotografId == _fotograf.FotografId && rez.KorisnikId == _korisnik.KorisnikId)
                     {
-                       
+                        if (rez.isKomentarisano == false) //provjera da li postoji komentar vec, jer je jednu rezervaciju dozvoljeno kom samo jednom 
+                        {
                             var nova = new RezervacijaUpsert
                             {
-                               DatumDo=rez.DatumDo,
-                               DatumOd=rez.DatumOd,
-                               FotografId=rez.Fotograf.FotografId,
-                               KorisnikId=rez.Korisnik.KorisnikId
+                                DatumDo = rez.DatumDo,
+                                DatumOd = rez.DatumOd,
+                                FotografId = rez.Fotograf.FotografId,
+                                KorisnikId = rez.Korisnik.KorisnikId,
+                                isKomentarisano = true
                             };
-                            await _rezervacijaService.Update<Data.Model.Rezervacija>(rez.RezervacijaId, nova); //PROVJERITI
+                            await _rezervacijaService.Update<Data.Model.Rezervacija>(rez.RezervacijaId, nova); 
                             return;
+                       }
+                            
                         
                     }
                 }

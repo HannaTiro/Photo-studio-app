@@ -11,15 +11,16 @@ using Xamarin.Forms.Xaml;
 namespace PhotoStudio.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class KomentarPage : ContentPage
+    public partial class OcjenaPage : ContentPage
     {
-        KomentarViewModel model = null;
-        public KomentarPage( Data.Model.Fotograf f)
+        OcjenaViewModel model = null;
+        public OcjenaPage(Data.Model.Fotograf f)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, true);
             NavigationPage.SetHasBackButton(this, true);
-            BindingContext = model = new KomentarViewModel { _fotograf=f};
+            BindingContext = model = new OcjenaViewModel { _fotograf=f};
+            
         }
         protected async override void OnAppearing()
         {

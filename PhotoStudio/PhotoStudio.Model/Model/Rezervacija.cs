@@ -11,7 +11,9 @@ namespace PhotoStudio.Data.Model
         public DateTime? DatumDo { get; set; }
         public int? KorisnikId { get; set; }
         public int? FotografId { get; set; }
-
+        public bool? isKomentarisano { get; set; } = false; //pomocna
+        public bool? isOcijenjeno { get; set; } = false; //pomocna
+       
         public  Fotograf Fotograf { get; set; }
         public  Korisnik Korisnik { get; set; }
     }

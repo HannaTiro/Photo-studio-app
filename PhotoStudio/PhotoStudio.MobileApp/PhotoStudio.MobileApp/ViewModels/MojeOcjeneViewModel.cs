@@ -9,15 +9,15 @@ using Xamarin.Forms;
 
 namespace PhotoStudio.MobileApp.ViewModels
 {
-    public class MojiKomentariViewModel:BaseViewModel
+   public  class MojeOcjeneViewModel:BaseViewModel
     {
         private readonly APIService _korisnikService = new APIService("Korisnik");
-      
+
         private readonly APIService _rezervacijaService = new APIService("Rezervacija");
         public ObservableCollection<Data.Model.Rezervacija> ListaRezervacija { get; set; } = new ObservableCollection<Data.Model.Rezervacija>();
         public Data.Model.Korisnik _korisnk;
         public ICommand InitCommand { get; set; }
-        public MojiKomentariViewModel()
+        public MojeOcjeneViewModel()
         {
             InitCommand = new Command(async () => await Init());
         }
@@ -27,29 +27,26 @@ namespace PhotoStudio.MobileApp.ViewModels
             _korisnk = korisnik;
             var request = new RezervacijaSearchRequest
             {
-                KorisnikId=_korisnk.KorisnikId
+                KorisnikId = _korisnk.KorisnikId
             };
             ListaRezervacija.Clear();
             var rezervacije = await _rezervacijaService.Get<List<Data.Model.Rezervacija>>(request);
             foreach (var item in rezervacije)
             {
-                if(item.isKomentarisano==false && item.DatumDo.Value<=DateTime.Now.Date) //ako je rezervacija prosla tek onda moze ostaviti komentar
-               // if (item.DatumDo.Value <= DateTime.Now.Date)
+                if (item.isOcijenjeno == false && item.DatumDo.Value <= DateTime.Now.Date)
                 {
-                   
+  
                     ListaRezervacija.Add(item);
                 }
-               
+
             }
-            if(ListaRezervacija.Count==0)
+            if (ListaRezervacija.Count == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Poruka", "Komentare za rezervacije možete ostaviti tek kada one isteknu. Hvala. ", "OK");
+                await Application.Current.MainPage.DisplayAlert("Poruka", "Ocjene za rezervacije možete ostaviti tek kada one isteknu. Hvala. ", "OK");
 
             }
 
         }
-
-
 
 
     }

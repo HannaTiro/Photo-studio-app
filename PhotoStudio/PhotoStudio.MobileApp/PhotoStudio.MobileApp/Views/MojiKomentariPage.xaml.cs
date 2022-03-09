@@ -27,9 +27,9 @@ namespace PhotoStudio.MobileApp.Views
 
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var clicked_item = e.Item as Data.Model.Rezervacija;
+            var rez = e.Item as Data.Model.Rezervacija;
 
-            await Navigation.PushAsync(new KomentarPage(clicked_item.Fotograf));
+            await Navigation.PushAsync(new KomentarPage(rez.Fotograf));
         }
     }
 }

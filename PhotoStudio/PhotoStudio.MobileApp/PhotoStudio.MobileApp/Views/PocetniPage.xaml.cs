@@ -39,6 +39,12 @@ namespace PhotoStudio.MobileApp.Views
                     case (int)MenuItemType.Komentari:
                         listaMeniPage.Add(id, new NavigationPage(new MojiKomentariPage()));
                         break;
+                    case (int)MenuItemType.Ocjene:
+                        listaMeniPage.Add(id, new NavigationPage(new MojeOcjenePage()));
+                        break;
+                    case (int)MenuItemType.LogOut:
+                        listaMeniPage.Add(id, new NavigationPage(new LoginPage()));
+                        break;
 
                 }
             }

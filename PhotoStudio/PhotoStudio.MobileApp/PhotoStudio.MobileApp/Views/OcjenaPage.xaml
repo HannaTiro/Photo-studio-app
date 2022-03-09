@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels"
-             x:Class="PhotoStudio.MobileApp.Views.KomentarPage"
+             x:Class="PhotoStudio.MobileApp.Views.OcjenaPage"
              BackgroundColor="RosyBrown">
     <ContentPage.BindingContext>
-        <vm:KomentarViewModel />
+        <vm:OcjenaViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
@@ -15,10 +15,10 @@
             <Entry IsReadOnly="True"  Text="{Binding _fotograf.Prezime}"></Entry>
 
             <Label Text="Datum:"></Label>
-            <DatePicker IsEnabled="False" Date="{Binding DatumKomentara}"></DatePicker>
-            <Label Text="Komentar:"></Label>
-            <Entry  Text="{Binding KomentarOpis}" HeightRequest="70"></Entry>
-            <Button Command="{Binding KomentarisiCommand}" Text="Komentarisi"></Button>
+            <DatePicker IsEnabled="False" Date="{Binding DatumOcjene}"></DatePicker>
+            <Label Text="Vaša ocjena (1-5):"></Label>
+            <Entry  Text="{Binding Ocjena}" HeightRequest="50"></Entry>
+            <Button Command="{Binding OcijeniCommand}" Text="Ocijeni"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -33,6 +33,7 @@ namespace PhotoStudio.MobileApp.ViewModels
             {
                 KorisnikId = _korisnik.KorisnikId
             };
+            ListaRezervacija.Clear(); //ne dupla listu rezervacija kada se učitava više puta u jednoj pokrenutoj sesiji 
             var KorisnikRezervacije = await _rezervacijaService.Get<List<Data.Model.Rezervacija>>(request);
             foreach (var i in KorisnikRezervacije)
             {

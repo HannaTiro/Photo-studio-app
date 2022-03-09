@@ -12,7 +12,8 @@ namespace PhotoStudio.MobileApp.Models
         Fotografi,
         Rezervacije,
         Komentari,
-        Ocjene
+        Ocjene,
+        LogOut
     }
     public class HomeMenuItem
     {
