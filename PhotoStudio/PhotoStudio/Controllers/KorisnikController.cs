@@ -40,7 +40,7 @@ namespace PhotoStudio.Controllers
         {
             return _service.Insert(request);
         }
-        [Authorize(Roles = "Administrator")]
+        
         [HttpPut("{id}")]
         public ActionResult<Data.Model.Korisnik> Update(int id, [FromBody] KorisnikUpsert request)
         {

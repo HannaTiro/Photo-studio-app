@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:PhotoStudio.MobileApp.ViewModels"
+             x:Class="PhotoStudio.MobileApp.Views.KorisnikProfilPage"
+             BackgroundColor="RosyBrown">
+
+    <ContentPage.BindingContext>
+        <viewModels:KorisnikProfilViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label FontSize="30" HorizontalOptions="Center" Text="Vaše informacije:"></Label>
+
+            <Label Text="Ime:"></Label>
+            <Entry Text="{Binding ImeKorisnika}" IsReadOnly="True" ></Entry>
+
+            <Label Text="Prezime:"></Label>
+            <Entry Text="{Binding PrezimeKorisnika}" IsReadOnly="True" ></Entry>
+
+            <Label Text="Broj telefona:"></Label>
+            <Entry Text="{Binding Telefon}" IsReadOnly="True" ></Entry>
+
+            <Label Text="Email:"></Label>
+            <Entry Text="{Binding Email}" IsReadOnly="True"></Entry>
+
+            <Label Text="Grad iz kojeg dolazite:"></Label>
+            <Entry Text="{Binding Grad}" IsReadOnly="True" ></Entry>
+
+            <Button Clicked="Uredi" Text="Uredi"  ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -45,6 +45,9 @@ namespace PhotoStudio.MobileApp.Views
                     case (int)MenuItemType.LogOut:
                         listaMeniPage.Add(id, new NavigationPage(new LoginPage()));
                         break;
+                    case (int)MenuItemType.PostavkeProfila:
+                        listaMeniPage.Add(id, new NavigationPage(new KorisnikProfilPage()));
+                        break;
 
                 }
             }

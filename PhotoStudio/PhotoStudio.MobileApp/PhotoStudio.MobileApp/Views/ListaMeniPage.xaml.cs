@@ -26,7 +26,7 @@ namespace PhotoStudio.MobileApp.Views
                 new HomeMenuItem {Id = MenuItemType.Rezervacije, Title="Moje rezervacije" },
                 new HomeMenuItem {Id = MenuItemType.Komentari, Title=" Moji komentari" },
                 new HomeMenuItem {Id = MenuItemType.Ocjene, Title=" Moje ocjene"},
-                //new HomeMenuItem{Id=MenuItemType.MojProfil,Title="Moj profil"},
+                new HomeMenuItem{Id=MenuItemType.PostavkeProfila,Title="Moj profil"},
                 new HomeMenuItem{Id=MenuItemType.LogOut,Title="Odjavi se"}
             };
             ListViewMenu.ItemsSource = menuItems;

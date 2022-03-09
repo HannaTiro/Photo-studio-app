@@ -4,23 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace PhotoStudio.MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class UrediKorisnikProfilPage : ContentPage
     {
-        public LoginPage()
+        UrediKorisnikProfilViewModel model = null;
+        public UrediKorisnikProfilPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
-            //this.BindingContext = new LoginViewModel();
+            BindingContext = model = new UrediKorisnikProfilViewModel();
         }
-        private async void Register_Clicked(object sender, EventArgs e)
+        protected async override void OnAppearing()
         {
-            await Navigation.PushModalAsync(new RegistracijaPage());
+            base.OnAppearing();
+            await model.Init();
         }
     }
 }
