@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PhotoStudio.Database;
 
 namespace PhotoStudio.Migrations
 {
     [DbContext(typeof(PhotoStudioContext))]
-    partial class PhotoStudioContextModelSnapshot : ModelSnapshot
+    [Migration("20220310211832_Rezervacija_IsPlaceno")]
+    partial class Rezervacija_IsPlaceno
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -204,12 +206,6 @@ namespace PhotoStudio.Migrations
 
                     b.Property<int?>("FotografId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsKomentarisano")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsOcijenjeno")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsPlaceno")
                         .HasColumnType("bit");

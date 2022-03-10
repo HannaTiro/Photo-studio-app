@@ -17,7 +17,7 @@
             <Label Text="Datum:"></Label>
             <DatePicker IsEnabled="False" Date="{Binding DatumOcjene}"></DatePicker>
             <Label Text="Vaša ocjena (1-5):"></Label>
-            <Entry  Text="{Binding Ocjena}" HeightRequest="50" Placeholder="{Binding _ocjena}"></Entry>
+            <Entry  Text="{Binding Ocjena}" HeightRequest="50" ></Entry>
             <Button Command="{Binding OcijeniCommand}" Text="Ocijeni"></Button>
         </StackLayout>
     </ContentPage.Content>

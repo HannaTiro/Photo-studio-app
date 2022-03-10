@@ -33,7 +33,7 @@ namespace PhotoStudio.MobileApp.ViewModels
             var rezervacije = await _rezervacijaService.Get<List<Data.Model.Rezervacija>>(request);
             foreach (var item in rezervacije)
             {
-                if (item.isOcijenjeno == false && item.DatumDo.Value <= DateTime.Now.Date)
+                if (item.IsOcijenjeno == false && item.DatumDo.Value <= DateTime.Now.Date)
                 {
   
                     ListaRezervacija.Add(item);

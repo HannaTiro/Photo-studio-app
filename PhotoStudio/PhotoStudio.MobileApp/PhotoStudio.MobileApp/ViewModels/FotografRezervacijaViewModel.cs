@@ -104,7 +104,7 @@ namespace PhotoStudio.MobileApp.ViewModels
                     DatumDo = DatumDO.Date,
                     DatumOd = DatumOD.Date,
                     FotografId = _fotograf.FotografId,
-                    isPlaceno=false
+                    IsPlaceno=false
                 };
                 await _rezervacijaService.Insert<Data.Model.Rezervacija>(request);
                 var ukupnoDana = (request.DatumDo.Value.Date - request.DatumOd.Value.Date).TotalDays;

@@ -11,11 +11,11 @@ namespace PhotoStudio.Data.Model
         public DateTime? DatumDo { get; set; }
         public int? KorisnikId { get; set; }
         public int? FotografId { get; set; }
-        public bool? isKomentarisano { get; set; } = false; //pomocna
-        public bool? isOcijenjeno { get; set; } = false; //pomocna
-        public bool? isPlaceno { get; set; } = false; //pomocna
+        public bool IsKomentarisano { get; set; } = false; //pomocna
+        public bool IsOcijenjeno { get; set; } = false; //pomocna
+        public bool IsPlaceno { get; set; } = false;
 
         public Fotograf Fotograf { get; set; }
-        public  Korisnik Korisnik { get; set; }
+        public Korisnik Korisnik { get; set; }
     }
 }

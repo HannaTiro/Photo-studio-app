@@ -103,7 +103,7 @@ namespace PhotoStudio.MobileApp.ViewModels
         {
 
          
-            var rezervacijaId = await _rezervacijaService.GetById<Data.Model.Rezervacija>(RezervacijaId);
+            var rezervacija = await _rezervacijaService.GetById<Data.Model.Rezervacija>(RezervacijaId);
            
 
             CreditCardModel.ExpMonth = Convert.ToInt64(ExpMonth);
@@ -112,7 +112,7 @@ namespace PhotoStudio.MobileApp.ViewModels
             CancellationToken token = tokenSource.Token;
             try
             {
-                if (rezervacijaId.isPlaceno == true)
+                if (rezervacija.IsPlaceno == true)
                 {
                     UserDialogs.Instance.Alert("Greška", "Već plaćeno", "OK");
                   
@@ -158,15 +158,16 @@ namespace PhotoStudio.MobileApp.ViewModels
               
                 var request = new RezervacijaUpsert
                 {
-                    DatumDo = rezervacijaId.DatumDo,
-                    DatumOd = rezervacijaId.DatumOd,
-                    FotografId = rezervacijaId.Fotograf.FotografId,
+                    DatumDo = rezervacija.DatumDo,
+                    DatumOd = rezervacija.DatumOd,
+                    FotografId = rezervacija.Fotograf.FotografId,
                     KorisnikId = APIService.KorisnikId,
+                    IsKomentarisano = rezervacija.IsKomentarisano,
+                    IsOcijenjeno = rezervacija.IsOcijenjeno,
                     //IZNOS = >//avans...ne ukupno fiksno 50KM 
 
                     //IsPLACENO= dodati radi filtriranja koje rezervacije su placene, a koje ne
-                  
-                    isPlaceno = true
+                    IsPlaceno = true
                    
 
                 };

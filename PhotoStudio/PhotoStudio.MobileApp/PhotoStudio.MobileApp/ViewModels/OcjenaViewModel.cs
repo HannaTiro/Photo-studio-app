@@ -105,7 +105,7 @@ namespace PhotoStudio.MobileApp.ViewModels
                 {
                     if (rez.FotografId == _fotograf.FotografId && rez.KorisnikId == _korisnik.KorisnikId)
                     {
-                        if (rez.isOcijenjeno == false) //provjera da li postoji komentar vec, jer je jednu rezervaciju dozvoljeno kom samo jednom 
+                        if (rez.IsOcijenjeno == false) //provjera da li postoji komentar vec, jer je jednu rezervaciju dozvoljeno kom samo jednom 
                         {
                             var nova = new RezervacijaUpsert
                             {
@@ -113,9 +113,9 @@ namespace PhotoStudio.MobileApp.ViewModels
                                 DatumOd = rez.DatumOd,
                                 FotografId = rez.Fotograf.FotografId,
                                 KorisnikId = rez.Korisnik.KorisnikId,
-                                isKomentarisano = rez.isKomentarisano,
-                                isOcijenjeno = true,
-                                isPlaceno=rez.isPlaceno
+                                IsKomentarisano = rez.IsKomentarisano,
+                                IsOcijenjeno = true,
+                                IsPlaceno=rez.IsPlaceno
                                 
                             };
                             await _rezervacijaService.Update<Data.Model.Rezervacija>(rez.RezervacijaId, nova);
