@@ -13,7 +13,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="15" Orientation="Horizontal" BackgroundColor="LightPink">
+                            <StackLayout Padding="15" Orientation="Horizontal" BackgroundColor="MistyRose">
                                 <StackLayout Orientation="Vertical" >
                                     <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15" HorizontalOptions="StartAndExpand">
                                         <Label Text="Ime fotografa:" FontSize="23"></Label>

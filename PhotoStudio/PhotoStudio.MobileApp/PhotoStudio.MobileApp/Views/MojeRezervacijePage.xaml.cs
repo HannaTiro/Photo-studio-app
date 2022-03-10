@@ -1,4 +1,5 @@
 ﻿using PhotoStudio.MobileApp.ViewModels;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,14 @@ namespace PhotoStudio.MobileApp.Views
             base.OnAppearing();
             await model.Init();
         }
+
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var rezervacija = e.Item as Data.Model.Rezervacija;
+
+           await Navigation.PushAsync(new RezervacijaPlatiPage(rezervacija));
+        }
+      
+     
     }
 }

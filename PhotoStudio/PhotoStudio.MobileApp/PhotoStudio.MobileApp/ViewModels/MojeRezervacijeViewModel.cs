@@ -9,19 +9,21 @@ using Xamarin.Forms;
 
 namespace PhotoStudio.MobileApp.ViewModels
 {
-    public class MojeRezervacijeViewModel: BaseViewModel
+    public class MojeRezervacijeViewModel : BaseViewModel
     {
         private readonly APIService _korisnikService = new APIService("Korisnik");
         private readonly APIService _rezervacijaService = new APIService("Rezervacija");
         public Data.Model.Korisnik _korisnik { get; set; }
         public ObservableCollection<Data.Model.Rezervacija> ListaRezervacija { get; set; } = new ObservableCollection<Data.Model.Rezervacija>();
+
+
         public ICommand InitCommand { get; set; }
-      //  public ICommand SortCommand { get; set; } //dodati za filter placene/neplacene 
+
 
         public MojeRezervacijeViewModel()
         {
             InitCommand = new Command(async () => await Init());
-          //SortCommand = new Command(async () => await Sort());
+
 
 
         }
@@ -39,33 +41,14 @@ namespace PhotoStudio.MobileApp.ViewModels
             {
                 ListaRezervacija.Add(i);
             }
-            if(ListaRezervacija.Count==0)
+            if (ListaRezervacija.Count == 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Poruka", "Nemate izvršenih rezervacija", "OK");
             }
         }
-        //public async Task Sort()
-        //{
-
-        //    var request = new BookingSearchRequest
-        //    {
-        //       isPlaceno=isPlaceno
-        //    };
-
-        //    var list = await _rezervacijaService.Get<IEnumerable<Data.Model.Rezervacija>>(request);
-        //    ListaRezervacija.Clear();
-
-        //    foreach (var item in list)
-        //    {
-
-        //        ListaRezervacija.Add(item);
-        //    }
-        //    if (ListaRezervacija.Count == 0)
-        //    {
-        //        await Application.Current.MainPage.DisplayAlert("Poruka", "Nema rezultata pretrage", "OK");
-        //    }
-        //}
-
+       
+       
+    
 
     }
 }

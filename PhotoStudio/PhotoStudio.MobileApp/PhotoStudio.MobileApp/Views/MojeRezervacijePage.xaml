@@ -8,8 +8,8 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Padding="15" Orientation="Horizontal" BackgroundColor="LightPink">
-            <ListView ItemsSource="{Binding ListaRezervacija}">
+        <StackLayout Padding="15" Orientation="Horizontal" BackgroundColor="MistyRose" >
+            <ListView ItemsSource="{Binding ListaRezervacija}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

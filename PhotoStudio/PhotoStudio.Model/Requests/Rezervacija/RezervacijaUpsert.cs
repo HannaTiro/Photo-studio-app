@@ -17,8 +17,10 @@ namespace PhotoStudio.Data.Requests.Rezervacija
         public DateTime? DatumDo { get; set; }
         public bool? isKomentarisano { get; set; }
         public bool? isOcijenjeno { get; set; }
+        public bool? isPlaceno { get; set; }
 
-        
+
+
 
     }
 }

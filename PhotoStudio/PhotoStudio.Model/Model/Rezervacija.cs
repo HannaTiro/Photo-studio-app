@@ -13,8 +13,9 @@ namespace PhotoStudio.Data.Model
         public int? FotografId { get; set; }
         public bool? isKomentarisano { get; set; } = false; //pomocna
         public bool? isOcijenjeno { get; set; } = false; //pomocna
-       
-        public  Fotograf Fotograf { get; set; }
+        public bool? isPlaceno { get; set; } = false; //pomocna
+
+        public Fotograf Fotograf { get; set; }
         public  Korisnik Korisnik { get; set; }
     }
 }

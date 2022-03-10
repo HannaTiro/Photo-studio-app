@@ -97,18 +97,20 @@ namespace PhotoStudio.MobileApp.ViewModels
                         return;
                     }
                 }
+                
                 var request = new RezervacijaUpsert
                 {
                     KorisnikId = APIService.KorisnikId,
                     DatumDo = DatumDO.Date,
                     DatumOd = DatumOD.Date,
-                    FotografId = _fotograf.FotografId
+                    FotografId = _fotograf.FotografId,
+                    isPlaceno=false
                 };
-                await _rezervacijaService.Insert<Data.Model.Rezervacija>(request); 
+                await _rezervacijaService.Insert<Data.Model.Rezervacija>(request);
                 var ukupnoDana = (request.DatumDo.Value.Date - request.DatumOd.Value.Date).TotalDays;
                 var ukupnaCijena = _fotograf.DnevnaCijena * ukupnoDana;
 
-                var cijenaZaPlatiti = string.Format("Iznos koji morate uplatiti fotografu da bi rezervacija bila validna je {0} KM", ukupnaCijena);
+                var cijenaZaPlatiti = string.Format("Ukupan iznos Vaše rezervacije je {0} KM, a avans koji morate uplatiti kako bi rezervacija bila validna je 50KM", ukupnaCijena);
                 await Application.Current.MainPage.DisplayAlert("Obavještanje", cijenaZaPlatiti, "OK");
                 await Application.Current.MainPage.DisplayAlert("Poruka", "Uplatu možete izvršiti na odjeljku 'Moje rezervacije'", "OK");
 

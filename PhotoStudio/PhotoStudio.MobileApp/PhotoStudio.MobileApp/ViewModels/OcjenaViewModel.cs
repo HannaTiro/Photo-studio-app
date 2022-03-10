@@ -114,7 +114,8 @@ namespace PhotoStudio.MobileApp.ViewModels
                                 FotografId = rez.Fotograf.FotografId,
                                 KorisnikId = rez.Korisnik.KorisnikId,
                                 isKomentarisano = rez.isKomentarisano,
-                                isOcijenjeno = true
+                                isOcijenjeno = true,
+                                isPlaceno=rez.isPlaceno
                                 
                             };
                             await _rezervacijaService.Update<Data.Model.Rezervacija>(rez.RezervacijaId, nova);

@@ -6,8 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="5.0.0" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.15.0" />
     <PackageReference Include="Flurl" Version="3.0.4" />
     <PackageReference Include="Flurl.Http" Version="3.2.2" />
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="Stripe.net" Version="39.96.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -60,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RegistracijaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RezervacijaPlatiPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UrediKorisnikProfilPage.xaml">
