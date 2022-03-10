@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels"
-             x:Class="PhotoStudio.MobileApp.Views.MojeRezervacijePage">
+             x:Class="PhotoStudio.MobileApp.Views.MojeRezervacijePage"
+             BackgroundColor="RosyBrown">
     <ContentPage.BindingContext>
         <vm:MojeRezervacijeViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Padding="15" Orientation="Horizontal">
+        <StackLayout Padding="15" Orientation="Horizontal" BackgroundColor="LightPink">
             <ListView ItemsSource="{Binding ListaRezervacija}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

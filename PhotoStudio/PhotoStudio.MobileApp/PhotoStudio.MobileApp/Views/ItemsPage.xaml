@@ -2,19 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PhotoStudio.MobileApp.Views.ItemsPage"
-             Title="{Binding Title}"
+            
              xmlns:local="clr-namespace:PhotoStudio.MobileApp.ViewModels"  
              xmlns:model="clr-namespace:PhotoStudio.MobileApp.Models"  
-             x:Name="BrowseItemsPage">
+            
+             BackgroundColor="RosyBrown">
 
-    <ContentPage.ToolbarItems>
+    <!-- <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
+    -->
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
-    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+   <!-- <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
@@ -40,5 +42,12 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </RefreshView>
+    </RefreshView> -->
+
+    <StackLayout Padding="50"  BackgroundColor="RosyBrown">
+        <Label Text="Dobrodošli u Photo studio memories" FontSize="Large" HorizontalTextAlignment="Center"></Label>
+        <Label Text="Dozvolite nam da najljepšim nijansama obojimo Vaše najdraže životne trenutke. Kroz naš objektiv zauvijek zabilježite najdraže uspomene. " FontSize="20"></Label>
+        <Label Text="Pronađite nas na adresi Splitska 7A Mostar, a uskoro se vidimo i u Sarajevu." FontSize="20"></Label>
+        <Label Text="Kontakt telefon: 061/123-432" FontSize="15"></Label>
+    </StackLayout>
 </ContentPage>
