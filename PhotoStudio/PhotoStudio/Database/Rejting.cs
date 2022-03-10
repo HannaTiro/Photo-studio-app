@@ -8,7 +8,7 @@ namespace PhotoStudio.Database
     public partial class Rejting
     {
         public int RejtingId { get; set; }
-        public int? Ocjena { get; set; }
+        public int Ocjena { get; set; } //bio ?
         public int? KorisnikId { get; set; }
         public int? FotografId { get; set; }
         public DateTime? DatumOcjene { get; set; }

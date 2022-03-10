@@ -50,7 +50,45 @@
                 <StackLayout>
                     <Label  Text="Preporučujemo Vam i sljedeće fotografe"></Label>
                 </StackLayout>
-
+                <ListView ItemsSource="{Binding PreporukaFotografiLista}" BackgroundColor="WhiteSmoke" HeightRequest="200">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="15" Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Image WidthRequest="200" HeightRequest="200" Source="{Binding Slika,Converter={StaticResource imgConv}}"></Image>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                            <Label Text="Fotograf ime:"
+												Style="{DynamicResource ListItemTextStyle}" /> 
+                                            <Label Text="{Binding Ime} " 
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource LargeLabel}" 
+												FontSize="15" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                            <Label Text="Fotograf prezime:"
+												Style="{DynamicResource ListItemTextStyle}" />
+                                            <Label Text="{Binding Prezime} " 
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource LargeLabel}" 
+												FontSize="15" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="1" Orientation="Horizontal">
+                                            <Label Text="Dnevna cijena:"
+												Style="{DynamicResource ListItemTextStyle}" />
+                                            <Label Text="{Binding DnevnaCijena} " 
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource LargeLabel}" 
+												FontSize="15" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
             </StackLayout>
         </ScrollView>
