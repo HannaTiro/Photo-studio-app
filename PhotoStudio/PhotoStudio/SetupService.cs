@@ -11,13 +11,7 @@ namespace PhotoStudio
     {
         public static void Seed(PhotoStudioContext context)
         {
-            // context.Database.Migrate();
-            //context.Database.EnsureCreated();
-            //This method does not use migrations to create the database. In addition, the database that is created cannot later be 
-            //    updated using migrations.If you are targeting a relational database and using migrations, you can use the 
-            //    DbContext.Database.Migrate() method to ensure the database is created and all migrations are applied.
-
-
+            context.Database.Migrate();
         }
     }
 }
