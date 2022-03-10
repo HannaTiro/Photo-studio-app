@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using PhotoStudio.Seeder;
 
 #nullable disable
 
@@ -27,15 +28,6 @@ namespace PhotoStudio.Database
         public virtual DbSet<TipFotografa> TipFotografas { get; set; }
         public virtual DbSet<TipKorisnika> TipKorisnikas { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=PhotoStudio; User=admin; Password=admin ");
-            }
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Bosnian_Latin_100_BIN");
@@ -51,8 +43,7 @@ namespace PhotoStudio.Database
                 entity.Property(e => e.Prezime).HasMaxLength(20);
 
                 entity.Property(e => e.Slika)
-                    .HasMaxLength(1)
-                    .IsFixedLength(true);
+                    .IsFixedLength(false);
 
                 entity.HasOne(d => d.TipFotografa)
                     .WithMany(p => p.Fotografs)
@@ -190,6 +181,7 @@ namespace PhotoStudio.Database
             });
 
             OnModelCreatingPartial(modelBuilder);
+            modelBuilder.Seed();
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

@@ -20,10 +20,9 @@ namespace PhotoStudio
             using (var scope = host.Services.CreateScope())
             {
                 var database = scope.ServiceProvider.GetRequiredService<PhotoStudioContext>();
-               SetupService.Seed(database);
-              
+                SetupService.Seed(database);
             }
-           host.Run();
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

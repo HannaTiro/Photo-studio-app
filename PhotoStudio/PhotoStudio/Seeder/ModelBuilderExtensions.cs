@@ -57,7 +57,7 @@ namespace PhotoStudio.Seeder
                 new Fotograf()
                 {
                     FotografId = 1,
-                    Slika = File.ReadAllBytes("trenerka1.jpg"),
+                    Slika = File.ReadAllBytes("fotograf1.jpg"),
                     TipFotografaId = 1,
                     DnevnaCijena = 20,
                     Ime = "Fotograf",
