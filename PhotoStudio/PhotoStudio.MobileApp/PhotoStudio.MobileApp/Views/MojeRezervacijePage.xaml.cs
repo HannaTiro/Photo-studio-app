@@ -29,6 +29,11 @@ namespace PhotoStudio.MobileApp.Views
         private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var rezervacija = e.Item as Data.Model.Rezervacija;
+            if (rezervacija.IsPlaceno)
+            {
+                await DisplayAlert("Greška", "Rezervacija je već plaćena", "OK");
+                return;
+            }
 
            await Navigation.PushAsync(new RezervacijaPlatiPage(rezervacija));
         }

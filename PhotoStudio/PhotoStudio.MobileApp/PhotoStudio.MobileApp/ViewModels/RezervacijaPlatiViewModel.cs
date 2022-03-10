@@ -11,7 +11,7 @@ using PhotoStudio.Data.Model;
 using System.Threading;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
-
+using PhotoStudio.MobileApp.Views;
 
 namespace PhotoStudio.MobileApp.ViewModels
 {
@@ -104,7 +104,6 @@ namespace PhotoStudio.MobileApp.ViewModels
 
          
             var rezervacija = await _rezervacijaService.GetById<Data.Model.Rezervacija>(RezervacijaId);
-           
 
             CreditCardModel.ExpMonth = Convert.ToInt64(ExpMonth);
             CreditCardModel.ExpYear = Convert.ToInt64(ExpYear);
@@ -174,9 +173,8 @@ namespace PhotoStudio.MobileApp.ViewModels
                 var updateo = await _rezervacijaService.Update<Data.Model.Rezervacija>(RezervacijaId, request);
                 Console.Write("Payment Gateway" + "Payment Successful ");
                
-                UserDialogs.Instance.Alert("Your payment was successfull", "Payment success", "OK");
                 UserDialogs.Instance.Alert("Uspješno ste rezervisali fotografa!", "Payment success", "OK");
-
+                Xamarin.Forms.Application.Current.MainPage = new PocetniPage();
 
             }
             else

@@ -41,6 +41,12 @@
                                     <Label Text="{Binding DatumDo}"   Style="{DynamicResource LargeLabel}" 
                                                ></Label>
                                 </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="15"/>
+                                    <Label Text="Plaćeno:"  Style="{DynamicResource ListItemTextStyle}"></Label>
+                                    <Label Text="DA" IsVisible="{Binding IsPlaceno}"  Style="{DynamicResource LargeLabel}" TextColor="LimeGreen" FontAttributes="Bold"/>
+                                    <Label Text="NE" IsVisible="{Binding IsNotPlaceno}"  Style="{DynamicResource LargeLabel}" TextColor="Red" FontAttributes="Bold"/>
+                                </StackLayout>
                                
                             </StackLayout>
                         </ViewCell>
