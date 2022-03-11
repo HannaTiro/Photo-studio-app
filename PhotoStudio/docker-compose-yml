@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  photostudio-sql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWElkj132!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - photostudionet
+
+  photostudio-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=photostudio-sql,1433;Database=170169;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+    ports:
+      - 52869:80
+    networks:
+      - photostudionet
+    links:
+      - photostudio-sql
+    depends_on:
+      - photostudio-sql
+
+networks:
+  photostudionet:
+    driver: bridge
