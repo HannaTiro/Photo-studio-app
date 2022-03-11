@@ -74,7 +74,7 @@ namespace PhotoStudio
                     }
                 });
             });
-            services.AddDbContext<PhotoStudioContext>(c => c.UseSqlServer(Configuration.GetConnectionString("PhotoStudio"))
+            services.AddDbContext<PhotoStudioContext>(c => c.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
              .EnableSensitiveDataLogging());
             services.AddAutoMapper(typeof(Startup));
 
