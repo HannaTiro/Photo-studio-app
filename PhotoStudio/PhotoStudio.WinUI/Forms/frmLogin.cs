@@ -38,7 +38,7 @@ namespace PhotoStudio.WinUI.Forms
                 {
                     Username = txtUsername.Text
                 };
-                var result = await aPIService.Get<List<Korisnik>>();
+                var result = await aPIService.Get<List<Korisnik>>(request);
 
                 if (result.Count == 0)
                 {
@@ -52,10 +52,7 @@ namespace PhotoStudio.WinUI.Forms
                     this.Hide();
                 }
             }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Pogrešan username ili password", MessageBoxButtons.OK);
-            //}
+           
             catch (FlurlHttpException ex)
             {
                 if (ex.StatusCode == 401)
