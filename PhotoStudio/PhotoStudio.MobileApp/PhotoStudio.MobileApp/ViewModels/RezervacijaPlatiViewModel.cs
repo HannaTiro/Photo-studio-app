@@ -118,11 +118,11 @@ namespace PhotoStudio.MobileApp.ViewModels
                 }
 
                 UserDialogs.Instance.ShowLoading("Payment processing..");
-                await Task.Run(async () =>
+                await Task.Run(() =>
                 {
-                    
+
                     var Token = CreateToken();
-                  
+
                     Console.Write("Payment Gateway" + "Token :" + Token);
                     if (Token != null)
                     {

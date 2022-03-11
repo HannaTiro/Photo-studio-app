@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PhotoStudio.Database;
 
 namespace PhotoStudio.Migrations
 {
     [DbContext(typeof(PhotoStudioContext))]
-    partial class PhotoStudioContextModelSnapshot : ModelSnapshot
+    [Migration("20220311112555_seeder_ubaci_podatke_proba")]
+    partial class seeder_ubaci_podatke_proba
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

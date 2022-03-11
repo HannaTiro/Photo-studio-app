@@ -31,7 +31,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
         }
         private async void frmDodajFotografa_Load(object sender, EventArgs e)
         {
-            LoadTipFotografaAsync();
+             LoadTipFotografaAsync();
         }
 
     

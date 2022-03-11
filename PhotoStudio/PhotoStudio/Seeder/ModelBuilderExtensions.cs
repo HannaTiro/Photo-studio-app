@@ -24,6 +24,11 @@ namespace PhotoStudio.Seeder
                 new TipKorisnika()
                 {
                     TipKorisnikaId = 1,
+                    Tip = "Administrator"
+                },
+                new TipKorisnika()
+                {
+                    TipKorisnikaId = 2,
                     Tip = "Korisnik"
                 }
                 );
@@ -33,12 +38,27 @@ namespace PhotoStudio.Seeder
                 new TipFotografa()
                 {
                     TipFotografaId = 1,
-                    Naziv = "Vjencanje"
+                    Naziv = "Vjenčanje"
                 },
                 new TipFotografa()
                 {
                     TipFotografaId = 2,
                     Naziv = "Rođendan"
+                },
+                new TipFotografa()
+                {
+                    TipFotografaId=3,
+                    Naziv="Fashion event"
+                },
+                new TipFotografa()
+                {
+                    TipFotografaId=4,
+                    Naziv="Lice sa naslovnice"
+                },
+                new TipFotografa()
+                {
+                    TipFotografaId=5,
+                    Naziv="Maturalna zabava"
                 }
                 );
             #endregion
@@ -47,44 +67,288 @@ namespace PhotoStudio.Seeder
                 new Grad()
                 {
                     GradId = 1,
+                    NazivGrada = "Mostar",
+                    PostanskiBroj = "88000"
+                },
+                new Grad()
+                {
+                    GradId = 2,
                     NazivGrada = "Sarajevo",
                     PostanskiBroj = "71000"
                 });
             #endregion
            
-            #region Dodavanje artikala
+            #region Dodavanje fotografa
             modelBuilder.Entity<Fotograf>().HasData(
                 new Fotograf()
                 {
                     FotografId = 1,
-                    Slika = File.ReadAllBytes("fotograf1.jpg"),
+                    Slika = File.ReadAllBytes("img/fotograf1.jpg"),
                     TipFotografaId = 1,
-                    DnevnaCijena = 20,
-                    Ime = "Fotograf",
-                    Prezime = "Test",
+                    DnevnaCijena = 150,
+                    Ime = "Belma",
+                    Prezime = "Nukić",
                     Status = true,
-                }
+                    Opis="Lets have fun"
+                },
+                new Fotograf()
+                  {
+                      FotografId = 2,
+                      Slika = File.ReadAllBytes("img/fotograf2.jpg"),
+                      TipFotografaId = 2,
+                      DnevnaCijena = 150,
+                      Ime = "Harisa",
+                      Prezime = "Obradović",
+                      Status = true,
+                      Opis = "Book me"
+                  },
+                new Fotograf()
+                    {
+                        FotografId = 3,
+                        Slika = File.ReadAllBytes("img/fotograf3.jpg"),
+                        TipFotografaId = 3,
+                        DnevnaCijena = 250,
+                        Ime = "Hatidža",
+                        Prezime = "Bojčić",
+                        Status = true,
+                        Opis = "Check me out on Instagram"
+                    },
+                new Fotograf()
+                      {
+                          FotografId = 4,
+                          Slika = File.ReadAllBytes("img/fotograf4.jpg"),
+                          TipFotografaId = 4,
+                          DnevnaCijena = 250,
+                          Ime = "Osman",
+                          Prezime = "Maksumić",
+                          Status = true,
+                          Opis = "Check me out on VSCO"
+                      },
+                new Fotograf()
+                      {
+                          FotografId = 5,
+                          Slika = File.ReadAllBytes("img/fotograf5.jpg"),
+                          TipFotografaId = 5,
+                          DnevnaCijena = 250,
+                          Ime = "Manja",
+                          Prezime = "Tiro",
+                          Status = true,
+                          Opis = "A photograph is the pause button of life"
+                      },
+                new Fotograf()
+                       {
+                           FotografId = 6,
+                           Slika = File.ReadAllBytes("img/fotograf6.jpg"),
+                           TipFotografaId = 1,
+                           DnevnaCijena = 550,
+                           Ime = "Tarik",
+                           Prezime = "Sunagić",
+                           Status = true,
+                           Opis = "A photograph is the pause button of life"
+                       },
+                new Fotograf()
+                       {
+                           FotografId = 7,
+                           Slika = File.ReadAllBytes("img/fotograf7.jpg"),
+                           TipFotografaId = 3,
+                           DnevnaCijena = 550,
+                           Ime = "Amar",
+                           Prezime = "Manjura",
+                           Status = true,
+                           Opis = "Check me out on IG"
+                        },
+                new Fotograf()
+                         {
+                             FotografId = 8,
+                             Slika = File.ReadAllBytes("img/fotograf8.jpg"),
+                             TipFotografaId = 4,
+                             DnevnaCijena = 550,
+                             Ime = "Faris",
+                             Prezime = "Đuliman",
+                             Status = true,
+                             Opis = "Check me out on IG"
+                         },
+                new Fotograf()
+                          {
+                              FotografId = 9,
+                              Slika = File.ReadAllBytes("img/fotograf9.jpg"),
+                              TipFotografaId = 5,
+                              DnevnaCijena = 370,
+                              Ime = "Elvedin",
+                              Prezime = "Tiro",
+                              Status = true,
+                              Opis = "Check me out on IG"
+                          },
+                new Fotograf()
+                           {
+                               FotografId = 10,
+                               Slika = File.ReadAllBytes("img/fotograf10.jpg"),
+                               TipFotografaId = 1,
+                               DnevnaCijena = 800,
+                               Ime = "Ajla",
+                               Prezime = "Radoš",
+                               Status = true,
+                               Opis = "Check me out on IG"
+                           }
+
+
                 );
             #endregion
 
             #region Dodavanje korisnika
-            modelBuilder.Entity<Korisnik>().HasData(
-                new Korisnik()
-                {
-                    KorisnikId = 2002,
-                    Ime = "hanna",
-                    Prezime = "hanna",
-                    Email = "hanna@example.com",
-                    Telefon = "123",
-                    Username = "hanna",
-                    PasswordSalt = Salt[0],
-                    PasswordHash = HashGenerator.GenerateHash(Salt[0], "hanna"),
-                    GradId = 1,
-                    TipKorisnikaId = 1,
-                }
+            //korisnik 1 -> admin
+            Korisnik a = new Korisnik
+            {
+                KorisnikId = 1,
+                Ime = "Hanna",
+                Prezime = "Tiro",
+                Email = "hanna@yahoo.com",
+                Telefon = "061234432",
+                Username = "admin",
+                GradId = 1,
+                TipKorisnikaId = 1
+            };
+            a.PasswordSalt = HashGenerator.GenerateSalt();
+            a.PasswordHash = HashGenerator.GenerateHash(a.PasswordSalt, "admin");
+            modelBuilder.Entity<Korisnik>().HasData(a);
+
+            //Korisnik 2 -> testni
+
+           Korisnik b= new Korisnik
+            {
+                KorisnikId = 2,
+                Ime = "KorisnikIme",
+                Prezime = "KorisnikPrezime",
+                Email = "test@yahoo.com",
+                Telefon = "062534635",
+                Username = "test",
+                GradId = 1,
+                TipKorisnikaId = 2
+            };
+            b.PasswordSalt = HashGenerator.GenerateSalt();
+            b.PasswordHash = HashGenerator.GenerateHash(b.PasswordSalt, "test");
+            modelBuilder.Entity<Korisnik>().HasData(b);
+
+            //Korisnik 3 -> testni muma
+            Korisnik c = new Korisnik
+            {
+                KorisnikId = 3,
+                Ime = "Muamer",
+                Prezime = "Zukanovic",
+                Email = "muma@yahoo.com",
+                Telefon = "062534635",
+                Username = "muma",
+                GradId = 1,
+                TipKorisnikaId = 2
+            };
+            c.PasswordSalt = HashGenerator.GenerateSalt();
+            c.PasswordHash = HashGenerator.GenerateHash(c.PasswordSalt, "muma");
+            modelBuilder.Entity<Korisnik>().HasData(c);
+
+            //korisnik 4 testni lejla
+            Korisnik d = new Korisnik
+            {
+                KorisnikId = 4,
+                Ime = "Lejla",
+                Prezime = "Taslaman",
+                Email = "lejla@yahoo.com",
+                Telefon = "062534435",
+                Username = "lejla",
+                GradId = 1,
+                TipKorisnikaId = 2
+            };
+            d.PasswordSalt = HashGenerator.GenerateSalt();
+            d.PasswordHash = HashGenerator.GenerateHash(d.PasswordSalt, "lejla");
+            modelBuilder.Entity<Korisnik>().HasData(d);
+
+
+            #endregion
+            #region Dodavanje studija
+            modelBuilder.Entity<Studio>().HasData(
+               new Studio()
+               {
+                   StudioId = 1,
+                   NazivStudija = "Photo studio Memories",
+                   Adresa = "Splitska 7A",
+                   Telefon = "061/123-432",
+                   Opis = "Dozvolite nam da najljepšim nijansama obojimo Vaše najdraže životne trenutke. Kroz naš objektiv zauvijek zabilježite najdraže uspomene.",
+                   GradId = 1
+               }
                );
             #endregion
+            #region Dodavanje Rezervacija
+            modelBuilder.Entity<Rezervacija>().HasData(
+             new Rezervacija()
+             {
+                RezervacijaId=1,
+                DatumOd=new DateTime(2022,1,28),
+                DatumDo=new DateTime(2022,1,29),
+                KorisnikId=2,
+                FotografId=2,
+                IsKomentarisano=false,
+                IsOcijenjeno=false,
+                IsPlaceno=false
+             },
+              new Rezervacija()
+              {
+                  RezervacijaId = 2,
+                  DatumOd = new DateTime(2022, 2, 18),
+                  DatumDo = new DateTime(2022, 2, 20),
+                  KorisnikId = 2,
+                  FotografId = 3,
+                  IsKomentarisano = false,
+                  IsOcijenjeno = false,
+                  IsPlaceno = false
+              },
+              new Rezervacija()
+              {
+                  RezervacijaId = 3,
+                  DatumOd = new DateTime(2022, 2, 10),
+                  DatumDo = new DateTime(2022, 2, 15),
+                  KorisnikId = 3,
+                  FotografId = 4,
+                  IsKomentarisano = true,
+                  IsOcijenjeno = true,
+                  IsPlaceno = false
+              },
+              new Rezervacija()
+              {
+                  RezervacijaId = 4,
+                  DatumOd = new DateTime(2021, 3, 18),
+                  DatumDo = new DateTime(2021, 3, 20),
+                  KorisnikId = 4,
+                  FotografId = 2,
+                  IsKomentarisano = false,
+                  IsOcijenjeno = false,
+                  IsPlaceno = false
+              }
 
+             );
+            #endregion
+            #region Dodavanje Komentara
+            modelBuilder.Entity<Komentar>().HasData(
+                new Komentar()
+                {
+                    KomentarId=1,
+                    Opis="Sve preporuke, odlično iskustvo",
+                    Datum=new DateTime(2022,2,16),
+                    KorisnikId=3,
+                    FotografId=4
+                }
+                );
+            #endregion
+            #region Dodavanje rejtinga
+            modelBuilder.Entity<Rejting>().HasData(
+               new Rejting()
+               {
+                   RejtingId = 1,
+                    Ocjena=5,
+                   DatumOcjene = new DateTime(2022, 2, 16),
+                   KorisnikId = 3,
+                   FotografId = 4
+               }
+               );
+            #endregion
 
         }
     }
