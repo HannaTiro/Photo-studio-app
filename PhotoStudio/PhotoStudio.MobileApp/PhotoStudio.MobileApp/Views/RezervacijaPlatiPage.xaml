@@ -9,7 +9,7 @@
     </ContentPage.BindingContext>
     <ContentView>
         <StackLayout VerticalOptions="FillAndExpand">
-            <Label Text="Unesite podatke kreditne kartice kako bi platili narudzbu "
+            <Label Text="Unesite podatke kreditne kartice kako biste izvršili uplatu "
                 HorizontalTextAlignment="Center" FontAttributes="Bold"
                        FontSize="22" />
             <Grid HorizontalOptions="Center"  Padding="20,20,20,0" ColumnSpacing="20">
