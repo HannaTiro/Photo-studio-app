@@ -309,7 +309,7 @@ namespace PhotoStudio.Seeder
                   FotografId = 4,
                   IsKomentarisano = true,
                   IsOcijenjeno = true,
-                  IsPlaceno = false
+                  IsPlaceno = true
               },
               new Rezervacija()
               {
@@ -321,7 +321,109 @@ namespace PhotoStudio.Seeder
                   IsKomentarisano = false,
                   IsOcijenjeno = false,
                   IsPlaceno = false
-              }
+              },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 5,
+                     DatumOd = new DateTime(2019, 1, 1),
+                     DatumDo = new DateTime(2019, 1, 3),
+                     KorisnikId = 4,
+                     FotografId = 1,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 6,
+                     DatumOd = new DateTime(2019, 1, 4),
+                     DatumDo = new DateTime(2019, 1, 6),
+                     KorisnikId = 4,
+                     FotografId = 1,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 7,
+                     DatumOd = new DateTime(2019, 1, 6),
+                     DatumDo = new DateTime(2019, 1, 8),
+                     KorisnikId = 4,
+                     FotografId = 2,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 8,
+                     DatumOd = new DateTime(2019, 1, 10),
+                     DatumDo = new DateTime(2019, 1, 12),
+                     KorisnikId = 4,
+                     FotografId = 2,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 9,
+                     DatumOd = new DateTime(2019, 1, 14),
+                     DatumDo = new DateTime(2019, 1, 16),
+                     KorisnikId = 4,
+                     FotografId = 3,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 10,
+                     DatumOd = new DateTime(2019, 2, 1),
+                     DatumDo = new DateTime(2019, 2, 3),
+                     KorisnikId = 4,
+                     FotografId = 4,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 11,
+                     DatumOd = new DateTime(2019, 3, 1),
+                     DatumDo = new DateTime(2019, 3, 3),
+                     KorisnikId = 4,
+                     FotografId = 4,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                 new Rezervacija()
+                 {
+                     RezervacijaId = 12,
+                     DatumOd = new DateTime(2019, 4, 1),
+                     DatumDo = new DateTime(2019, 4, 3),
+                     KorisnikId = 4,
+                     FotografId = 5,
+                     IsKomentarisano = false,
+                     IsOcijenjeno = true,
+                     IsPlaceno = true
+                 },
+                  new Rezervacija()
+                  {
+                      RezervacijaId = 13,
+                      DatumOd = new DateTime(2019, 4, 4),
+                      DatumDo = new DateTime(2019, 4, 6),
+                      KorisnikId = 4,
+                      FotografId = 5,
+                      IsKomentarisano = false,
+                      IsOcijenjeno = true,
+                      IsPlaceno = true
+                  }
+
+
+
 
              );
             #endregion
@@ -346,7 +448,82 @@ namespace PhotoStudio.Seeder
                    DatumOcjene = new DateTime(2022, 2, 16),
                    KorisnikId = 3,
                    FotografId = 4
-               }
+               },
+               new Rejting()
+               {
+                   RejtingId = 2,
+                   Ocjena = 5,
+                   DatumOcjene = new DateTime(2019, 1, 4),
+                   KorisnikId = 4,
+                   FotografId = 1
+               },
+                 new Rejting()
+                 {
+                     RejtingId = 3,
+                     Ocjena = 5,
+                     DatumOcjene =  new DateTime(2019, 1, 7),
+                     KorisnikId = 4,
+                     FotografId = 1
+                 },
+                  new Rejting()
+                  {
+                      RejtingId = 4,
+                      Ocjena = 5,
+                      DatumOcjene = new DateTime(2019, 1, 9),
+                      KorisnikId = 4,
+                      FotografId = 2
+                  },
+                   new Rejting()
+                   {
+                       RejtingId = 5,
+                       Ocjena = 5,
+                       DatumOcjene = new DateTime(2019, 1, 13),
+                       KorisnikId = 4,
+                       FotografId = 2
+                   },
+                     new Rejting()
+                     {
+                         RejtingId = 6,
+                         Ocjena = 5,
+                         DatumOcjene = new DateTime(2019, 1, 17),
+                         KorisnikId = 4,
+                         FotografId = 3
+                     },
+                      new Rejting()
+                      {
+                          RejtingId = 8,
+                          Ocjena = 5,
+                          DatumOcjene = new DateTime(2019, 2, 4),
+                          KorisnikId = 4,
+                          FotografId = 4
+                      },
+                       new Rejting()
+                       {
+                           RejtingId = 9,
+                           Ocjena = 5,
+                           DatumOcjene = new DateTime(2019, 3, 3),
+                           KorisnikId = 4,
+                           FotografId = 4
+                       },
+                        new Rejting()
+                        {
+                            RejtingId = 10,
+                            Ocjena = 5,
+                            DatumOcjene = new DateTime(2019, 4, 4),
+                            KorisnikId = 4,
+                            FotografId = 5
+                        },
+                         new Rejting()
+                         {
+                             RejtingId = 11,
+                             Ocjena = 5,
+                             DatumOcjene = new DateTime(2019, 4, 7),
+                             KorisnikId = 4,
+                             FotografId = 5
+                         }
+
+
+
                );
             #endregion
 
