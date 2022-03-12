@@ -10,8 +10,8 @@ using PhotoStudio.Database;
 namespace PhotoStudio.Migrations
 {
     [DbContext(typeof(PhotoStudioContext))]
-    [Migration("20220311215305_seed_podataka_dodaci")]
-    partial class seed_podataka_dodaci
+    [Migration("20220312013737_finalna")]
+    partial class finalna
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -302,8 +302,8 @@ namespace PhotoStudio.Migrations
                             Email = "hanna@yahoo.com",
                             GradId = 1,
                             Ime = "Hanna",
-                            PasswordHash = "TbD9+ZbIcNUQMBDapU4EFVc+bzk=",
-                            PasswordSalt = "3907rn5tAW4+vOJHdirl6w==",
+                            PasswordHash = "PCDf8OJWlJFia+H1D4vluxdhck8=",
+                            PasswordSalt = "wS/y2DlJoXWA3hlYALNJSQ==",
                             Prezime = "Tiro",
                             Telefon = "061234432",
                             TipKorisnikaId = 1,
@@ -315,8 +315,8 @@ namespace PhotoStudio.Migrations
                             Email = "test@yahoo.com",
                             GradId = 1,
                             Ime = "KorisnikIme",
-                            PasswordHash = "5p7P79z9vSyosk6oY69O/H6ETZE=",
-                            PasswordSalt = "xogFzjRoj45Dfw9h/UrHYQ==",
+                            PasswordHash = "19ibKgj2lre31tAWLloqnVc2fcI=",
+                            PasswordSalt = "zuwQGVGzDUzgb9Eynd5WBA==",
                             Prezime = "KorisnikPrezime",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -328,8 +328,8 @@ namespace PhotoStudio.Migrations
                             Email = "muma@yahoo.com",
                             GradId = 1,
                             Ime = "Muamer",
-                            PasswordHash = "tbhT0FSWM4aPfOcTafaHekDhgpI=",
-                            PasswordSalt = "+aXctUTGwBszIrw8Fy8z4g==",
+                            PasswordHash = "8V3IUyQW4WqK3MCfgxxrZ/Jmvro=",
+                            PasswordSalt = "sqkNaNSKPGtLyZF/Rd8kzg==",
                             Prezime = "Zukanovic",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -341,8 +341,8 @@ namespace PhotoStudio.Migrations
                             Email = "lejla@yahoo.com",
                             GradId = 1,
                             Ime = "Lejla",
-                            PasswordHash = "q+HS+oTosEzL1dzeLTy2wloV+GI=",
-                            PasswordSalt = "L1x9Ee7QQLRQQblaQwAOhw==",
+                            PasswordHash = "o0zGsBP0KuHc8V9F0IgFubAVkQ4=",
+                            PasswordSalt = "93lh5+wgiGd5YW+k7xxIiw==",
                             Prezime = "Taslaman",
                             Telefon = "062534435",
                             TipKorisnikaId = 2,
@@ -397,30 +397,6 @@ namespace PhotoStudio.Migrations
                         new
                         {
                             RejtingId = 3,
-                            DatumOcjene = new DateTime(2019, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FotografId = 1,
-                            KorisnikId = 4,
-                            Ocjena = 5
-                        },
-                        new
-                        {
-                            RejtingId = 4,
-                            DatumOcjene = new DateTime(2019, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FotografId = 2,
-                            KorisnikId = 4,
-                            Ocjena = 5
-                        },
-                        new
-                        {
-                            RejtingId = 5,
-                            DatumOcjene = new DateTime(2019, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FotografId = 2,
-                            KorisnikId = 4,
-                            Ocjena = 5
-                        },
-                        new
-                        {
-                            RejtingId = 6,
                             DatumOcjene = new DateTime(2019, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FotografId = 3,
                             KorisnikId = 4,
@@ -428,7 +404,7 @@ namespace PhotoStudio.Migrations
                         },
                         new
                         {
-                            RejtingId = 8,
+                            RejtingId = 4,
                             DatumOcjene = new DateTime(2019, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FotografId = 4,
                             KorisnikId = 4,
@@ -436,15 +412,7 @@ namespace PhotoStudio.Migrations
                         },
                         new
                         {
-                            RejtingId = 9,
-                            DatumOcjene = new DateTime(2019, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FotografId = 4,
-                            KorisnikId = 4,
-                            Ocjena = 5
-                        },
-                        new
-                        {
-                            RejtingId = 10,
+                            RejtingId = 5,
                             DatumOcjene = new DateTime(2019, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FotografId = 5,
                             KorisnikId = 4,
@@ -452,9 +420,41 @@ namespace PhotoStudio.Migrations
                         },
                         new
                         {
-                            RejtingId = 11,
-                            DatumOcjene = new DateTime(2019, 4, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FotografId = 5,
+                            RejtingId = 6,
+                            DatumOcjene = new DateTime(2021, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 2,
+                            KorisnikId = 4,
+                            Ocjena = 5
+                        },
+                        new
+                        {
+                            RejtingId = 7,
+                            DatumOcjene = new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 7,
+                            KorisnikId = 4,
+                            Ocjena = 5
+                        },
+                        new
+                        {
+                            RejtingId = 8,
+                            DatumOcjene = new DateTime(2019, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 8,
+                            KorisnikId = 4,
+                            Ocjena = 5
+                        },
+                        new
+                        {
+                            RejtingId = 9,
+                            DatumOcjene = new DateTime(2019, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 9,
+                            KorisnikId = 4,
+                            Ocjena = 5
+                        },
+                        new
+                        {
+                            RejtingId = 10,
+                            DatumOcjene = new DateTime(2019, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 10,
                             KorisnikId = 4,
                             Ocjena = 5
                         });
@@ -539,8 +539,8 @@ namespace PhotoStudio.Migrations
                             DatumOd = new DateTime(2021, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FotografId = 2,
                             IsKomentarisano = false,
-                            IsOcijenjeno = false,
-                            IsPlaceno = false,
+                            IsOcijenjeno = true,
+                            IsPlaceno = true,
                             KorisnikId = 4
                         },
                         new
@@ -637,6 +637,50 @@ namespace PhotoStudio.Migrations
                             DatumDo = new DateTime(2019, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DatumOd = new DateTime(2019, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FotografId = 5,
+                            IsKomentarisano = false,
+                            IsOcijenjeno = true,
+                            IsPlaceno = true,
+                            KorisnikId = 4
+                        },
+                        new
+                        {
+                            RezervacijaId = 14,
+                            DatumDo = new DateTime(2019, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumOd = new DateTime(2019, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 7,
+                            IsKomentarisano = false,
+                            IsOcijenjeno = true,
+                            IsPlaceno = true,
+                            KorisnikId = 4
+                        },
+                        new
+                        {
+                            RezervacijaId = 15,
+                            DatumDo = new DateTime(2019, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumOd = new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 8,
+                            IsKomentarisano = false,
+                            IsOcijenjeno = true,
+                            IsPlaceno = true,
+                            KorisnikId = 4
+                        },
+                        new
+                        {
+                            RezervacijaId = 16,
+                            DatumDo = new DateTime(2019, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumOd = new DateTime(2019, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 9,
+                            IsKomentarisano = false,
+                            IsOcijenjeno = true,
+                            IsPlaceno = true,
+                            KorisnikId = 4
+                        },
+                        new
+                        {
+                            RezervacijaId = 17,
+                            DatumDo = new DateTime(2019, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DatumOd = new DateTime(2019, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FotografId = 10,
                             IsKomentarisano = false,
                             IsOcijenjeno = true,
                             IsPlaceno = true,

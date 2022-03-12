@@ -18,7 +18,7 @@ services:
     build:
       context: .
     environment:
-      - ConnectionStrings:DefaultConnection=Server=photostudio-sql,1433;Database=170169;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+      - ConnectionStrings:DefaultConnection=Server=photostudio-sql,1433;Database=170169_finalna;User=sa;Password=QWElkj132!;ConnectRetryCount=0
     ports:
       - 52869:80
     networks:
