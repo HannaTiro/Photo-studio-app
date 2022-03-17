@@ -68,16 +68,31 @@ namespace PhotoStudio.MobileApp
                 throw;
             }
 }
-        public async Task<T> GetProvjera<T>(object search)
+        public async Task<T> GetRegistracija<T>(object search = null)
         {
+
             var url = $"{_apiUrl}/{_route}";
-            if (search != null)
+            try
             {
-                url += "?";
-                url += await search.ToQueryString();
+
+
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+                return await url.GetJsonAsync<T>();
             }
-            return await url.GetJsonAsync<T>();
+            catch (FlurlHttpException ex)
+            {
+
+
+                await Application.Current.MainPage.DisplayAlert("Greška", "Niste authentificirani", "OK");
+
+                throw;
+            }
         }
+
         public async Task<T> SingUp<T>(object request)
         {
             var url = $"{_apiUrl}/{_route}";

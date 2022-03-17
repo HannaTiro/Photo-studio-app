@@ -174,7 +174,7 @@ namespace PhotoStudio.WinUI.Forms
         {
             frmONama forma = new frmONama();
             forma.MdiParent = this;
-            forma.ShowDialog();
+            forma.Show();
         }
     }
 }

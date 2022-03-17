@@ -37,6 +37,7 @@ namespace PhotoStudio.WinUI.Forms
                 var request = new KorisnikSearchRequest
                 {
                     Username = txtUsername.Text
+                   
                 };
                 var result = await aPIService.Get<List<Korisnik>>(request);
 

@@ -12,7 +12,8 @@ namespace PhotoStudio.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
- 
+   // [Authorize]
+
     public class KorisnikController : ControllerBase
     {
         private readonly IKorisnikService _service;
@@ -21,12 +22,21 @@ namespace PhotoStudio.Controllers
         {
             _service = service;
         }
-
+        [Authorize]
         [HttpGet]
+        
+
         public ActionResult<List<Data.Model.Korisnik>> Get([FromQuery] KorisnikSearchRequest request)
         {
             return _service.Get(request);
         }
+
+        [HttpGet("{registracija}")]
+        public ActionResult<List<Data.Model.Korisnik>> GetRegistracija([FromQuery] KorisnikSearchRequest request)
+        {
+            return _service.GetRegistracija(request);
+        }
+
 
         [HttpGet("{id}")]
         public ActionResult<Data.Model.Korisnik> GetById(int id)

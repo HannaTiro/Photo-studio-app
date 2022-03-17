@@ -56,7 +56,9 @@ namespace PhotoStudio.MobileApp.ViewModels
                 //{
                 //    Username = Username
                 //});
-                var korisnici = await _service.Get<List<Data.Model.Korisnik>>(null);
+                    var korisnici = await _service.GetRegistracija<List<Data.Model.Korisnik>>(null);
+               // var korisnici = await _service.Get<List<Data.Model.Korisnik>>(null);
+
 
                 //if (korisnici != null)
                 //{

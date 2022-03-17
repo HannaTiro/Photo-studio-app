@@ -208,8 +208,8 @@ namespace PhotoStudio.Seeder
                 GradId = 1,
                 TipKorisnikaId = 1
             };
-            a.PasswordSalt = HashGenerator.GenerateSalt();
-            a.PasswordHash = HashGenerator.GenerateHash(a.PasswordSalt, "admin");
+           a.PasswordSalt = HashGenerator.GenerateSalt();
+           a.PasswordHash = HashGenerator.GenerateHash(a.PasswordSalt, "admin");
             modelBuilder.Entity<Korisnik>().HasData(a);
 
             //Korisnik 2 -> testni

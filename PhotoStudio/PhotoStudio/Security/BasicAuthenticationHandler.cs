@@ -40,7 +40,7 @@ namespace PhotoStudio.Security
                 var username = credentials[0];
                 var password = credentials[1];
 
-                korisnik = _korisniciService.Login(new KorisnikLoginRequest()
+                korisnik =await  _korisniciService.Login(new KorisnikLoginRequest()
                 {
                     Username = username,
                     Password = password

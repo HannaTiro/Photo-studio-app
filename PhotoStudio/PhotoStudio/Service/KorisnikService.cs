@@ -52,6 +52,21 @@ namespace PhotoStudio.Service
             var list = query.ToList();
             return _mapper.Map<List<Data.Model.Korisnik>>(list);
         }
+        public List<Data.Model.Korisnik> GetRegistracija(KorisnikSearchRequest request)
+        {
+            var query = _context.Korisniks.Include(x => x.Grad)
+                .Include(x => x.TipKorisnika)
+                .AsQueryable();
+         
+            if (!string.IsNullOrWhiteSpace(request.Username))
+            {
+                query = query.Where(x => x.Username == request.Username);
+            }
+           
+
+            var list = query.ToList();
+            return _mapper.Map<List<Data.Model.Korisnik>>(list);
+        }
         public Data.Model.Korisnik GetById(int id)
         {
             var korisnik = _context.Korisniks.Include(x => x.Grad)
@@ -87,7 +102,7 @@ namespace PhotoStudio.Service
 
             return _mapper.Map<Data.Model.Korisnik>(entity);
         }
-        public  Data.Model.Korisnik Login(KorisnikLoginRequest request)
+        public async Task<Data.Model.Korisnik> Login(KorisnikLoginRequest request)
         {
             var korisnik = _context.Korisniks.Include(x => x.TipKorisnika).FirstOrDefault(x => x.Username == request.Username);
             if(korisnik==null)
