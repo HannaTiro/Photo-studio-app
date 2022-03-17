@@ -46,6 +46,8 @@ namespace PhotoStudio.WinUI.Forms
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pregledStudijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +60,8 @@ namespace PhotoStudio.WinUI.Forms
             this.fotografiToolStripMenuItem,
             this.rezervacijeToolStripMenuItem,
             this.ocjeneIKomentariToolStripMenuItem,
-            this.oNamaToolStripMenuItem});
+            this.oNamaToolStripMenuItem,
+            this.pregledStudijaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(632, 24);
@@ -84,7 +87,7 @@ namespace PhotoStudio.WinUI.Forms
             // pregledajKorisnikeToolStripMenuItem
             // 
             this.pregledajKorisnikeToolStripMenuItem.Name = "pregledajKorisnikeToolStripMenuItem";
-            this.pregledajKorisnikeToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.pregledajKorisnikeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pregledajKorisnikeToolStripMenuItem.Text = "Pregledaj korisnike";
             this.pregledajKorisnikeToolStripMenuItem.Click += new System.EventHandler(this.pregledajKorisnikeToolStripMenuItem_Click);
             // 
@@ -100,14 +103,14 @@ namespace PhotoStudio.WinUI.Forms
             // pregledajFotografeToolStripMenuItem
             // 
             this.pregledajFotografeToolStripMenuItem.Name = "pregledajFotografeToolStripMenuItem";
-            this.pregledajFotografeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.pregledajFotografeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pregledajFotografeToolStripMenuItem.Text = "Pregledaj fotografe";
             this.pregledajFotografeToolStripMenuItem.Click += new System.EventHandler(this.pregledajFotografeToolStripMenuItem_Click);
             // 
             // dodajFotografaToolStripMenuItem
             // 
             this.dodajFotografaToolStripMenuItem.Name = "dodajFotografaToolStripMenuItem";
-            this.dodajFotografaToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.dodajFotografaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dodajFotografaToolStripMenuItem.Text = "Dodaj fotografa";
             this.dodajFotografaToolStripMenuItem.Click += new System.EventHandler(this.dodajFotografaToolStripMenuItem_Click);
             // 
@@ -172,6 +175,22 @@ namespace PhotoStudio.WinUI.Forms
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // pregledStudijaToolStripMenuItem
+            // 
+            this.pregledStudijaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajStudioToolStripMenuItem});
+            this.pregledStudijaToolStripMenuItem.Name = "pregledStudijaToolStripMenuItem";
+            this.pregledStudijaToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.pregledStudijaToolStripMenuItem.Text = "Pregled studija";
+            this.pregledStudijaToolStripMenuItem.Click += new System.EventHandler(this.pregledStudijaToolStripMenuItem_Click);
+            // 
+            // dodajStudioToolStripMenuItem
+            // 
+            this.dodajStudioToolStripMenuItem.Name = "dodajStudioToolStripMenuItem";
+            this.dodajStudioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajStudioToolStripMenuItem.Text = "Dodaj studio";
+            this.dodajStudioToolStripMenuItem.Click += new System.EventHandler(this.dodajStudioToolStripMenuItem_Click);
+            // 
             // frmPocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +233,8 @@ namespace PhotoStudio.WinUI.Forms
         private System.Windows.Forms.ToolStripMenuItem pregledajKomentareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oNamaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajFotografaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pregledStudijaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajStudioToolStripMenuItem;
     }
 }
 

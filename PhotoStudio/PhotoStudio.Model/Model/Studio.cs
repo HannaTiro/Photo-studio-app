@@ -12,7 +12,9 @@ namespace PhotoStudio.Data.Model
         public string Telefon { get; set; }
         public string Opis { get; set; }
         public int? GradId { get; set; }
+       
 
-       // public virtual Grad Grad { get; set; }
+
+        // public virtual Grad Grad { get; set; }
     }
 }
