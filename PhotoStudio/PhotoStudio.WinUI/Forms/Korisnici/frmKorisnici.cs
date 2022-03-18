@@ -19,10 +19,7 @@ namespace PhotoStudio.WinUI.Forms.Korisnici
             InitializeComponent();
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private async void frmKorisnici_Load(object sender, EventArgs e)
         {
@@ -49,10 +46,7 @@ namespace PhotoStudio.WinUI.Forms.Korisnici
             }
         }
 
-        private void dgvKorisnici_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
+      
 
         private void dgvKorisnici_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -60,10 +54,11 @@ namespace PhotoStudio.WinUI.Forms.Korisnici
             // var korisnik = dgvKorisnici.SelectedRows[0].DataBoundItem;
             // MessageBox.Show(korisnik.ToString());
             var rez = korisnik.ToString();
-           frmKorisniciDetalji forma = new frmKorisniciDetalji(int.Parse(rez));
+            frmKorisniciDetalji forma = new frmKorisniciDetalji(int.Parse(rez));
             forma.Show();
-            
-
+          
         }
+
+       
     }
 }

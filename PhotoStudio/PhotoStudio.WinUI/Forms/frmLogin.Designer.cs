@@ -103,7 +103,7 @@ namespace PhotoStudio.WinUI.Forms
             this.Controls.Add(this.label1);
             this.Name = "Login";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
+          
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

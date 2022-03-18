@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Database;
@@ -118,6 +119,23 @@ namespace PhotoStudio.Service
                  return _mapper.Map<Data.Model.Korisnik>(korisnik);
 
         }
-    
+
+        public ActionResult<Data.Model.Korisnik> SignUp(KorisnikUpsert request)
+        {
+            var entity = _mapper.Map<Korisnik>(request);
+            entity.TipKorisnikaId = 2;
+
+            if (request.Password != request.PasswordConfirm)
+            {
+                throw new Exception("Password i potvrda passworda nisu iste");
+            }
+            entity.PasswordSalt = HashGenerator.GenerateSalt();
+            entity.PasswordHash = HashGenerator.GenerateHash(entity.PasswordSalt, request.Password);
+
+            _context.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Data.Model.Korisnik>(entity);
+        }
     }
 }

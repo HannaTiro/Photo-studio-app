@@ -21,6 +21,9 @@ namespace PhotoStudio.Data.Requests.Fotograf
         [Required]
         public int? TipFotografaId { get; set; }
 
-       
+    
+
+
+
     }
 }

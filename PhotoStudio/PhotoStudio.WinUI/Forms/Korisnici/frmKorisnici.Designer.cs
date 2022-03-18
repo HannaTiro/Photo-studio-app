@@ -93,7 +93,6 @@ namespace PhotoStudio.WinUI.Forms.Korisnici
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(160, 20);
             this.txtEmail.TabIndex = 5;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // btnSearch
             // 
@@ -136,7 +135,7 @@ namespace PhotoStudio.WinUI.Forms.Korisnici
             this.dgvKorisnici.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKorisnici.Size = new System.Drawing.Size(475, 150);
             this.dgvKorisnici.TabIndex = 0;
-            this.dgvKorisnici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKorisnici_CellContentClick);
+        
             this.dgvKorisnici.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKorisnici_MouseDoubleClick);
             // 
             // KorisnikId

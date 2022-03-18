@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using PhotoStudio.Data;
 using System.Windows.Forms;
 using Flurl;
+using System.Net;
 
 namespace PhotoStudio.WinUI
 {
@@ -22,143 +23,89 @@ namespace PhotoStudio.WinUI
         {
             _route = route;
         }
-        //private static T HandleException<T>(Dictionary<string, string> errors)
-        //{
-        //    if (errors != null)
-        //    {
-        //        errors.TryGetValue("message", out string message);
 
-        //        MessageBox.Show(message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    else
-        //        MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        //    return default;
-        //}
-        //public async Task<T> Prijava<T>(string username, string password)
-        //{
-        //    try
-        //    {
-        //        return await new Uri(Properties.Settings.Default.APIUrl)
-        //                .AppendPathSegment(_route)
-        //                .AppendPathSegment("autentifikacija")
-        //                .WithBasicAuth(username, password)
-        //                .GetJsonAsync<T>();
-
-        //    }
-        //    catch (FlurlHttpException ex)
-        //    {
-        //        if (ex.StatusCode == 401)
-        //            MessageBox.Show("Neispravno korisničko ime ili lozinka! ", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        else
-        //            MessageBox.Show("Došlo je do greške, pokušajte opet! ", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        //        return default;
-        //    }
-        //}
         public async Task<T> Get<T>(object search = null)
         {
-          //  try
-            //{
-
+            try
+            {
                 var query = "";
                 if (search != null)
                 {
                     query = await search?.ToQueryString();
                 }
-              //  get all ako je null
+                //  get all ako je null
                 var list = await $"{endpoint}/{_route}?{query}"
-                 .WithBasicAuth(Username, Password)
+                  .WithBasicAuth(Username, Password)
                   .GetJsonAsync<T>();
                 return list;
-        //}
-            //catch (FlurlHttpException ex)
-            //{
+            }
+            catch (FlurlHttpException ex)
+            {
+                return await HandleException<T>(ex);
+            }
+
+        }
 
 
-            ////     catch (FlurlHttpException ex)
-            ////{
-            ////    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-            ////    var stringBuilder = new StringBuilder();
-            ////    foreach (var error in errors)
-            ////    {
-            ////        stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-            ////    }
-
-            ////    MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            ////    return default(T);
-            ////}
-            //var errors = await ex.GetResponseJsonAsync<Dictionary<string, string>>();
-
-            //    return HandleException<T>(errors);
-            //}
-}
         public async Task<T> GetById<T>(object id)
         {
-           // try
-            //{
- var url = $"{endpoint}/{_route}/{id}";
-           // return await url.GetJsonAsync<T>();
-            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
-            //}
-            //catch(FlurlHttpException ex)
-            //{
-            //    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string>>();
+            try
+            {
+                var url = $"{endpoint}/{_route}/{id}";
+                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
-            //    return HandleException<T>(errors);
-            //}
-           
+            }
+            catch (FlurlHttpException ex)
+            {
+                return await HandleException<T>(ex);
+            }
+
         }
         public async Task<T> Insert<T>(object request)
         {
             try
             {
- var url = $"{endpoint}/{_route}";
+                var url = $"{endpoint}/{_route}";
 
-            return await url
-                .WithBasicAuth(Username, Password)
-                .PostJsonAsync(request).ReceiveJson<T>();
+                return await url
+                    .WithBasicAuth(Username, Password)
+                    .PostJsonAsync(request).ReceiveJson<T>();
             }
-            //catch (FlurlHttpException ex)
-            //{
-            //    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string>>();
-
-            //    return HandleException<T>(errors);
-            //}
             catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-                var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
-                {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
-
-                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return default(T);
+                return await HandleException<T>(ex);
             }
         }
-    
+
 
         public async Task<T> Update<T>(object id, object request)
         {
             try
             {
- var url = $"{endpoint}/{_route}/{id}";
+                var url = $"{endpoint}/{_route}/{id}";
 
-            return await url
-                .WithBasicAuth(Username, Password)
-                .PutJsonAsync(request).ReceiveJson<T>();
+                return await url
+                    .WithBasicAuth(Username, Password)
+                    .PutJsonAsync(request).ReceiveJson<T>();
             }
-            //catch (FlurlHttpException ex)
-            //{
-            //    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string>>();
-
-            //    return HandleException<T>(errors);
-            //}
             catch (FlurlHttpException ex)
+            {
+                return await HandleException<T>(ex);
+            }
+
+        }
+
+        private async Task<T> HandleException<T>(FlurlHttpException ex)
+        {
+            if (ex.StatusCode == (int)HttpStatusCode.Unauthorized)
+            {
+                MessageBox.Show("Niste autentifikovani.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (ex.StatusCode == (int)HttpStatusCode.Forbidden)
+            {
+                MessageBox.Show("Nemate pravo pristupa.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
@@ -169,12 +116,9 @@ namespace PhotoStudio.WinUI
                 }
 
                 MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return default(T);
             }
 
+            return default;
         }
-     
-
-
     }
 }

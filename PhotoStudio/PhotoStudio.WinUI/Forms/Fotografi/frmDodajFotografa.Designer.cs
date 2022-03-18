@@ -194,7 +194,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtSlika.Name = "txtSlika";
             this.txtSlika.Size = new System.Drawing.Size(200, 20);
             this.txtSlika.TabIndex = 21;
-            this.txtSlika.Validating += new System.ComponentModel.CancelEventHandler(this.txtSlika_Validating);
+          
             // 
             // openFileDialog1
             // 

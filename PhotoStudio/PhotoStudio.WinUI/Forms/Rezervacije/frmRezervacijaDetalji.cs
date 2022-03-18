@@ -20,10 +20,7 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
             _id = id;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private async void frmRezervacijaDetalji_Load(object sender, EventArgs e)
         {

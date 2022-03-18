@@ -91,17 +91,7 @@ namespace PhotoStudio.WinUI.Forms.Rezervacije
             }
         }
 
-        private void dgvRezervacije_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // var rezervacija = dgvRezervacije.SelectedRows[0].Cells[0].Value;
-            // MessageBox.Show(rezervacija.ToString());
-            //var rezultat = rezervacija.ToString();
-            //frmRezervacijaDetalji forma = new frmRezervacijaDetalji(int.Parse(rezultat)); 
-            // forma.Show();
-           // var id = dgvRezervacije.SelectedRows[0].Cells[0].Value;
-             //frmRezervacijaDetalji frm = new frmRezervacijaDetalji (int.Parse(id.ToString()));
-            //frm.Show();
-        }
+    
 
         private void dgvRezervacije_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {

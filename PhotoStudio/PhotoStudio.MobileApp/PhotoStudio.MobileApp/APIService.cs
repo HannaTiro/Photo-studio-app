@@ -1,7 +1,9 @@
 ﻿using Flurl.Http;
 using PhotoStudio.Data;
+using PhotoStudio.Data.Requests.Korisnik;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,71 +13,49 @@ namespace PhotoStudio.MobileApp
 {
     public class APIService
     {
-   
-
         public static string Username { get; set; }
         public static string Password { get; set; }
         public static int KorisnikId { get; set; }
-      
+
         private readonly string _route = null;
 #if DEBUG
         private string _apiUrl = "http://localhost:52869/api";
-    
+
 #endif
 #if RELEASE
         private string _apiUrl = "https://mywebsite.com/api/"; 
 #endif
-     
+
         public APIService(string route)
         {
             _route = route;
         }
-        
-      
-       
-        public async Task<T> Get<T>(object search=null)
+
+
+        public async Task<T> Get<T>(object search = null)
         {
 
             var url = $"{_apiUrl}/{_route}";
             try
             {
-
-                //var query = "";
-                //if (search != null)
-                //{
-                //    query = await search?.ToQueryString();
-                //}
-                ////  get all ako je null
-                //var list = await $"{_apiUrl}/{_route}?{query}"
-                // .WithBasicAuth(Username, Password)
-                //  .GetJsonAsync<T>();
-                //return list;
-                
-
                 if (search != null)
-            {
-                url += "?";
-                url += await search.ToQueryString();
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             }
-            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
-        }   
             catch (FlurlHttpException ex)
             {
-
-
-                await Application.Current.MainPage.DisplayAlert("Greška", "Niste authentificirani", "OK");
-
-                throw;
+                return await HandleException<T>(ex);
             }
-}
+        }
         public async Task<T> GetRegistracija<T>(object search = null)
         {
 
-            var url = $"{_apiUrl}/{_route}";
+            var url = $"{_apiUrl}/{_route}/registracija";
             try
             {
-
-
                 if (search != null)
                 {
                     url += "?";
@@ -85,35 +65,22 @@ namespace PhotoStudio.MobileApp
             }
             catch (FlurlHttpException ex)
             {
-
-
-                await Application.Current.MainPage.DisplayAlert("Greška", "Niste authentificirani", "OK");
-
-                throw;
+                return await HandleException<T>(ex);
             }
-        }
-
-        public async Task<T> SingUp<T>(object request)
-        {
-            var url = $"{_apiUrl}/{_route}";
-            return await url.PostJsonAsync(request).ReceiveJson<T>();
         }
 
 
         public async Task<T> GetById<T>(object id)
         {
-            // try
-            //{
-            var url = $"{_apiUrl}/{_route}/{id}";
-            // return await url.GetJsonAsync<T>();
-            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
-            //}
-            //catch(FlurlHttpException ex)
-            //{
-            //    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string>>();
-
-            //    return HandleException<T>(errors);
-            //}
+            try
+            {
+                var url = $"{_apiUrl}/{_route}/{id}";
+                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                return await HandleException<T>(ex);
+            }
 
         }
         public async Task<T> Insert<T>(object request)
@@ -126,24 +93,9 @@ namespace PhotoStudio.MobileApp
                     .WithBasicAuth(Username, Password)
                     .PostJsonAsync(request).ReceiveJson<T>();
             }
-            //catch (FlurlHttpException ex)
-            //{
-            //    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string>>();
-
-            //    return HandleException<T>(errors);
-            //}
             catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-                var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
-                {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
-                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
-                //MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return default(T);
+                return await HandleException<T>(ex);
             }
         }
 
@@ -157,13 +109,24 @@ namespace PhotoStudio.MobileApp
                     .WithBasicAuth(Username, Password)
                     .PutJsonAsync(request).ReceiveJson<T>();
             }
-            //catch (FlurlHttpException ex)
-            //{
-            //    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string>>();
-
-            //    return HandleException<T>(errors);
-            //}
             catch (FlurlHttpException ex)
+            {
+                return await HandleException<T>(ex);
+            }
+
+        }
+
+        private static async Task<T> HandleException<T>(FlurlHttpException ex)
+        {
+            if (ex.StatusCode == (int)HttpStatusCode.Unauthorized)
+            {
+                await Application.Current.MainPage.DisplayAlert("Greška", "Neispravan username ili password", "OK");
+            }
+            else if (ex.StatusCode == (int)HttpStatusCode.Forbidden)
+            {
+                await Application.Current.MainPage.DisplayAlert("Greška", "Nemate pravo pristupa", "OK");
+            }
+            else
             {
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
@@ -174,13 +137,23 @@ namespace PhotoStudio.MobileApp
                 }
                 await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
 
-                //MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return default(T);
             }
-
+            return default;
         }
 
-      
+        public async Task<T> SignUp<T>(KorisnikUpsert request)
+        {
+            try
+            {
+                var url = $"{_apiUrl}/{_route}/signUp";
 
+                return await url
+                    .PostJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                return await HandleException<T>(ex);
+            }
+        }
     }
 }

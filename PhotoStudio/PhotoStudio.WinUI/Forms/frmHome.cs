@@ -16,5 +16,7 @@ namespace PhotoStudio.WinUI.Forms
         {
             InitializeComponent();
         }
+
+        
     }
 }

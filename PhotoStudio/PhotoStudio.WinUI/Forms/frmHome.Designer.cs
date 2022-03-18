@@ -81,6 +81,7 @@ namespace PhotoStudio.WinUI.Forms
             this.MinimizeBox = false;
             this.Name = "frmHome";
             this.Text = "frmHome";
+        
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

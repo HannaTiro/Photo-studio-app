@@ -66,9 +66,6 @@ namespace PhotoStudio.WinUI.Forms
 
         }
 
-            private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

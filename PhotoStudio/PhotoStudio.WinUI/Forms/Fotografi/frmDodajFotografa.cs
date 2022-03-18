@@ -36,11 +36,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
 
     
 
-        private void textBox1_Validating(object sender, CancelEventArgs e)
-        {
-
-        }
-
+      
         private void txtIme_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtIme.Text))
@@ -67,31 +63,9 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             }
         }
 
-        private void txtEmail_Validating(object sender, CancelEventArgs e)
-        {
-            //if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            //{
-            //    err.SetError(txtEmail, " Obavezno polje");
-            //    e.Cancel = true;
-            //}
-            //else
-            //{
-            //    err.SetError(txtEmail, null);
-            //}
-        }
+   
 
-        private void txtKontakt_Validating(object sender, CancelEventArgs e)
-        {
-            //if (string.IsNullOrWhiteSpace(txtKontakt.Text))
-            //{
-            //    err.SetError(txtKontakt, " Obavezno polje");
-            //    e.Cancel = true;
-            //}
-            //else
-            //{
-            //    err.SetError(txtKontakt, null);
-            //}
-        }
+     
 
         private void txtCijena_Validating(object sender, CancelEventArgs e)
         {
@@ -119,18 +93,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             }
         }
 
-        private void txtSlika_Validating(object sender, CancelEventArgs e)
-        {
-            //if (string.IsNullOrWhiteSpace(txtSlika.Text))
-            //{
-            //    err.SetError(txtSlika, " Required");
-            //    e.Cancel = true;
-            //}
-            //else
-            //{
-            //    err.SetError(txtSlika, null);
-            //}
-        }
+      
         private void txtOpis_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtOpis.Text))

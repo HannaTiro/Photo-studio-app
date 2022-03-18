@@ -1,4 +1,6 @@
-﻿using PhotoStudio.Data.Requests.Korisnik;
+﻿using Microsoft.AspNetCore.Mvc;
+using PhotoStudio.Data.Model;
+using PhotoStudio.Data.Requests.Korisnik;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +17,6 @@ namespace PhotoStudio.Interface
         Data.Model.Korisnik Update(int id, KorisnikUpsert request);
 
     Task<Data.Model.Korisnik> Login(KorisnikLoginRequest request);
-      
-
-
+        ActionResult<Korisnik> SignUp(KorisnikUpsert request);
     }
 }
