@@ -21,7 +21,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
         {
             InitializeComponent();
         }
-
+      
         private async void btnDodaj_Click(object sender, EventArgs e)
         {
             if(this.ValidateChildren())
@@ -32,6 +32,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
                     NazivStudija = txtNazivStudija.Text,
                     Opis = txtOpis.Text,
                     Telefon = txtTelefon.Text
+                    
                 };
                 var odabraniGrad = cmbGrad.SelectedValue;
                 if(int.TryParse(odabraniGrad.ToString(), out int grad ))
@@ -99,10 +100,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             }
         }
 
-        private void txtTelefon_Validated(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void txtTelefon_Validating(object sender, CancelEventArgs e)
         {
@@ -142,5 +140,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
                 err.SetError(txtOpis, null);
             }
         }
+
+       
     }
 }

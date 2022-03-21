@@ -1,6 +1,7 @@
 ﻿using PhotoStudio.WinUI.Forms.Fotografi;
 using PhotoStudio.WinUI.Forms.Komentari;
 using PhotoStudio.WinUI.Forms.Korisnici;
+using PhotoStudio.WinUI.Forms.Novosti;
 using PhotoStudio.WinUI.Forms.Ocjene;
 using PhotoStudio.WinUI.Forms.Rezervacije;
 using PhotoStudio.WinUI.Forms.Studio;
@@ -167,6 +168,20 @@ namespace PhotoStudio.WinUI.Forms
         private void dodajStudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNoviStudio forma = new frmNoviStudio();
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
+        private void pregledNovostiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPregledNovosti forma = new frmPregledNovosti();
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
+        private void dodajNovostToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDodajNovost forma = new frmDodajNovost();
             forma.MdiParent = this;
             forma.Show();
         }

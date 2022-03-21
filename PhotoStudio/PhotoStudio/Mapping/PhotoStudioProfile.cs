@@ -4,6 +4,7 @@ using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Korisnik;
+using PhotoStudio.Data.Requests.Novost;
 using PhotoStudio.Data.Requests.Rejting;
 using PhotoStudio.Data.Requests.Rezervacija;
 using PhotoStudio.Data.Requests.Studio;
@@ -30,6 +31,10 @@ namespace PhotoStudio.Mapping
             CreateMap<PhotoStudio.Database.Komentar, Data.Model.Komentar>().ReverseMap();
             CreateMap<PhotoStudio.Database.Rejting, Data.Model.Rejting>().ReverseMap();
             CreateMap<PhotoStudio.Database.Rezervacija, Data.Model.Rezervacija>().ReverseMap();
+            CreateMap<PhotoStudio.Database.Novost, Data.Model.Novost>().ReverseMap();
+
+
+            //Grad
 
             CreateMap<PhotoStudio.Database.Grad, GradRequest>().ReverseMap();
             CreateMap<PhotoStudio.Database.Grad, GradUpsert>().ReverseMap();
@@ -75,7 +80,6 @@ namespace PhotoStudio.Mapping
 
 
             //Rezervacija
-         // CreateMap<Rezervacija, RezervacijaRequest>().ReverseMap();
             CreateMap<Rezervacija, RezervacijaUpsert>().ReverseMap();
             CreateMap<RezervacijaRequest, Database.Rezervacija>().ReverseMap();
 
@@ -83,8 +87,17 @@ namespace PhotoStudio.Mapping
             CreateMap<RezervacijaRequest, Database.Korisnik>().ReverseMap();
             CreateMap<RezervacijaRequest, Database.Fotograf>().ReverseMap();
 
-            //CreateMap<RezervacijaRequest, FotografRequest>().ReverseMap();
-            //CreateMap<RezervacijaRequest, KorisnikRequest>().ReverseMap();
+
+            //Novost
+            CreateMap<Novost, NovostUpsert>().ReverseMap();
+            CreateMap<NovostRequest, NovostSearchRequest>().ReverseMap();
+            CreateMap<Database.Novost, NovostRequest>().ReverseMap();
+
+        
+           
+
+
+
 
 
 

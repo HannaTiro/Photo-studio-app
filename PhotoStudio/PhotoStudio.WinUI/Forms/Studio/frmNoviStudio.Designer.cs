@@ -51,6 +51,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.txtNazivStudija.Name = "txtNazivStudija";
             this.txtNazivStudija.Size = new System.Drawing.Size(201, 20);
             this.txtNazivStudija.TabIndex = 0;
+          
             this.txtNazivStudija.Validating += new System.ComponentModel.CancelEventHandler(this.txtNazivStudija_Validating);
             // 
             // label1
@@ -61,6 +62,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Naziv studija";
+          
             // 
             // label2
             // 
@@ -70,6 +72,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Adresa";
+          
             // 
             // txtAdresa
             // 
@@ -77,6 +80,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(201, 20);
             this.txtAdresa.TabIndex = 2;
+      
             this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // label3
@@ -87,6 +91,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Telefon";
+            
             // 
             // txtTelefon
             // 
@@ -94,8 +99,9 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(201, 20);
             this.txtTelefon.TabIndex = 4;
+         
             this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
-            this.txtTelefon.Validated += new System.EventHandler(this.txtTelefon_Validated);
+          
             // 
             // Grad
             // 
@@ -105,6 +111,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.Grad.Size = new System.Drawing.Size(30, 13);
             this.Grad.TabIndex = 6;
             this.Grad.Text = "Grad";
+            
             // 
             // cmbGrad
             // 
@@ -113,6 +120,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.cmbGrad.Name = "cmbGrad";
             this.cmbGrad.Size = new System.Drawing.Size(201, 21);
             this.cmbGrad.TabIndex = 7;
+           
             this.cmbGrad.Validating += new System.ComponentModel.CancelEventHandler(this.cmbGrad_Validating);
             // 
             // label4
@@ -123,6 +131,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Opis";
+           
             // 
             // txtOpis
             // 
@@ -131,6 +140,7 @@ namespace PhotoStudio.WinUI.Forms.Studio
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(201, 63);
             this.txtOpis.TabIndex = 9;
+           
             this.txtOpis.Validating += new System.ComponentModel.CancelEventHandler(this.txtOpis_Validating);
             // 
             // btnDodaj

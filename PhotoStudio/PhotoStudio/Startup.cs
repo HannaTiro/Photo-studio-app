@@ -12,6 +12,7 @@ using Microsoft.OpenApi.Models;
 using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
+using PhotoStudio.Data.Requests.Novost;
 using PhotoStudio.Data.Requests.Rejting;
 using PhotoStudio.Data.Requests.Rezervacija;
 using PhotoStudio.Data.Requests.Studio;
@@ -81,7 +82,7 @@ namespace PhotoStudio
             //Dependency injection
             services.AddScoped<IService<Data.Model.Grad, GradSearchRequest>, GradService>();
             services.AddScoped<IService<Data.Model.TipFotografa, TipFotografaRequest>, TipFotografaService>();
-            //  services.AddScoped<IService<Data.Model.TipKorisnika,object>, BaseService<Data.Model.TipKorisnika, object, TipKorisnika>>();
+           
             services.AddScoped<IService<Data.Model.TipKorisnika, TipKorisnikaRequest>, TipKorisnikaService>();
 
             services.AddScoped<IKorisnikService, KorisnikService>();
@@ -92,6 +93,8 @@ namespace PhotoStudio
             services.AddScoped<ICRUDService<Data.Model.Rejting, RejtingSearchRequest, RejtingUpsert, RejtingUpsert>, RejtingService>();
             services.AddScoped<ICRUDService<Data.Model.Studio, StudioSearchRequest, StudioUpsert, StudioUpsert>, StudioService>();
             services.AddScoped<ICRUDService<Data.Model.Rezervacija, RezervacijaSearchRequest, RezervacijaUpsert, RezervacijaUpsert>, RezervacijaService>();
+            services.AddScoped<ICRUDService<Data.Model.Novost, NovostSearchRequest,NovostUpsert, NovostUpsert>, NovostService>();
+
 
             services.AddScoped<IPreporukaService, PreporukaService>();
             services.AddScoped<ISlikaService, SlikaService>();

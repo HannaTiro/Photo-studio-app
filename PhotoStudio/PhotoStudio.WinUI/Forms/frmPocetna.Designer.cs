@@ -48,6 +48,9 @@ namespace PhotoStudio.WinUI.Forms
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.novostiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pregledNovostiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajNovostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -61,13 +64,13 @@ namespace PhotoStudio.WinUI.Forms
             this.rezervacijeToolStripMenuItem,
             this.ocjeneIKomentariToolStripMenuItem,
             this.oNamaToolStripMenuItem,
-            this.pregledStudijaToolStripMenuItem});
+            this.pregledStudijaToolStripMenuItem,
+            this.novostiToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(829, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
-          
             // 
             // homeToolStripMenuItem
             // 
@@ -191,6 +194,29 @@ namespace PhotoStudio.WinUI.Forms
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // novostiToolStripMenuItem
+            // 
+            this.novostiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pregledNovostiToolStripMenuItem,
+            this.dodajNovostToolStripMenuItem});
+            this.novostiToolStripMenuItem.Name = "novostiToolStripMenuItem";
+            this.novostiToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.novostiToolStripMenuItem.Text = "Novosti";
+            // 
+            // pregledNovostiToolStripMenuItem
+            // 
+            this.pregledNovostiToolStripMenuItem.Name = "pregledNovostiToolStripMenuItem";
+            this.pregledNovostiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pregledNovostiToolStripMenuItem.Text = "Pregled novosti";
+            this.pregledNovostiToolStripMenuItem.Click += new System.EventHandler(this.pregledNovostiToolStripMenuItem_Click);
+            // 
+            // dodajNovostToolStripMenuItem
+            // 
+            this.dodajNovostToolStripMenuItem.Name = "dodajNovostToolStripMenuItem";
+            this.dodajNovostToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajNovostToolStripMenuItem.Text = "Dodaj novost";
+            this.dodajNovostToolStripMenuItem.Click += new System.EventHandler(this.dodajNovostToolStripMenuItem_Click);
+            // 
             // frmPocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +261,9 @@ namespace PhotoStudio.WinUI.Forms
         private System.Windows.Forms.ToolStripMenuItem dodajFotografaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pregledStudijaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajStudioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem novostiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pregledNovostiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajNovostToolStripMenuItem;
     }
 }
 

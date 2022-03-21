@@ -165,6 +165,18 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Novosti\frmDodajNovost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Novosti\frmDodajNovost.Designer.cs">
+      <DependentUpon>frmDodajNovost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Novosti\frmPregledNovosti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Novosti\frmPregledNovosti.Designer.cs">
+      <DependentUpon>frmPregledNovosti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ocjene\frmOcjenaDetalji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +250,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Novosti\frmDodajNovost.resx">
+      <DependentUpon>frmDodajNovost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Novosti\frmPregledNovosti.resx">
+      <DependentUpon>frmPregledNovosti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ocjene\frmOcjenaDetalji.resx">
       <DependentUpon>frmOcjenaDetalji.cs</DependentUpon>
