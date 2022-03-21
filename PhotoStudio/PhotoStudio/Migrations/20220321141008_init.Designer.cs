@@ -10,8 +10,8 @@ using PhotoStudio.Database;
 namespace PhotoStudio.Migrations
 {
     [DbContext(typeof(PhotoStudioContext))]
-    [Migration("20220312013737_finalna")]
-    partial class finalna
+    [Migration("20220321141008_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -302,8 +302,8 @@ namespace PhotoStudio.Migrations
                             Email = "hanna@yahoo.com",
                             GradId = 1,
                             Ime = "Hanna",
-                            PasswordHash = "PCDf8OJWlJFia+H1D4vluxdhck8=",
-                            PasswordSalt = "wS/y2DlJoXWA3hlYALNJSQ==",
+                            PasswordHash = "PHNORL7ALZ+v/qdQMWfnkHvPZT4=",
+                            PasswordSalt = "a9p48eSNs+8uiveTNgIM7A==",
                             Prezime = "Tiro",
                             Telefon = "061234432",
                             TipKorisnikaId = 1,
@@ -315,8 +315,8 @@ namespace PhotoStudio.Migrations
                             Email = "test@yahoo.com",
                             GradId = 1,
                             Ime = "KorisnikIme",
-                            PasswordHash = "19ibKgj2lre31tAWLloqnVc2fcI=",
-                            PasswordSalt = "zuwQGVGzDUzgb9Eynd5WBA==",
+                            PasswordHash = "Y7ltXu5oje0eGrikfm1JI20TzMM=",
+                            PasswordSalt = "sYdzw8OcQBvsC3K2AD4cCQ==",
                             Prezime = "KorisnikPrezime",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -328,8 +328,8 @@ namespace PhotoStudio.Migrations
                             Email = "muma@yahoo.com",
                             GradId = 1,
                             Ime = "Muamer",
-                            PasswordHash = "8V3IUyQW4WqK3MCfgxxrZ/Jmvro=",
-                            PasswordSalt = "sqkNaNSKPGtLyZF/Rd8kzg==",
+                            PasswordHash = "USC/650gPaI6/zIfEksw60kHTu0=",
+                            PasswordSalt = "iifZXL656NrpwQgMw1axmg==",
                             Prezime = "Zukanovic",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -341,12 +341,48 @@ namespace PhotoStudio.Migrations
                             Email = "lejla@yahoo.com",
                             GradId = 1,
                             Ime = "Lejla",
-                            PasswordHash = "o0zGsBP0KuHc8V9F0IgFubAVkQ4=",
-                            PasswordSalt = "93lh5+wgiGd5YW+k7xxIiw==",
+                            PasswordHash = "C4rEooTknuAuQejb/Gua+MFDNug=",
+                            PasswordSalt = "1wxaQ2ja00FlgWWKx3alug==",
                             Prezime = "Taslaman",
                             Telefon = "062534435",
                             TipKorisnikaId = 2,
                             Username = "lejla"
+                        });
+                });
+
+            modelBuilder.Entity("PhotoStudio.Database.Novost", b =>
+                {
+                    b.Property<int>("NovostId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DatumObjave")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Naslov")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sadrzaj")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StudioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("NovostId");
+
+                    b.HasIndex("StudioId");
+
+                    b.ToTable("Novost");
+
+                    b.HasData(
+                        new
+                        {
+                            NovostId = 1,
+                            DatumObjave = new DateTime(2022, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Naslov = "Obavijest o otvorenju novog studija",
+                            Sadrzaj = "Uskoro otvaramo novi studio u Sarajevu, ostanite uz nas.",
+                            StudioId = 1
                         });
                 });
 
@@ -847,6 +883,15 @@ namespace PhotoStudio.Migrations
                     b.Navigation("TipKorisnika");
                 });
 
+            modelBuilder.Entity("PhotoStudio.Database.Novost", b =>
+                {
+                    b.HasOne("PhotoStudio.Database.Studio", "Studio")
+                        .WithMany("Novost")
+                        .HasForeignKey("StudioId");
+
+                    b.Navigation("Studio");
+                });
+
             modelBuilder.Entity("PhotoStudio.Database.Rejting", b =>
                 {
                     b.HasOne("PhotoStudio.Database.Fotograf", "Fotograf")
@@ -914,6 +959,11 @@ namespace PhotoStudio.Migrations
                     b.Navigation("Rejtings");
 
                     b.Navigation("Rezervacijas");
+                });
+
+            modelBuilder.Entity("PhotoStudio.Database.Studio", b =>
+                {
+                    b.Navigation("Novost");
                 });
 
             modelBuilder.Entity("PhotoStudio.Database.TipFotografa", b =>

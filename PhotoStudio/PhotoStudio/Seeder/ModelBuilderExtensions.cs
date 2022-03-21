@@ -575,6 +575,20 @@ namespace PhotoStudio.Seeder
                );
             #endregion
 
+            #region Dodavanje novosti
+            modelBuilder.Entity<Novost>().HasData(
+                new Novost()
+                {
+                    NovostId=1,
+                    DatumObjave = new DateTime(2022, 1, 28),
+                    Naslov="Obavijest o otvorenju novog studija",
+                    Sadrzaj="Uskoro otvaramo novi studio u Sarajevu, ostanite uz nas.",
+                    StudioId=1
+                    
+                }
+                );
+            #endregion
+
         }
     }
 }

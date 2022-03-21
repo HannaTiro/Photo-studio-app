@@ -41,9 +41,9 @@ namespace PhotoStudio.WinUI.Forms
                 };
                 var result = await aPIService.Get<List<Korisnik>>(request);
 
-                if (result.Count == 0)
+                if (result is null || result.Count == 0)
                 {
-                    MessageBox.Show("Korisnik ne postoji.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  
                     return;
                 }
                 else

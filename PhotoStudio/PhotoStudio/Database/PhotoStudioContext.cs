@@ -27,6 +27,8 @@ namespace PhotoStudio.Database
         public virtual DbSet<Studio> Studios { get; set; }
         public virtual DbSet<TipFotografa> TipFotografas { get; set; }
         public virtual DbSet<TipKorisnika> TipKorisnikas { get; set; }
+        public virtual DbSet<Novost> Novost { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -179,6 +181,8 @@ namespace PhotoStudio.Database
 
                 entity.Property(e => e.Tip).HasMaxLength(20);
             });
+        
+
 
             OnModelCreatingPartial(modelBuilder);
             modelBuilder.Seed();
