@@ -48,12 +48,15 @@ namespace PhotoStudio.WinUI.Forms
             this.novostiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledNovostiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajNovostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.posebnePonudeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledPonudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajNovuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.uslugeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pregledajSveUslugeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajNovuUsluguToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -69,10 +72,11 @@ namespace PhotoStudio.WinUI.Forms
             this.oNamaToolStripMenuItem,
             this.pregledStudijaToolStripMenuItem,
             this.novostiToolStripMenuItem,
-            this.posebnePonudeToolStripMenuItem});
+            this.posebnePonudeToolStripMenuItem,
+            this.uslugeToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(829, 24);
+            this.menuStrip.Size = new System.Drawing.Size(907, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -205,22 +209,6 @@ namespace PhotoStudio.WinUI.Forms
             this.dodajNovostToolStripMenuItem.Text = "Dodaj novost";
             this.dodajNovostToolStripMenuItem.Click += new System.EventHandler(this.dodajNovostToolStripMenuItem_Click);
             // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(829, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
-            // 
             // posebnePonudeToolStripMenuItem
             // 
             this.posebnePonudeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -244,12 +232,51 @@ namespace PhotoStudio.WinUI.Forms
             this.dodajNovuToolStripMenuItem.Text = "Dodaj novu";
             this.dodajNovuToolStripMenuItem.Click += new System.EventHandler(this.dodajNovuToolStripMenuItem_Click);
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 435);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(907, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
+            // uslugeToolStripMenuItem
+            // 
+            this.uslugeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pregledajSveUslugeToolStripMenuItem,
+            this.dodajNovuUsluguToolStripMenuItem});
+            this.uslugeToolStripMenuItem.Name = "uslugeToolStripMenuItem";
+            this.uslugeToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.uslugeToolStripMenuItem.Text = "Usluge";
+            // 
+            // pregledajSveUslugeToolStripMenuItem
+            // 
+            this.pregledajSveUslugeToolStripMenuItem.Name = "pregledajSveUslugeToolStripMenuItem";
+            this.pregledajSveUslugeToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.pregledajSveUslugeToolStripMenuItem.Text = "Pregledaj sve usluge";
+            this.pregledajSveUslugeToolStripMenuItem.Click += new System.EventHandler(this.pregledajSveUslugeToolStripMenuItem_Click);
+            // 
+            // dodajNovuUsluguToolStripMenuItem
+            // 
+            this.dodajNovuUsluguToolStripMenuItem.Name = "dodajNovuUsluguToolStripMenuItem";
+            this.dodajNovuUsluguToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.dodajNovuUsluguToolStripMenuItem.Text = "Dodaj novu uslugu";
+            this.dodajNovuUsluguToolStripMenuItem.Click += new System.EventHandler(this.dodajNovuUsluguToolStripMenuItem_Click);
+            // 
             // frmPocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(829, 453);
+            this.ClientSize = new System.Drawing.Size(907, 457);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -294,6 +321,9 @@ namespace PhotoStudio.WinUI.Forms
         private System.Windows.Forms.ToolStripMenuItem posebnePonudeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pregledPonudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNovuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uslugeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pregledajSveUslugeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajNovuUsluguToolStripMenuItem;
     }
 }
 

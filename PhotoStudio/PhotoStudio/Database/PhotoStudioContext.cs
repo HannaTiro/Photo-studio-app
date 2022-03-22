@@ -29,6 +29,8 @@ namespace PhotoStudio.Database
         public virtual DbSet<TipKorisnika> TipKorisnikas { get; set; }
         public virtual DbSet<Novost> Novost { get; set; }
         public virtual DbSet<PosebnaPonuda> PosebnaPonuda { get; set; }
+        public virtual DbSet<Usluga> Usluga { get; set; }
+
 
 
 

@@ -21,7 +21,7 @@ namespace PhotoStudio.Service
             var query = _context.PosebnaPonuda.Include(x => x.Studio).AsQueryable();
             if (!string.IsNullOrWhiteSpace(request.NazivPonude))
             {
-                query = query.Where(x => x.NazivPonude.Equals(request.NazivPonude));
+                query = query.Where(x => x.NazivPonude.StartsWith(request.NazivPonude));
             }
             if (!string.IsNullOrWhiteSpace(request.Opis))
             {

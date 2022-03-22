@@ -300,8 +300,8 @@ namespace PhotoStudio.Migrations
                             Email = "hanna@yahoo.com",
                             GradId = 1,
                             Ime = "Hanna",
-                            PasswordHash = "8vBSWTNgrpPfHan0ZoTNnVPvPjw=",
-                            PasswordSalt = "gsRF96FUjcDpxU/U3E2LsQ==",
+                            PasswordHash = "Wr++IabO0dpW6BuBRvHiCe4orJw=",
+                            PasswordSalt = "q2/CGB1AOPxgSXjz3K8bEw==",
                             Prezime = "Tiro",
                             Telefon = "061234432",
                             TipKorisnikaId = 1,
@@ -313,8 +313,8 @@ namespace PhotoStudio.Migrations
                             Email = "test@yahoo.com",
                             GradId = 1,
                             Ime = "KorisnikIme",
-                            PasswordHash = "3Dr1vJ1vgVoH9bGSHfDJVrlpmlo=",
-                            PasswordSalt = "BQ/Veu4jsrBJJ7VSNvpE+g==",
+                            PasswordHash = "S4S+yoeB+xtBWT5c/fdgWr/xb6E=",
+                            PasswordSalt = "7OUdBLulTqI31wHE67xEWg==",
                             Prezime = "KorisnikPrezime",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -326,8 +326,8 @@ namespace PhotoStudio.Migrations
                             Email = "muma@yahoo.com",
                             GradId = 1,
                             Ime = "Muamer",
-                            PasswordHash = "Oi38nP4Uy/KyPE7H4PEFTEyG8ZE=",
-                            PasswordSalt = "W8UXSZ4X5cwjPQL46ue1eg==",
+                            PasswordHash = "nqQ0o95ANREo6t6zKpr4yuwlaPQ=",
+                            PasswordSalt = "cdZsizoNau1y+a4qavYLyA==",
                             Prezime = "Zukanovic",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -339,8 +339,8 @@ namespace PhotoStudio.Migrations
                             Email = "lejla@yahoo.com",
                             GradId = 1,
                             Ime = "Lejla",
-                            PasswordHash = "ECh5v7X9RHxtYZgrdULoUp5HeB0=",
-                            PasswordSalt = "/dD3TNJ6pJjXuf+/G0NwVg==",
+                            PasswordHash = "2ZXwp2EVQ12Laz4IjFiyyqhaH88=",
+                            PasswordSalt = "P6OfwbDx8xQpppQUaDAzyg==",
                             Prezime = "Taslaman",
                             Telefon = "062534435",
                             TipKorisnikaId = 2,
@@ -876,6 +876,73 @@ namespace PhotoStudio.Migrations
                         });
                 });
 
+            modelBuilder.Entity("PhotoStudio.Database.Usluga", b =>
+                {
+                    b.Property<int>("UslugaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Cijena")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Naziv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StudioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UslugaId");
+
+                    b.HasIndex("StudioId");
+
+                    b.ToTable("Usluga");
+
+                    b.HasData(
+                        new
+                        {
+                            UslugaId = 1,
+                            Cijena = 28.0,
+                            Naziv = "Meki vez 15x15 (10L + korica)",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            UslugaId = 2,
+                            Cijena = 35.0,
+                            Naziv = "Meki vez 15x20 (10L + korica)",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            UslugaId = 3,
+                            Cijena = 50.0,
+                            Naziv = "Meki vez 20x20 (10L + korica)",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            UslugaId = 4,
+                            Cijena = 70.0,
+                            Naziv = "Tvrdi vez 20x20 (10L)",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            UslugaId = 5,
+                            Cijena = 85.0,
+                            Naziv = "Tvrdi vez 30x20 (10L) / panorama",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            UslugaId = 6,
+                            Cijena = 250.0,
+                            Naziv = "Izrada photo booka (100 slika)",
+                            StudioId = 1
+                        });
+                });
+
             modelBuilder.Entity("PhotoStudio.Database.Fotograf", b =>
                 {
                     b.HasOne("PhotoStudio.Database.TipFotografa", "TipFotografa")
@@ -982,6 +1049,15 @@ namespace PhotoStudio.Migrations
                     b.Navigation("Grad");
                 });
 
+            modelBuilder.Entity("PhotoStudio.Database.Usluga", b =>
+                {
+                    b.HasOne("PhotoStudio.Database.Studio", "Studio")
+                        .WithMany("Usluga")
+                        .HasForeignKey("StudioId");
+
+                    b.Navigation("Studio");
+                });
+
             modelBuilder.Entity("PhotoStudio.Database.Fotograf", b =>
                 {
                     b.Navigation("Komentars");
@@ -1012,6 +1088,8 @@ namespace PhotoStudio.Migrations
                     b.Navigation("Novost");
 
                     b.Navigation("PosebnaPonuda");
+
+                    b.Navigation("Usluga");
                 });
 
             modelBuilder.Entity("PhotoStudio.Database.TipFotografa", b =>

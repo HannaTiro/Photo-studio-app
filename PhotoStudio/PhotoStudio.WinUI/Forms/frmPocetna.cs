@@ -6,6 +6,7 @@ using PhotoStudio.WinUI.Forms.Ocjene;
 using PhotoStudio.WinUI.Forms.PosebnaPonuda;
 using PhotoStudio.WinUI.Forms.Rezervacije;
 using PhotoStudio.WinUI.Forms.Studio;
+using PhotoStudio.WinUI.Forms.Usluga;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -197,6 +198,20 @@ namespace PhotoStudio.WinUI.Forms
         private void dodajNovuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPosebnaPonudaDodaj forma = new frmPosebnaPonudaDodaj();
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
+        private void pregledajSveUslugeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPregledUsluga forma = new frmPregledUsluga();
+            forma.MdiParent = this;
+            forma.Show();
+        }
+
+        private void dodajNovuUsluguToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDodajUslugu forma = new frmDodajUslugu();
             forma.MdiParent = this;
             forma.Show();
         }

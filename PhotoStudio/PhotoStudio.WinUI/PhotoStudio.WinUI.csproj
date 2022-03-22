@@ -225,6 +225,18 @@
     <Compile Include="Forms\Studio\frmPregledStudija.Designer.cs">
       <DependentUpon>frmPregledStudija.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Usluga\frmDodajUslugu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usluga\frmDodajUslugu.Designer.cs">
+      <DependentUpon>frmDodajUslugu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Usluga\frmPregledUsluga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usluga\frmPregledUsluga.Designer.cs">
+      <DependentUpon>frmPregledUsluga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Fotografi\frmDodajFotografa.resx">
@@ -292,6 +304,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Studio\frmPregledStudija.resx">
       <DependentUpon>frmPregledStudija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usluga\frmDodajUslugu.resx">
+      <DependentUpon>frmDodajUslugu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usluga\frmPregledUsluga.resx">
+      <DependentUpon>frmPregledUsluga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

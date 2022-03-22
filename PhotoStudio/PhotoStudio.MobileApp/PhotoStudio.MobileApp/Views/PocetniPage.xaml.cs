@@ -54,6 +54,9 @@ namespace PhotoStudio.MobileApp.Views
                     case (int)MenuItemType.PosebnaPonuda:
                         listaMeniPage.Add(id, new NavigationPage(new PosebnaPonudaPage()));
                         break;
+                    case (int)MenuItemType.Usluga:
+                        listaMeniPage.Add(id, new NavigationPage(new UslugaPage()));
+                        break;
 
                 }
             }

@@ -172,6 +172,27 @@ namespace PhotoStudio.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Usluga",
+                columns: table => new
+                {
+                    UslugaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cijena = table.Column<double>(type: "float", nullable: false),
+                    StudioId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usluga", x => x.UslugaId);
+                    table.ForeignKey(
+                        name: "FK_Usluga_Studio_StudioId",
+                        column: x => x.StudioId,
+                        principalTable: "Studio",
+                        principalColumn: "StudioId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Komentar",
                 columns: table => new
                 {
@@ -310,10 +331,10 @@ namespace PhotoStudio.Migrations
                 columns: new[] { "KorisnikId", "Email", "GradId", "Ime", "PasswordHash", "PasswordSalt", "Prezime", "Telefon", "TipKorisnikaId", "Username" },
                 values: new object[,]
                 {
-                    { 1, "hanna@yahoo.com", 1, "Hanna", "8vBSWTNgrpPfHan0ZoTNnVPvPjw=", "gsRF96FUjcDpxU/U3E2LsQ==", "Tiro", "061234432", 1, "admin" },
-                    { 2, "test@yahoo.com", 1, "KorisnikIme", "3Dr1vJ1vgVoH9bGSHfDJVrlpmlo=", "BQ/Veu4jsrBJJ7VSNvpE+g==", "KorisnikPrezime", "062534635", 2, "test" },
-                    { 3, "muma@yahoo.com", 1, "Muamer", "Oi38nP4Uy/KyPE7H4PEFTEyG8ZE=", "W8UXSZ4X5cwjPQL46ue1eg==", "Zukanovic", "062534635", 2, "muma" },
-                    { 4, "lejla@yahoo.com", 1, "Lejla", "ECh5v7X9RHxtYZgrdULoUp5HeB0=", "/dD3TNJ6pJjXuf+/G0NwVg==", "Taslaman", "062534435", 2, "lejla" }
+                    { 1, "hanna@yahoo.com", 1, "Hanna", "Wr++IabO0dpW6BuBRvHiCe4orJw=", "q2/CGB1AOPxgSXjz3K8bEw==", "Tiro", "061234432", 1, "admin" },
+                    { 2, "test@yahoo.com", 1, "KorisnikIme", "S4S+yoeB+xtBWT5c/fdgWr/xb6E=", "7OUdBLulTqI31wHE67xEWg==", "KorisnikPrezime", "062534635", 2, "test" },
+                    { 3, "muma@yahoo.com", 1, "Muamer", "nqQ0o95ANREo6t6zKpr4yuwlaPQ=", "cdZsizoNau1y+a4qavYLyA==", "Zukanovic", "062534635", 2, "muma" },
+                    { 4, "lejla@yahoo.com", 1, "Lejla", "2ZXwp2EVQ12Laz4IjFiyyqhaH88=", "P6OfwbDx8xQpppQUaDAzyg==", "Taslaman", "062534435", 2, "lejla" }
                 });
 
             migrationBuilder.InsertData(
@@ -346,15 +367,15 @@ namespace PhotoStudio.Migrations
                 values: new object[,]
                 {
                     { 10, new DateTime(2019, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, 4, 5 },
+                    { 9, new DateTime(2019, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, 4, 5 },
                     { 8, new DateTime(2019, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 4, 5 },
                     { 7, new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, 4, 5 },
-                    { 6, new DateTime(2021, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, 5 },
                     { 5, new DateTime(2019, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 4, 5 },
                     { 4, new DateTime(2019, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 4, 5 },
-                    { 9, new DateTime(2019, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, 4, 5 },
+                    { 3, new DateTime(2019, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 4, 5 },
                     { 2, new DateTime(2019, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 4, 5 },
-                    { 1, new DateTime(2022, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 3, 5 },
-                    { 3, new DateTime(2019, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 4, 5 }
+                    { 6, new DateTime(2021, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, 5 },
+                    { 1, new DateTime(2022, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 3, 5 }
                 });
 
             migrationBuilder.InsertData(
@@ -362,6 +383,7 @@ namespace PhotoStudio.Migrations
                 columns: new[] { "RezervacijaId", "DatumDO", "DatumOD", "FotografId", "IsKomentarisano", "IsOcijenjeno", "IsPlaceno", "KorisnikId" },
                 values: new object[,]
                 {
+                    { 3, new DateTime(2022, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, true, true, true, 3 },
                     { 15, new DateTime(2019, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, false, true, true, 4 },
                     { 14, new DateTime(2019, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, false, true, true, 4 },
                     { 13, new DateTime(2019, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, false, true, true, 4 },
@@ -369,16 +391,28 @@ namespace PhotoStudio.Migrations
                     { 11, new DateTime(2019, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, false, true, true, 4 },
                     { 10, new DateTime(2019, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, false, true, true, 4 },
                     { 9, new DateTime(2019, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, false, true, true, 4 },
+                    { 8, new DateTime(2019, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, true, true, 4 },
                     { 7, new DateTime(2019, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, true, true, 4 },
                     { 6, new DateTime(2019, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, false, true, true, 4 },
                     { 5, new DateTime(2019, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, false, true, true, 4 },
-                    { 4, new DateTime(2021, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, true, true, 4 },
-                    { 1, new DateTime(2022, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, false, false, 2 },
                     { 16, new DateTime(2019, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, false, true, true, 4 },
+                    { 1, new DateTime(2022, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, false, false, 2 },
                     { 2, new DateTime(2022, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, false, false, false, 2 },
-                    { 3, new DateTime(2022, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2022, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, true, true, true, 3 },
-                    { 8, new DateTime(2019, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, true, true, 4 },
+                    { 4, new DateTime(2021, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, false, true, true, 4 },
                     { 17, new DateTime(2019, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 10, false, true, true, 4 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Usluga",
+                columns: new[] { "UslugaId", "Cijena", "Naziv", "StudioId" },
+                values: new object[,]
+                {
+                    { 1, 28.0, "Meki vez 15x15 (10L + korica)", 1 },
+                    { 2, 35.0, "Meki vez 15x20 (10L + korica)", 1 },
+                    { 3, 50.0, "Meki vez 20x20 (10L + korica)", 1 },
+                    { 4, 70.0, "Tvrdi vez 20x20 (10L)", 1 },
+                    { 5, 85.0, "Tvrdi vez 30x20 (10L) / panorama", 1 },
+                    { 6, 250.0, "Izrada photo booka (100 slika)", 1 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -440,6 +474,11 @@ namespace PhotoStudio.Migrations
                 name: "IX_Studio_GradId",
                 table: "Studio",
                 column: "GradId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usluga_StudioId",
+                table: "Usluga",
+                column: "StudioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -460,7 +499,7 @@ namespace PhotoStudio.Migrations
                 name: "Rezervacija");
 
             migrationBuilder.DropTable(
-                name: "Studio");
+                name: "Usluga");
 
             migrationBuilder.DropTable(
                 name: "Korisnik");
@@ -469,13 +508,16 @@ namespace PhotoStudio.Migrations
                 name: "Fotograf");
 
             migrationBuilder.DropTable(
-                name: "Grad");
+                name: "Studio");
 
             migrationBuilder.DropTable(
                 name: "TipKorisnika");
 
             migrationBuilder.DropTable(
                 name: "TipFotografa");
+
+            migrationBuilder.DropTable(
+                name: "Grad");
         }
     }
 }

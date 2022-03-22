@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels" 
-             x:Class="PhotoStudio.MobileApp.Views.PosebnaPonudaPage"
+             x:Class="PhotoStudio.MobileApp.Views.UslugaPage"
              BackgroundColor="RosyBrown">
 
     <ContentPage.BindingContext>
-        <vm:PosebnaPonudaViewModel />
+        <vm:UslugaViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Pregled posebnih ponuda koje studio nudi"
+            <Label Text="Pregled usluga koje studio nudi"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
@@ -19,21 +19,28 @@
 
             </Picker>
 
-            <ListView ItemsSource="{Binding ListaPonuda}"  BackgroundColor="RosyBrown" >
+            <ListView ItemsSource="{Binding ListaUsluga}"  BackgroundColor="RosyBrown" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" Orientation="Horizontal">
                                 <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding NazivPonude}"
+                                    <Label Text="{Binding Naziv}"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemTextStyle }"
                                        FontSize="15"/>
-                                    <Label  Text="{Binding Opis}"
+                                    <StackLayout Orientation="Horizontal">
+                                       
+                                        <Label  Text="{Binding Cijena}" 
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemTextStyle }"
                                        FontSize="15" />
-                                  
+                                        <Label FontSize="15"  LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle }"
+                                        >KM</Label>
+                                    </StackLayout>
+                                   
+
                                 </StackLayout>
 
                             </StackLayout>

@@ -19,6 +19,7 @@ using PhotoStudio.Data.Requests.Rezervacija;
 using PhotoStudio.Data.Requests.Studio;
 using PhotoStudio.Data.Requests.TipFotografa;
 using PhotoStudio.Data.Requests.TipKorisnika;
+using PhotoStudio.Data.Requests.Usluga;
 using PhotoStudio.Database;
 using PhotoStudio.Filters;
 using PhotoStudio.Interface;
@@ -96,6 +97,7 @@ namespace PhotoStudio
             services.AddScoped<ICRUDService<Data.Model.Rezervacija, RezervacijaSearchRequest, RezervacijaUpsert, RezervacijaUpsert>, RezervacijaService>();
             services.AddScoped<ICRUDService<Data.Model.Novost, NovostSearchRequest,NovostUpsert, NovostUpsert>, NovostService>();
             services.AddScoped<ICRUDService<Data.Model.PosebnaPonuda, PosebnaPonudaSearchRequest, PosebnaPonudaUpsert, PosebnaPonudaUpsert>, PosebnaPonudaService>();
+            services.AddScoped<ICRUDService<Data.Model.Usluga, UslugaSearchRequest, UslugaUpsert, UslugaUpsert>, UslugaService>();
 
 
             services.AddScoped<IPreporukaService, PreporukaService>();

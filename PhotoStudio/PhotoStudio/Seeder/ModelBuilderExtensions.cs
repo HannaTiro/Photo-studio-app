@@ -610,6 +610,60 @@ namespace PhotoStudio.Seeder
                 );
             #endregion
 
+            #region Dodavanje usluga
+            modelBuilder.Entity<Usluga>().HasData(
+                new Usluga()
+                {
+                    UslugaId = 1,
+                    Naziv = "Meki vez 15x15 (10L + korica)",
+                    Cijena=28,
+                    StudioId = 1
+
+                },
+                new Usluga()
+                {
+                    UslugaId = 2,
+                    Naziv = "Meki vez 15x20 (10L + korica)",
+                    Cijena = 35,
+                    StudioId = 1
+
+                },
+                 new Usluga()
+                 {
+                     UslugaId = 3,
+                     Naziv = "Meki vez 20x20 (10L + korica)",
+                     Cijena = 50,
+                     StudioId = 1
+
+                 },
+                  new Usluga()
+                  {
+                      UslugaId = 4,
+                      Naziv = "Tvrdi vez 20x20 (10L)",
+                      Cijena = 70,
+                      StudioId = 1
+
+                  },
+                   new Usluga()
+                   {
+                       UslugaId = 5,
+                       Naziv = "Tvrdi vez 30x20 (10L) / panorama",
+                       Cijena = 85,
+                       StudioId = 1
+
+                   },
+                    new Usluga()
+                    {
+                        UslugaId = 6,
+                        Naziv = "Izrada photo booka (100 slika)",
+                        Cijena = 250,
+                        StudioId = 1
+
+                    }
+
+                );
+            #endregion
+
 
         }
     }

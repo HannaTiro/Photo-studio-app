@@ -16,7 +16,8 @@ namespace PhotoStudio.MobileApp.Models
         LogOut,
         PostavkeProfila,
         Novosti,
-        PosebnaPonuda
+        PosebnaPonuda,
+        Usluga
     }
     public class HomeMenuItem
     {

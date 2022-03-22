@@ -1,4 +1,4 @@
-﻿using PhotoStudio.Data.Requests.PosebnaPonuda;
+﻿using PhotoStudio.Data.Requests.Usluga;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,18 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhotoStudio.WinUI.Forms.PosebnaPonuda
+namespace PhotoStudio.WinUI.Forms.Usluga
 {
-    public partial class frmPosebnaPonudaDodaj : Form
+    public partial class frmDodajUslugu : Form
     {
-        protected APIService _servicePosebnaPonuda = new APIService("PosebnaPonuda");
+        protected APIService _serviceUsluga = new APIService("Usluga");
         protected APIService _serviceStudio = new APIService("Studio");
-        public frmPosebnaPonudaDodaj()
+        public frmDodajUslugu()
         {
             InitializeComponent();
         }
 
-        private async void frmPosebnaPonudaDodaj_Load(object sender, EventArgs e)
+        private async void frmDodajUslugu_Load(object sender, EventArgs e)
         {
             var list = await _serviceStudio.Get<List<Data.Model.Studio>>();
             list.Insert(0, new Data.Model.Studio());
@@ -30,26 +30,28 @@ namespace PhotoStudio.WinUI.Forms.PosebnaPonuda
 
             cmbStudio.DataSource = list;
         }
-        PosebnaPonudaUpsert request = new PosebnaPonudaUpsert();
-        private async  void btnDodaj_Click(object sender, EventArgs e)
+        UslugaUpsert request = new UslugaUpsert();
+
+        private async void btnDodaj_Click(object sender, EventArgs e)
         {
             if (this.ValidateChildren())
             {
 
-                request.NazivPonude = txtNaziv.Text;
-                request.Opis = txtOpis.Text;
+                request.Naziv = txtNaziv.Text;
+                request.Cijena = double.Parse(txtCijena.Text);
                 var odabraniStudio = cmbStudio.SelectedValue;
                 if (int.TryParse(odabraniStudio.ToString(), out int studio))
                 {
                     request.StudioId = studio;
                 }
-               
-                    await _servicePosebnaPonuda.Insert<Data.Model.PosebnaPonuda>(request);
+              
+              
+                    await _serviceUsluga.Insert<Data.Model.Usluga>(request);
                     MessageBox.Show("Uspješno ste dodali novu ponudu", "Poruka", MessageBoxButtons.OK);
                     this.Close();
                 
 
-                
+
 
             }
         }
@@ -61,23 +63,29 @@ namespace PhotoStudio.WinUI.Forms.PosebnaPonuda
                 err.SetError(txtNaziv, " Obavezno polje");
                 e.Cancel = true;
             }
-            else
+           else
             {
                 err.SetError(txtNaziv, null);
             }
         }
 
-        private void txtOpis_Validating(object sender, CancelEventArgs e)
+        private void txtCijena_Validating(object sender, CancelEventArgs e)
         {
-
-            if (string.IsNullOrWhiteSpace(txtOpis.Text))
+            if (string.IsNullOrWhiteSpace(txtCijena.Text))
             {
-                err.SetError(txtOpis, " Obavezno polje");
+                err.SetError(txtCijena, " Obavezno polje");
                 e.Cancel = true;
             }
+          else  if (System.Text.RegularExpressions.Regex.IsMatch(txtCijena.Text, "[^0-9]"))
+            {
+                    MessageBox.Show("Molimo Vas unesite samo brojeve.");
+                e.Cancel = true;
+
+            }
+
             else
             {
-                err.SetError(txtOpis, null);
+                err.SetError(txtCijena, null);
             }
         }
 
