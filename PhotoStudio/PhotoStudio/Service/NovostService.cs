@@ -34,7 +34,11 @@ namespace PhotoStudio.Service
             {
                 query = query.Where(x => x.DatumObjave.ToString().StartsWith(request.DatumObjave));
             }
-           
+            if (!string.IsNullOrWhiteSpace(request.Studio))
+            {
+                query = query.Where(x => x.Studio.NazivStudija.StartsWith(request.Studio));
+            }
+
             var list = query.ToList();
             return _mapper.Map<List<Data.Model.Novost>>(list);
         }

@@ -48,6 +48,9 @@ namespace PhotoStudio.MobileApp.Views
                     case (int)MenuItemType.PostavkeProfila:
                         listaMeniPage.Add(id, new NavigationPage(new KorisnikProfilPage()));
                         break;
+                    case (int)MenuItemType.Novosti:
+                        listaMeniPage.Add(id, new NavigationPage(new NovostiPage()));
+                        break;
 
                 }
             }

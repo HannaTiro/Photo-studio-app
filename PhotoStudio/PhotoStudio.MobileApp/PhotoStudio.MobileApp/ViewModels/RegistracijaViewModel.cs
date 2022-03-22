@@ -31,8 +31,7 @@ namespace PhotoStudio.MobileApp.ViewModels
         public string Password { get; set; }
         public string PasswordConfirm { get; set; }
         public int GradId = 1;
-        //samo su dva grada u bazi, nema smisla da se prikazuje lista gradova odakle dolazi korisnik. On je predvidjen za uposlenike da
-        //se vidi u kojem studiju rade 
+        // grad nije vezan za korisnika nego za studio u kojem se nalazi
 
         public async Task Registracija()
         {

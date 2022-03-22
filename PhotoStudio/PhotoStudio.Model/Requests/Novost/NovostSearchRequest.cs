@@ -11,7 +11,8 @@ namespace PhotoStudio.Data.Requests.Novost
         public string Naslov { get; set; }
         public string Sadrzaj { get; set; }
         public string DatumObjave { get; set; }
-  
-     
+        public string Studio { get; set; }
+
+
     }
 }

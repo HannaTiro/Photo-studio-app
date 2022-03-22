@@ -30,7 +30,7 @@ namespace PhotoStudio.Service
             {
                 entity = entity.Where(x => x.TipFotografa.Naziv.StartsWith(search.TipFotografa));
             }
-           // entity = entity.Include("TipFotografa");
+         
 
             var list = entity.ToList();
             return _mapper.Map<List<Data.Model.Fotograf>>(list);
