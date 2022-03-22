@@ -588,6 +588,28 @@ namespace PhotoStudio.Seeder
                 }
                 );
             #endregion
+            #region Dodavanje ponuda
+            modelBuilder.Entity<PosebnaPonuda>().HasData(
+                new PosebnaPonuda()
+                {
+                   PosebnaPonudaId = 1,
+                   NazivPonude="Paket 1",
+                   Opis="Rezervacijom dva fotografa na isti datum gratis Photo book",
+                   StudioId=1
+
+                },
+                 new PosebnaPonuda()
+                 {
+                     PosebnaPonudaId = 2,
+                     NazivPonude = "Paket 2",
+                     Opis = "Rezervacijom tri fotografa na isti datum gratis Photo book kao i CD sa svim slikama",
+                     StudioId = 1
+
+                 }
+
+                );
+            #endregion
+
 
         }
     }

@@ -28,6 +28,8 @@ namespace PhotoStudio.Database
         public virtual DbSet<TipFotografa> TipFotografas { get; set; }
         public virtual DbSet<TipKorisnika> TipKorisnikas { get; set; }
         public virtual DbSet<Novost> Novost { get; set; }
+        public virtual DbSet<PosebnaPonuda> PosebnaPonuda { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

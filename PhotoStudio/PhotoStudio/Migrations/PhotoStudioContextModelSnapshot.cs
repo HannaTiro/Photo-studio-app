@@ -300,8 +300,8 @@ namespace PhotoStudio.Migrations
                             Email = "hanna@yahoo.com",
                             GradId = 1,
                             Ime = "Hanna",
-                            PasswordHash = "PHNORL7ALZ+v/qdQMWfnkHvPZT4=",
-                            PasswordSalt = "a9p48eSNs+8uiveTNgIM7A==",
+                            PasswordHash = "8vBSWTNgrpPfHan0ZoTNnVPvPjw=",
+                            PasswordSalt = "gsRF96FUjcDpxU/U3E2LsQ==",
                             Prezime = "Tiro",
                             Telefon = "061234432",
                             TipKorisnikaId = 1,
@@ -313,8 +313,8 @@ namespace PhotoStudio.Migrations
                             Email = "test@yahoo.com",
                             GradId = 1,
                             Ime = "KorisnikIme",
-                            PasswordHash = "Y7ltXu5oje0eGrikfm1JI20TzMM=",
-                            PasswordSalt = "sYdzw8OcQBvsC3K2AD4cCQ==",
+                            PasswordHash = "3Dr1vJ1vgVoH9bGSHfDJVrlpmlo=",
+                            PasswordSalt = "BQ/Veu4jsrBJJ7VSNvpE+g==",
                             Prezime = "KorisnikPrezime",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -326,8 +326,8 @@ namespace PhotoStudio.Migrations
                             Email = "muma@yahoo.com",
                             GradId = 1,
                             Ime = "Muamer",
-                            PasswordHash = "USC/650gPaI6/zIfEksw60kHTu0=",
-                            PasswordSalt = "iifZXL656NrpwQgMw1axmg==",
+                            PasswordHash = "Oi38nP4Uy/KyPE7H4PEFTEyG8ZE=",
+                            PasswordSalt = "W8UXSZ4X5cwjPQL46ue1eg==",
                             Prezime = "Zukanovic",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -339,8 +339,8 @@ namespace PhotoStudio.Migrations
                             Email = "lejla@yahoo.com",
                             GradId = 1,
                             Ime = "Lejla",
-                            PasswordHash = "C4rEooTknuAuQejb/Gua+MFDNug=",
-                            PasswordSalt = "1wxaQ2ja00FlgWWKx3alug==",
+                            PasswordHash = "ECh5v7X9RHxtYZgrdULoUp5HeB0=",
+                            PasswordSalt = "/dD3TNJ6pJjXuf+/G0NwVg==",
                             Prezime = "Taslaman",
                             Telefon = "062534435",
                             TipKorisnikaId = 2,
@@ -380,6 +380,45 @@ namespace PhotoStudio.Migrations
                             DatumObjave = new DateTime(2022, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Naslov = "Obavijest o otvorenju novog studija",
                             Sadrzaj = "Uskoro otvaramo novi studio u Sarajevu, ostanite uz nas.",
+                            StudioId = 1
+                        });
+                });
+
+            modelBuilder.Entity("PhotoStudio.Database.PosebnaPonuda", b =>
+                {
+                    b.Property<int>("PosebnaPonudaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("NazivPonude")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Opis")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StudioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PosebnaPonudaId");
+
+                    b.HasIndex("StudioId");
+
+                    b.ToTable("PosebnaPonuda");
+
+                    b.HasData(
+                        new
+                        {
+                            PosebnaPonudaId = 1,
+                            NazivPonude = "Paket 1",
+                            Opis = "Rezervacijom dva fotografa na isti datum gratis Photo book",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            PosebnaPonudaId = 2,
+                            NazivPonude = "Paket 2",
+                            Opis = "Rezervacijom tri fotografa na isti datum gratis Photo book kao i CD sa svim slikama",
                             StudioId = 1
                         });
                 });
@@ -890,6 +929,15 @@ namespace PhotoStudio.Migrations
                     b.Navigation("Studio");
                 });
 
+            modelBuilder.Entity("PhotoStudio.Database.PosebnaPonuda", b =>
+                {
+                    b.HasOne("PhotoStudio.Database.Studio", "Studio")
+                        .WithMany("PosebnaPonuda")
+                        .HasForeignKey("StudioId");
+
+                    b.Navigation("Studio");
+                });
+
             modelBuilder.Entity("PhotoStudio.Database.Rejting", b =>
                 {
                     b.HasOne("PhotoStudio.Database.Fotograf", "Fotograf")
@@ -962,6 +1010,8 @@ namespace PhotoStudio.Migrations
             modelBuilder.Entity("PhotoStudio.Database.Studio", b =>
                 {
                     b.Navigation("Novost");
+
+                    b.Navigation("PosebnaPonuda");
                 });
 
             modelBuilder.Entity("PhotoStudio.Database.TipFotografa", b =>

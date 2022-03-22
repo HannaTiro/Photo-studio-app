@@ -189,6 +189,18 @@
     <Compile Include="Forms\Ocjene\frmOcjene.Designer.cs">
       <DependentUpon>frmOcjene.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PosebnaPonuda\frmPregledPonuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PosebnaPonuda\frmPregledPonuda.Designer.cs">
+      <DependentUpon>frmPregledPonuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PosebnaPonuda\frmPosebnaPonudaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PosebnaPonuda\frmPosebnaPonudaDodaj.Designer.cs">
+      <DependentUpon>frmPosebnaPonudaDodaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Rezervacije\frmRezervacijaDetalji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +274,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ocjene\frmOcjene.resx">
       <DependentUpon>frmOcjene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PosebnaPonuda\frmPosebnaPonudaDodaj.resx">
+      <DependentUpon>frmPosebnaPonudaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PosebnaPonuda\frmPregledPonuda.resx">
+      <DependentUpon>frmPregledPonuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Rezervacije\frmRezervacijaDetalji.resx">
       <DependentUpon>frmRezervacijaDetalji.cs</DependentUpon>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:PhotoStudio.MobileApp.ViewModels" 
+             x:Class="PhotoStudio.MobileApp.Views.PosebnaPonudaPage"
+             BackgroundColor="RosyBrown">
+
+    <ContentPage.BindingContext>
+        <vm:PosebnaPonudaViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Pregled novosti"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label FontSize="Medium">Odaberite poslovnicu studija</Label>
+            <Picker ItemsSource="{Binding ListaStudija}" SelectedItem="{Binding SelectedStudio}" ItemDisplayBinding="{Binding NazivStudija }">
+
+            </Picker>
+
+            <ListView ItemsSource="{Binding ListaPonuda}"  BackgroundColor="RosyBrown" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding NazivPonude}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle }"
+                                       FontSize="15"/>
+                                    <Label  Text="{Binding Opis}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle }"
+                                       FontSize="15" />
+                                  
+                                </StackLayout>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
