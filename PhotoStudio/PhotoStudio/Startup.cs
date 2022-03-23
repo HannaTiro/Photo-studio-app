@@ -13,6 +13,7 @@ using PhotoStudio.Data.Requests.Fotograf;
 using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Novost;
+using PhotoStudio.Data.Requests.Oprema;
 using PhotoStudio.Data.Requests.PosebnaPonuda;
 using PhotoStudio.Data.Requests.Rejting;
 using PhotoStudio.Data.Requests.Rezervacija;
@@ -98,6 +99,7 @@ namespace PhotoStudio
             services.AddScoped<ICRUDService<Data.Model.Novost, NovostSearchRequest,NovostUpsert, NovostUpsert>, NovostService>();
             services.AddScoped<ICRUDService<Data.Model.PosebnaPonuda, PosebnaPonudaSearchRequest, PosebnaPonudaUpsert, PosebnaPonudaUpsert>, PosebnaPonudaService>();
             services.AddScoped<ICRUDService<Data.Model.Usluga, UslugaSearchRequest, UslugaUpsert, UslugaUpsert>, UslugaService>();
+            services.AddScoped<ICRUDService<Data.Model.Oprema, OpremaSearchRequest, OpremaUpsert, OpremaUpsert>, OpremaService>();
 
 
             services.AddScoped<IPreporukaService, PreporukaService>();

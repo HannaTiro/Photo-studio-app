@@ -5,6 +5,7 @@ using PhotoStudio.Data.Requests.Grad;
 using PhotoStudio.Data.Requests.Komentar;
 using PhotoStudio.Data.Requests.Korisnik;
 using PhotoStudio.Data.Requests.Novost;
+using PhotoStudio.Data.Requests.Oprema;
 using PhotoStudio.Data.Requests.PosebnaPonuda;
 using PhotoStudio.Data.Requests.Rejting;
 using PhotoStudio.Data.Requests.Rezervacija;
@@ -36,6 +37,8 @@ namespace PhotoStudio.Mapping
             CreateMap<PhotoStudio.Database.Novost, Data.Model.Novost>().ReverseMap();
             CreateMap<PhotoStudio.Database.PosebnaPonuda, Data.Model.PosebnaPonuda>().ReverseMap();
             CreateMap<PhotoStudio.Database.Usluga, Data.Model.Usluga>().ReverseMap();
+            CreateMap<PhotoStudio.Database.Oprema, Data.Model.Oprema>().ReverseMap();
+
 
 
 
@@ -112,7 +115,10 @@ namespace PhotoStudio.Mapping
 
 
 
-
+            //Oprema
+            CreateMap<Oprema, OpremaUpsert>().ReverseMap();
+            CreateMap<OpremaRequest, OpremaSearchRequest>().ReverseMap();
+            CreateMap<Database.Oprema, OpremaRequest>().ReverseMap();
 
 
 

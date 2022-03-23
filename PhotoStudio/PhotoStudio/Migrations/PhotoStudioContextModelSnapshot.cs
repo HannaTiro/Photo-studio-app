@@ -300,8 +300,8 @@ namespace PhotoStudio.Migrations
                             Email = "hanna@yahoo.com",
                             GradId = 1,
                             Ime = "Hanna",
-                            PasswordHash = "Wr++IabO0dpW6BuBRvHiCe4orJw=",
-                            PasswordSalt = "q2/CGB1AOPxgSXjz3K8bEw==",
+                            PasswordHash = "wOosxixN8jjtJLp4h8XDs+raDLU=",
+                            PasswordSalt = "tQMBTIDv2Ycj8YCyNGaBeQ==",
                             Prezime = "Tiro",
                             Telefon = "061234432",
                             TipKorisnikaId = 1,
@@ -313,8 +313,8 @@ namespace PhotoStudio.Migrations
                             Email = "test@yahoo.com",
                             GradId = 1,
                             Ime = "KorisnikIme",
-                            PasswordHash = "S4S+yoeB+xtBWT5c/fdgWr/xb6E=",
-                            PasswordSalt = "7OUdBLulTqI31wHE67xEWg==",
+                            PasswordHash = "BGSZu4OwWwnzVyM5abdB6Jkcdf8=",
+                            PasswordSalt = "lJjDp3PovHVk95U6jFhlmg==",
                             Prezime = "KorisnikPrezime",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -326,8 +326,8 @@ namespace PhotoStudio.Migrations
                             Email = "muma@yahoo.com",
                             GradId = 1,
                             Ime = "Muamer",
-                            PasswordHash = "nqQ0o95ANREo6t6zKpr4yuwlaPQ=",
-                            PasswordSalt = "cdZsizoNau1y+a4qavYLyA==",
+                            PasswordHash = "dxPRgYUdXFlw1S0/kOW7M+carss=",
+                            PasswordSalt = "BiL9mlm1kkmB/VvNuyYNYQ==",
                             Prezime = "Zukanovic",
                             Telefon = "062534635",
                             TipKorisnikaId = 2,
@@ -339,8 +339,8 @@ namespace PhotoStudio.Migrations
                             Email = "lejla@yahoo.com",
                             GradId = 1,
                             Ime = "Lejla",
-                            PasswordHash = "2ZXwp2EVQ12Laz4IjFiyyqhaH88=",
-                            PasswordSalt = "P6OfwbDx8xQpppQUaDAzyg==",
+                            PasswordHash = "7TH323l0394+5w5qx3lgYTBYNjk=",
+                            PasswordSalt = "xX6YEPFZ6XU3pGhfG2/kiA==",
                             Prezime = "Taslaman",
                             Telefon = "062534435",
                             TipKorisnikaId = 2,
@@ -380,6 +380,66 @@ namespace PhotoStudio.Migrations
                             DatumObjave = new DateTime(2022, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Naslov = "Obavijest o otvorenju novog studija",
                             Sadrzaj = "Uskoro otvaramo novi studio u Sarajevu, ostanite uz nas.",
+                            StudioId = 1
+                        });
+                });
+
+            modelBuilder.Entity("PhotoStudio.Database.Oprema", b =>
+                {
+                    b.Property<int>("OpremaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Kolicina")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Naziv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Opis")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StudioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OpremaId");
+
+                    b.HasIndex("StudioId");
+
+                    b.ToTable("Oprema");
+
+                    b.HasData(
+                        new
+                        {
+                            OpremaId = 1,
+                            Kolicina = 13,
+                            Naziv = "Rasvjetna oprema",
+                            Opis = "Softbox i oprema kišobrana. Napajanje 220V",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            OpremaId = 2,
+                            Kolicina = 10,
+                            Naziv = "Pozadinska oprema",
+                            Opis = "Crna,cijela i zelena boja, tekstil, visina i širina podesive",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            OpremaId = 3,
+                            Kolicina = 3,
+                            Naziv = "Laserski printer Canon",
+                            Opis = "i-SENSYS LBP710CX 33ppm LAN duplex mobile print LCD color",
+                            StudioId = 1
+                        },
+                        new
+                        {
+                            OpremaId = 4,
+                            Kolicina = 13,
+                            Naziv = "Canon EOS 4000D",
+                            Opis = "Fotoaparat 18MP, Full HD videozapisi, podržana WIFI veza",
                             StudioId = 1
                         });
                 });
@@ -996,6 +1056,15 @@ namespace PhotoStudio.Migrations
                     b.Navigation("Studio");
                 });
 
+            modelBuilder.Entity("PhotoStudio.Database.Oprema", b =>
+                {
+                    b.HasOne("PhotoStudio.Database.Studio", "Studio")
+                        .WithMany("Oprema")
+                        .HasForeignKey("StudioId");
+
+                    b.Navigation("Studio");
+                });
+
             modelBuilder.Entity("PhotoStudio.Database.PosebnaPonuda", b =>
                 {
                     b.HasOne("PhotoStudio.Database.Studio", "Studio")
@@ -1086,6 +1155,8 @@ namespace PhotoStudio.Migrations
             modelBuilder.Entity("PhotoStudio.Database.Studio", b =>
                 {
                     b.Navigation("Novost");
+
+                    b.Navigation("Oprema");
 
                     b.Navigation("PosebnaPonuda");
 

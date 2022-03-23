@@ -189,6 +189,24 @@
     <Compile Include="Forms\Ocjene\frmOcjene.Designer.cs">
       <DependentUpon>frmOcjene.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Oprema\frmOpremaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Oprema\frmOpremaDetalji.Designer.cs">
+      <DependentUpon>frmOpremaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Oprema\frmOpremaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Oprema\frmOpremaDodaj.Designer.cs">
+      <DependentUpon>frmOpremaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Oprema\frmPregledOpreme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Oprema\frmPregledOpreme.Designer.cs">
+      <DependentUpon>frmPregledOpreme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PosebnaPonuda\frmPregledPonuda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +304,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ocjene\frmOcjene.resx">
       <DependentUpon>frmOcjene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Oprema\frmOpremaDetalji.resx">
+      <DependentUpon>frmOpremaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Oprema\frmOpremaDodaj.resx">
+      <DependentUpon>frmOpremaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Oprema\frmPregledOpreme.resx">
+      <DependentUpon>frmPregledOpreme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PosebnaPonuda\frmPosebnaPonudaDodaj.resx">
       <DependentUpon>frmPosebnaPonudaDodaj.cs</DependentUpon>

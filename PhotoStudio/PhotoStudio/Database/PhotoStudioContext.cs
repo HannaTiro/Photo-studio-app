@@ -30,6 +30,8 @@ namespace PhotoStudio.Database
         public virtual DbSet<Novost> Novost { get; set; }
         public virtual DbSet<PosebnaPonuda> PosebnaPonuda { get; set; }
         public virtual DbSet<Usluga> Usluga { get; set; }
+        public virtual DbSet<Oprema> Oprema { get; set; }
+
 
 
 

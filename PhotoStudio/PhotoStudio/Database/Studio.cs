@@ -12,6 +12,8 @@ namespace PhotoStudio.Database
             Novost = new HashSet<Novost>();
             PosebnaPonuda = new HashSet<PosebnaPonuda>();
             Usluga = new HashSet<Usluga>();
+            Oprema = new HashSet<Oprema>();
+
         }
         public int StudioId { get; set; }
         public string NazivStudija { get; set; }
@@ -24,6 +26,9 @@ namespace PhotoStudio.Database
         public virtual  ICollection<Novost> Novost { get; set; }
         public virtual ICollection<PosebnaPonuda> PosebnaPonuda { get; set; }
         public virtual ICollection<Usluga> Usluga { get; set; }
+        public virtual ICollection<Oprema> Oprema { get; set; }
+
+
 
 
     }

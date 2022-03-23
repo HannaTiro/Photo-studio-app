@@ -151,6 +151,28 @@ namespace PhotoStudio.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Oprema",
+                columns: table => new
+                {
+                    OpremaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Naziv = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Opis = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Kolicina = table.Column<int>(type: "int", nullable: false),
+                    StudioId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Oprema", x => x.OpremaId);
+                    table.ForeignKey(
+                        name: "FK_Oprema_Studio_StudioId",
+                        column: x => x.StudioId,
+                        principalTable: "Studio",
+                        principalColumn: "StudioId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PosebnaPonuda",
                 columns: table => new
                 {
@@ -331,10 +353,10 @@ namespace PhotoStudio.Migrations
                 columns: new[] { "KorisnikId", "Email", "GradId", "Ime", "PasswordHash", "PasswordSalt", "Prezime", "Telefon", "TipKorisnikaId", "Username" },
                 values: new object[,]
                 {
-                    { 1, "hanna@yahoo.com", 1, "Hanna", "Wr++IabO0dpW6BuBRvHiCe4orJw=", "q2/CGB1AOPxgSXjz3K8bEw==", "Tiro", "061234432", 1, "admin" },
-                    { 2, "test@yahoo.com", 1, "KorisnikIme", "S4S+yoeB+xtBWT5c/fdgWr/xb6E=", "7OUdBLulTqI31wHE67xEWg==", "KorisnikPrezime", "062534635", 2, "test" },
-                    { 3, "muma@yahoo.com", 1, "Muamer", "nqQ0o95ANREo6t6zKpr4yuwlaPQ=", "cdZsizoNau1y+a4qavYLyA==", "Zukanovic", "062534635", 2, "muma" },
-                    { 4, "lejla@yahoo.com", 1, "Lejla", "2ZXwp2EVQ12Laz4IjFiyyqhaH88=", "P6OfwbDx8xQpppQUaDAzyg==", "Taslaman", "062534435", 2, "lejla" }
+                    { 1, "hanna@yahoo.com", 1, "Hanna", "wOosxixN8jjtJLp4h8XDs+raDLU=", "tQMBTIDv2Ycj8YCyNGaBeQ==", "Tiro", "061234432", 1, "admin" },
+                    { 2, "test@yahoo.com", 1, "KorisnikIme", "BGSZu4OwWwnzVyM5abdB6Jkcdf8=", "lJjDp3PovHVk95U6jFhlmg==", "KorisnikPrezime", "062534635", 2, "test" },
+                    { 3, "muma@yahoo.com", 1, "Muamer", "dxPRgYUdXFlw1S0/kOW7M+carss=", "BiL9mlm1kkmB/VvNuyYNYQ==", "Zukanovic", "062534635", 2, "muma" },
+                    { 4, "lejla@yahoo.com", 1, "Lejla", "7TH323l0394+5w5qx3lgYTBYNjk=", "xX6YEPFZ6XU3pGhfG2/kiA==", "Taslaman", "062534435", 2, "lejla" }
                 });
 
             migrationBuilder.InsertData(
@@ -351,6 +373,17 @@ namespace PhotoStudio.Migrations
                 table: "Novost",
                 columns: new[] { "NovostId", "DatumObjave", "Naslov", "Sadrzaj", "StudioId" },
                 values: new object[] { 1, new DateTime(2022, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "Obavijest o otvorenju novog studija", "Uskoro otvaramo novi studio u Sarajevu, ostanite uz nas.", 1 });
+
+            migrationBuilder.InsertData(
+                table: "Oprema",
+                columns: new[] { "OpremaId", "Kolicina", "Naziv", "Opis", "StudioId" },
+                values: new object[,]
+                {
+                    { 1, 13, "Rasvjetna oprema", "Softbox i oprema kišobrana. Napajanje 220V", 1 },
+                    { 2, 10, "Pozadinska oprema", "Crna,cijela i zelena boja, tekstil, visina i širina podesive", 1 },
+                    { 3, 3, "Laserski printer Canon", "i-SENSYS LBP710CX 33ppm LAN duplex mobile print LCD color", 1 },
+                    { 4, 13, "Canon EOS 4000D", "Fotoaparat 18MP, Full HD videozapisi, podržana WIFI veza", 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "PosebnaPonuda",
@@ -370,11 +403,11 @@ namespace PhotoStudio.Migrations
                     { 9, new DateTime(2019, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, 4, 5 },
                     { 8, new DateTime(2019, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 8, 4, 5 },
                     { 7, new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, 4, 5 },
+                    { 6, new DateTime(2021, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, 5 },
                     { 5, new DateTime(2019, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, 4, 5 },
-                    { 4, new DateTime(2019, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 4, 5 },
                     { 3, new DateTime(2019, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, 4, 5 },
                     { 2, new DateTime(2019, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 4, 5 },
-                    { 6, new DateTime(2021, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 4, 5 },
+                    { 4, new DateTime(2019, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 4, 5 },
                     { 1, new DateTime(2022, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, 3, 5 }
                 });
 
@@ -446,6 +479,11 @@ namespace PhotoStudio.Migrations
                 column: "StudioId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Oprema_StudioId",
+                table: "Oprema",
+                column: "StudioId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PosebnaPonuda_StudioId",
                 table: "PosebnaPonuda",
                 column: "StudioId");
@@ -488,6 +526,9 @@ namespace PhotoStudio.Migrations
 
             migrationBuilder.DropTable(
                 name: "Novost");
+
+            migrationBuilder.DropTable(
+                name: "Oprema");
 
             migrationBuilder.DropTable(
                 name: "PosebnaPonuda");

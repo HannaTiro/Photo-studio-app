@@ -664,6 +664,50 @@ namespace PhotoStudio.Seeder
                 );
             #endregion
 
+            #region Dodavanje Opreme
+            modelBuilder.Entity<Oprema>().HasData(
+                new Oprema()
+                {
+                    OpremaId = 1,
+                    Naziv = "Rasvjetna oprema",
+                    Opis="Softbox i oprema kišobrana. Napajanje 220V",
+                    Kolicina=13,
+                    StudioId = 1
+
+                },
+                  new Oprema()
+                  {
+                      OpremaId = 2,
+                      Naziv = "Pozadinska oprema",
+                      Opis="Crna,cijela i zelena boja, tekstil, visina i širina podesive",
+                      Kolicina = 10,
+                      StudioId = 1
+
+                  },
+                    new Oprema()
+                    {
+                        OpremaId = 3,
+                        Naziv = "Laserski printer Canon",
+                        Opis="i-SENSYS LBP710CX 33ppm LAN duplex mobile print LCD color",
+                        Kolicina = 3,
+                        StudioId = 1
+
+                    },
+                      new Oprema()
+                      {
+                          OpremaId = 4,
+                          Naziv = "Canon EOS 4000D",
+                          Opis="Fotoaparat 18MP, Full HD videozapisi, podržana WIFI veza",
+                          Kolicina = 13,
+                          StudioId = 1
+
+                      }
+
+
+
+                );
+            #endregion
+
 
         }
     }
