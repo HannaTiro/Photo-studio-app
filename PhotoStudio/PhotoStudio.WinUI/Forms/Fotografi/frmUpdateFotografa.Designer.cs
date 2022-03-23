@@ -105,6 +105,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.cmbTipFotografa.Name = "cmbTipFotografa";
             this.cmbTipFotografa.Size = new System.Drawing.Size(243, 21);
             this.cmbTipFotografa.TabIndex = 38;
+            this.cmbTipFotografa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbTipFotografa_Validating);
             // 
             // pbSlika
             // 
@@ -123,6 +124,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(341, 50);
             this.txtOpis.TabIndex = 36;
+            this.txtOpis.Validating += new System.ComponentModel.CancelEventHandler(this.txtOpis_Validating);
             // 
             // txtCijena
             // 
@@ -130,6 +132,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(243, 20);
             this.txtCijena.TabIndex = 35;
+            this.txtCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtCijena_Validating);
             // 
             // txtPrezime
             // 
@@ -137,6 +140,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(243, 20);
             this.txtPrezime.TabIndex = 32;
+            this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating);
             // 
             // txtIme
             // 
@@ -144,6 +148,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(243, 20);
             this.txtIme.TabIndex = 31;
+            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
             // 
             // label9
             // 

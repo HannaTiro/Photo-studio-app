@@ -12,6 +12,7 @@ namespace PhotoStudio.Data.Requests.Novost
         public string Sadrzaj { get; set; }
         public string DatumObjave { get; set; }
         public string Studio { get; set; }
+        public int? StudioId { get; set; }
 
 
     }

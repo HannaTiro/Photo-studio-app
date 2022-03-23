@@ -9,6 +9,7 @@ namespace PhotoStudio.Data.Requests.Usluga
        
         public string Naziv { get; set; }
         public string Studio { get; set; }
+        public int? StudioId { get; set; }
 
 
     }

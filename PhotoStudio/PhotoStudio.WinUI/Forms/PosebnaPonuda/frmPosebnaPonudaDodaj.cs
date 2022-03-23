@@ -43,10 +43,25 @@ namespace PhotoStudio.WinUI.Forms.PosebnaPonuda
                 {
                     request.StudioId = studio;
                 }
-               
+                var search = new PosebnaPonudaSearchRequest
+                {
+                    NazivPonude = txtNaziv.Text,
+                    StudioId = request.StudioId,
+                    Opis = txtOpis.Text
+                };
+                var listaPonuda = await _servicePosebnaPonuda.Get<List<Data.Model.PosebnaPonuda>>(search);
+                if (listaPonuda.Count >= 1)
+                {
+                    MessageBox.Show("Tu novost ste već objavili u ovom studiju", "Greška", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
                     await _servicePosebnaPonuda.Insert<Data.Model.PosebnaPonuda>(request);
                     MessageBox.Show("Uspješno ste dodali novu ponudu", "Poruka", MessageBoxButtons.OK);
                     this.Close();
+                }
+
                 
 
                 

@@ -27,7 +27,12 @@ namespace PhotoStudio.Service
             {
                 query = query.Where(x => x.Studio.NazivStudija.StartsWith(request.Studio));
             }
-          
+            if (request.StudioId.HasValue)
+            {
+                query = query.Where(x => x.StudioId == request.StudioId);
+            }
+
+
 
 
             var list = query.ToList();

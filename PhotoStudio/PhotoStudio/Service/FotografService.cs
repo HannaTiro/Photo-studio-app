@@ -20,11 +20,11 @@ namespace PhotoStudio.Service
             var entity = _context.Set<Database.Fotograf>().Include(x=>x.TipFotografa).AsQueryable();
             if (!string.IsNullOrWhiteSpace(search?.Ime))
             {
-                entity = entity.Where(x => x.Ime.Contains(search.Ime));
+                entity = entity.Where(x => x.Ime.Equals(search.Ime));
             }
             if (!string.IsNullOrWhiteSpace(search?.Prezime))
             {
-                entity = entity.Where(x => x.Prezime.Contains(search.Prezime));
+                entity = entity.Where(x => x.Prezime.Equals(search.Prezime));
             }
             if(!string.IsNullOrWhiteSpace(search.TipFotografa))
             {

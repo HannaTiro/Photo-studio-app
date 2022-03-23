@@ -10,6 +10,7 @@ namespace PhotoStudio.Data.Requests.PosebnaPonuda
         public string NazivPonude { get; set; }
         public string Opis { get; set; }
         public string Studio { get; set; }
+        public int? StudioId { get; set; }
 
     }
 }

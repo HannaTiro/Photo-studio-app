@@ -36,10 +36,25 @@ namespace PhotoStudio.WinUI.Forms.Novosti
                     request.StudioId = studio;
                 }
                
+     
+                var search = new NovostSearchRequest
+                {
+                    Naslov = txtNaslov.Text,
+                    StudioId = request.StudioId,
+                    Sadrzaj=txtSadrzaj.Text
+                };
+                var listaNovosti = await _serviceNovost.Get<List<Data.Model.Novost>>(search);
+                if (listaNovosti.Count >= 1)
+                {
+                    MessageBox.Show("Tu novost ste već objavili u ovom studiju", "Greška", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
                     await _serviceNovost.Insert<Data.Model.Novost>(request);
                     MessageBox.Show("Poruka", "Uspješno ste dodali novu novost", MessageBoxButtons.OK);
                     this.Close();
-                
+                }
             }
         }
 

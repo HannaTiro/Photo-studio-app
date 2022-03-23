@@ -45,11 +45,25 @@ namespace PhotoStudio.WinUI.Forms.Usluga
                     request.StudioId = studio;
                 }
               
-              
+                var search = new UslugaSearchRequest
+                {
+                    Naziv = txtNaziv.Text,
+                    StudioId = request.StudioId
+                   
+                };
+                var listaUsluga = await _serviceUsluga.Get<List<Data.Model.Usluga>>(search);
+                if (listaUsluga.Count >= 1)
+                {
+                    MessageBox.Show("Ovaj studio već nudi tu uslugu.", "Greška", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
                     await _serviceUsluga.Insert<Data.Model.Usluga>(request);
                     MessageBox.Show("Uspješno ste dodali novu ponudu", "Poruka", MessageBoxButtons.OK);
                     this.Close();
-                
+
+                }
 
 
 

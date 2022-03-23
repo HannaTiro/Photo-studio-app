@@ -74,6 +74,12 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
                 err.SetError(txtCijena, " Obavezno polje");
                 e.Cancel = true;
             }
+            else if (System.Text.RegularExpressions.Regex.IsMatch(txtCijena.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Molimo Vas unesite samo brojeve u polje za cijenu.");
+                e.Cancel = true;
+
+            }
             else
             {
                 err.SetError(txtCijena, null);
@@ -122,16 +128,29 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
                 {
                     request.TipFotografaId = TipId;
                 }
-               // request.Slika = pbSlika.Image;
+               
+                var search = new FotografSearchRequest
+                {
+                    Ime = txtIme.Text,
+                    Prezime = txtPrezime.Text
+                };
+                var listaFotografa = await _servisFotograf.Get<List<Data.Model.Fotograf>>(search);
+                if (listaFotografa.Count >= 1)
+                {
+                    MessageBox.Show("Fotograf je već unijet u sistem, pokušajte ponovo sa novim fotografom.", "Greška", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
+                    await _servisFotograf.Insert<Data.Model.Fotograf>(request);
+                    MessageBox.Show("Fotograf je dodan u bazu", "Poruka", MessageBoxButtons.OK);
+                    this.Close();
+                }
 
 
-
-                await _servisFotograf.Insert<Data.Model.Fotograf>(request);
-                MessageBox.Show("Fotograf je dodan u bazu", "Poruka", MessageBoxButtons.OK);
-                this.Close();
+              
             }
-            //MessageBox.Show("Morate unijeti ispravne podatke da biste dodali fotografa", "Poruka", MessageBoxButtons.OK);
-
+           
         }
 
         private void btnDodajSliku_Click(object sender, EventArgs e)

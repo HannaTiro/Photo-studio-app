@@ -194,7 +194,6 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.txtSlika.Name = "txtSlika";
             this.txtSlika.Size = new System.Drawing.Size(200, 20);
             this.txtSlika.TabIndex = 21;
-          
             // 
             // openFileDialog1
             // 
@@ -239,7 +238,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmDodajFotografa";
-            this.Text = "frmDodajFotografa";
+            this.Text = "Dodavanje fotografa";
             this.Load += new System.EventHandler(this.frmDodajFotografa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();

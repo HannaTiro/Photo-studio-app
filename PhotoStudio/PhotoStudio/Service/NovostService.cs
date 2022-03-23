@@ -24,7 +24,7 @@ namespace PhotoStudio.Service
             var query = _context.Novost.Include(x => x.Studio).AsQueryable();
             if (!string.IsNullOrWhiteSpace(request.Naslov))
             {
-                query = query.Where(x => x.Naslov.Contains(request.Naslov));
+                query = query.Where(x => x.Naslov.Equals(request.Naslov));
             }
             if (!string.IsNullOrWhiteSpace(request.Sadrzaj))
             {
@@ -37,6 +37,10 @@ namespace PhotoStudio.Service
             if (!string.IsNullOrWhiteSpace(request.Studio))
             {
                 query = query.Where(x => x.Studio.NazivStudija.StartsWith(request.Studio));
+            }
+            if (request.StudioId.HasValue)
+            {
+                query = query.Where(x => x.StudioId == request.StudioId);
             }
 
             var list = query.ToList();

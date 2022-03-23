@@ -43,6 +43,7 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
                 txtCijena.Text = podaci.DnevnaCijena.ToString();
                 cbDostupan.Checked = podaci.Status.GetValueOrDefault(false);
                 txtOpis.Text = podaci.Opis;
+                
                
             }
         }
@@ -60,23 +61,24 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
         {
             if (_fotograf.HasValue)
             {
-                request.Ime = txtIme.Text;
-                request.Prezime = txtPrezime.Text;
-                request.Status = cbDostupan.Checked;
-                request.Opis = txtOpis.Text;
-                request.DnevnaCijena = double.Parse(txtCijena.Text);
-                var tipId = cmbTipFotografa.SelectedValue;
-                if (int.TryParse(tipId.ToString(), out int TipId))
+                if(this.ValidateChildren())
                 {
-                    request.TipFotografaId = TipId;
+                    request.Ime = txtIme.Text;
+                    request.Prezime = txtPrezime.Text;
+                    request.Status = cbDostupan.Checked;
+                    request.Opis = txtOpis.Text;
+                    request.DnevnaCijena = double.Parse(txtCijena.Text);
+                    var tipId = cmbTipFotografa.SelectedValue;
+                    if (int.TryParse(tipId.ToString(), out int TipId))
+                    {
+                        request.TipFotografaId = TipId;
+                    }
+                    
+                    await _servisFotograf.Update<Fotograf>(_fotograf, request);
+                    MessageBox.Show("Podaci o fotografu su izmijenjeni", "Poruka", MessageBoxButtons.OK);
+                    this.Close();
                 }
-                // request.Slika = pbSlika.Image;
-
-
-
-                await _servisFotograf.Update<Fotograf>(_fotograf,request);
-                MessageBox.Show("Podaci o fotografu su izmijenjeni", "Poruka", MessageBoxButtons.OK);
-                this.Close();
+               
             }
         }
         
@@ -94,6 +96,82 @@ namespace PhotoStudio.WinUI.Forms.Fotografi
                 Image img = Image.FromFile(fileName);
                 pbSlika.Image = img;
                 pbSlika.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
+        private void txtIme_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtIme.Text))
+            {
+                error.SetError(txtIme, " Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                error.SetError(txtIme, null);
+            }
+        }
+
+        private void txtPrezime_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtPrezime.Text))
+            {
+                error.SetError(txtPrezime, " Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                error.SetError(txtPrezime, null);
+            }
+        }
+
+        private void txtCijena_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtIme.Text))
+            {
+                error.SetError(txtIme, " Obavezno polje");
+                e.Cancel = true;
+            }
+            else if (System.Text.RegularExpressions.Regex.IsMatch(txtCijena.Text, "[^0-9]"))
+            {
+                error.SetError(txtCijena, "Molimo Vas unesite samo brojeve u ovo polje.");
+                e.Cancel = true;
+
+            }
+
+            else
+            {
+                error.SetError(txtIme, null);
+            }
+        }
+
+        private void cmbTipFotografa_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(cmbTipFotografa.Text))
+            {
+                error.SetError(cmbTipFotografa, " Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                error.SetError(cmbTipFotografa, null);
+            }
+        }
+
+        private void txtOpis_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtOpis.Text))
+            {
+                error.SetError(txtOpis, " Obavezno polje");
+                e.Cancel = true;
+            }
+            else
+            {
+                error.SetError(txtOpis, null);
             }
         }
     }
