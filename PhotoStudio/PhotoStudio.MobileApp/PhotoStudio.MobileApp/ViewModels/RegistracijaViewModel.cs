@@ -31,7 +31,7 @@ namespace PhotoStudio.MobileApp.ViewModels
         public string Password { get; set; }
         public string PasswordConfirm { get; set; }
         public int GradId = 1;
-        // grad nije vezan za korisnika nego za studio u kojem se nalazi
+        // grad nije vezan za korisnika nego za studio
 
         public async Task Registracija()
         {
@@ -50,6 +50,22 @@ namespace PhotoStudio.MobileApp.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Greška", "Sva polja su obavezna", "OK");
                     return;
                 }
+                if(!(System.Text.RegularExpressions.Regex.IsMatch(Ime, "^[a-zA-Z]+$")))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Ime  može sadržavati samo slova", "OK");
+                    return;
+                }
+                if (!(System.Text.RegularExpressions.Regex.IsMatch(Prezime, "^[a-zA-Z]+$")))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Prezime  može sadržavati samo slova", "OK");
+                    return;
+                }
+                if (!(System.Text.RegularExpressions.Regex.IsMatch(Telefon, "^[0-9]+$")))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Telefon  može sadržavati samo brojeve", "OK");
+                    return;
+                }
+              
 
                 var korisnici = await _service.GetRegistracija<List<Data.Model.Korisnik>>(null);
 
